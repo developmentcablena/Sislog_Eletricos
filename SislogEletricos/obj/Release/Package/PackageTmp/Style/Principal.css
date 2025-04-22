@@ -1,0 +1,66 @@
+﻿body {
+    margin:0px;
+    padding:0px;
+}
+
+.div__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 35%;
+    padding-left: 30px;
+    background-color: #f1f1f1;
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.h1__titulo {
+    font-family: Arial;
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+.nav__button{
+    display:flex;
+    gap: 30px;
+}
+    .nav__button input[type=submit] {
+        padding: 8px 12px 8px 12px;
+        border-color: transparent;
+        background-color: transparent;
+        font-size: 15px;
+        transition: 0.3s;
+    }
+    .nav__button input[type=submit]:hover {
+        padding: 8px 12px 8px 12px;
+        border-radius: 5px;
+        border-color: transparent;
+        background-color: #6c757d; /*#989b9e;*/
+        color: white;
+        transition: 0.3s;
+    }
+
+.icone{
+    position:fixed;
+    bottom: 10px;
+    right: -110px;
+    width:auto;
+    animation: iconeAnima 2s ease-out forwards
+}
+@keyframes iconeAnima{
+    from{
+        right: -110px;
+    }
+    to{
+        right:10px;
+    }
+}
+
+
+.badge {
+    background-color: yellow;
+    color: black;
+    padding: 3px 7px;
+    border-radius: 10px;
+    font-weight: bold;
+}

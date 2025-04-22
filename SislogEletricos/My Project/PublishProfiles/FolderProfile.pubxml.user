@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Esse arquivo é usado pelo processo de publicação/pacote do seu projeto Web. É possível personalizar o comportamento deste processo
+ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\emperes\Desktop\Programação\SisLog Eletricos\Publicado\Sislog</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Autorizar.ascx">
+      <publishTime>04/22/2025 10:54:52</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/SislogEletricos.dll">
+      <publishTime>04/22/2025 10:56:30</publishTime>
+    </File>
+    <File Include="bin/SislogEletricos.pdb">
+      <publishTime>04/22/2025 10:56:30</publishTime>
+    </File>
+    <File Include="bin/SislogEletricos.xml">
+      <publishTime>04/22/2025 10:56:30</publishTime>
+    </File>
+    <File Include="Embarque.ascx">
+      <publishTime>04/15/2025 15:00:52</publishTime>
+    </File>
+    <File Include="Historico.ascx">
+      <publishTime>04/15/2025 15:00:52</publishTime>
+    </File>
+    <File Include="KeepAlive.aspx">
+      <publishTime>04/16/2025 08:22:03</publishTime>
+    </File>
+    <File Include="LiberarPortaria.ascx">
+      <publishTime>04/15/2025 15:00:52</publishTime>
+    </File>
+    <File Include="Login.aspx">
+      <publishTime>04/15/2025 15:00:52</publishTime>
+    </File>
+    <File Include="Principal.aspx">
+      <publishTime>04/16/2025 09:23:50</publishTime>
+    </File>
+    <File Include="Recebimento.ascx">
+      <publishTime>04/15/2025 15:00:52</publishTime>
+    </File>
+    <File Include="Style/Autorizar.css">
+      <publishTime>04/15/2025 14:59:53</publishTime>
+    </File>
+    <File Include="Style/CadastroUsuario.css">
+      <publishTime>04/15/2025 14:59:53</publishTime>
+    </File>
+    <File Include="Style/Embarque.css">
+      <publishTime>04/15/2025 14:59:53</publishTime>
+    </File>
+    <File Include="Style/Historico.css">
+      <publishTime>04/15/2025 14:59:53</publishTime>
+    </File>
+    <File Include="Style/Liberacao.css">
+      <publishTime>04/15/2025 14:59:53</publishTime>
+    </File>
+    <File Include="Style/LiberarPortaria.css">
+      <publishTime>04/15/2025 14:59:53</publishTime>
+    </File>
+    <File Include="Style/Login.css">
+      <publishTime>04/15/2025 14:59:53</publishTime>
+    </File>
+    <File Include="Style/Principal.css">
+      <publishTime>04/15/2025 14:59:53</publishTime>
+    </File>
+    <File Include="Style/Recebimento.css">
+      <publishTime>04/15/2025 14:59:53</publishTime>
+    </File>
+    <File Include="Style/Usuario.css">
+      <publishTime>04/15/2025 14:59:53</publishTime>
+    </File>
+    <File Include="Usuarios.ascx">
+      <publishTime>04/15/2025 15:00:52</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>04/22/2025 09:10:16</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

@@ -14,6 +14,11 @@ Partial Public Class Autorizar
         If Not IsPostBack Then
             CarregarDados()
         End If
+
+        If Session("FuncaoUsuario") Is Nothing Then
+            Response.Redirect("Login.aspx")
+            Exit Sub
+        End If
     End Sub
 
     Protected Sub Unnamed_Click(sender As Object, e As EventArgs)

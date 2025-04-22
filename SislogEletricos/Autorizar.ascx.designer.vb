@@ -164,7 +164,7 @@ Partial Public Class Autorizar
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents txtPaletasbobinas As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents txtPaletasbobinas As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''Controle txtPeso.
@@ -201,6 +201,15 @@ Partial Public Class Autorizar
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
     Protected WithEvents txtData As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Controle dataJanela.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents dataJanela As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''Controle txtObservacao.

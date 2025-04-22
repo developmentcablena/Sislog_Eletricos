@@ -31,6 +31,11 @@ Partial Public Class Recebimento
             txtData.Enabled = False
             btnCadastrar.Enabled = True
         End If
+
+        If Session("FuncaoUsuario") Is Nothing Then
+            Response.Redirect("Login.aspx")
+            Exit Sub
+        End If
     End Sub
 
     Protected Sub btnCadastrar_Click(sender As Object, e As EventArgs)

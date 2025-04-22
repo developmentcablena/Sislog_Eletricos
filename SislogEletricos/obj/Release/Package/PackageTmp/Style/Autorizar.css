@@ -1,0 +1,170 @@
+﻿body {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.css__modal-Autorizacao {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: -0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+.modal__content-Autorizacao {
+    position: relative;
+    background-color: white;
+    margin: 16% auto;
+    padding: 20px;
+    width: 62%;
+    border-radius: 6px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    top: -10%;
+}
+
+.h1__titulo-modal {
+    background-color: #ff7f27;
+    color: white;
+    text-align: left;
+    padding: 20px;
+    margin: 0;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 6px 6px 0 0;
+    position: relative;
+    top: -40px;
+    left: -20px;
+}
+
+#modalAutorizacao .btnAtualizar {
+    position: relative;
+    top: -37px;
+    font-size: 20px;
+    margin-bottom: -3%;
+    padding: 0px;
+}
+
+    #modalAutorizacao .btnAtualizar:hover {
+        background-color: #caddf2;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+
+
+#modalAutorizacao .span__close {
+    color: white;
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+    #modalAutorizacao .span__close:hover {
+        font-size: 20px;
+        color: black;
+        background-color: transparent;
+    }
+
+
+
+
+
+/* Estilizando a tabela */
+.table {
+    position: relative;
+    top: -57px;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    /* Cabeçalho da tabela */
+    .table th {
+        text-align: left;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    /* Linhas da tabela */
+    .table td {
+        padding: 16px;
+        border-bottom: 1px solid #ddd;
+        font-size: 14px;
+    }
+
+    /* Alternância de cor nas linhas */
+    .table tr:nth-child(even) {
+        background-color: #f8f9fa;
+    }
+
+    /* Efeito ao passar o mouse */
+    .table tr:hover {
+        background-color: #e9ecef;
+        transition: 0.3s;
+    }
+
+/* Estilizando os botões */
+#modalAutorizacao .btn_ok {
+    background-color: #28a745;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+}
+
+    #modalAutorizacao .btn_ok:hover {
+        color: white;
+        background-color: #218838;
+        transition: 0.3s;
+    }
+
+/* Botão de rejeitar */
+#modalAutorizacao .btn_rejeitar {
+    background-color: #dc3545;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+    #modalAutorizacao .btn_rejeitar:hover {
+        background-color: #c82333;
+        transition: 0.3s;
+        color: white;
+    }
+
+#modalAutorizacao .css_abir-dados-modal {
+    background-color: #726c6cfa;
+    border-radius: 5px;
+    padding: 8px 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#modalAutorizacao .rolagem {
+    overflow-y: auto;
+    max-height: 400px;
+    padding-top: 48px;
+}
+
+#modalAutorizacao .btn_excluir {
+    background-color: #b4b2b2;
+    border-radius: 6px;
+    padding: 0px 8px 4px 8px;
+    font-size: 20px;
+}
+  

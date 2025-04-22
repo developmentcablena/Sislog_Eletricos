@@ -226,6 +226,15 @@ Campo gerado automaticamente.
 Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
 </remarks>
 </member>
+<member name="F:SislogEletricos.Autorizar._dataJanela">
+<summary>
+Controle dataJanela.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
 <member name="F:SislogEletricos.Autorizar._txtObservacao">
 <summary>
 Controle txtObservacao.
@@ -953,6 +962,15 @@ Controle btn2.
 <remarks>
 Campo gerado automaticamente.
 Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.KeepAlive._form1">
+<summary>
+Controle de form1.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Para modificar, mova a declaração de campo do arquivo do designer para o arquivo code-behind.
 </remarks>
 </member>
 <member name="F:SislogEletricos.LiberarPortaria._gvCadastros">

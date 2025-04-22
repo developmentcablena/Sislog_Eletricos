@@ -16,6 +16,11 @@ Partial Public Class Embarque
 
         End If
 
+        If Session("FuncaoUsuario") Is Nothing Then
+            Response.Redirect("Login.aspx")
+            Exit Sub
+        End If
+
     End Sub
     Public Sub AtualizarDados()
         ' Atualiza os dados do modal com base na sessão
@@ -46,8 +51,18 @@ Partial Public Class Embarque
         Dim vPeso As String = txtPeso.Text
         Dim vVeiculo As String = ddlVeiculo.Text
         Dim vCarga As String = txtCarga.Text
-        Dim vDataJanela As DateTime = DateTime.Parse(dataJanela.Text)
+        'Dim vDataJanela As DateTime = DateTime.Parse(dataJanela.Text)
         Dim dataHora As DateTime
+        Dim vDataJanela As DateTime
+
+        If Not String.IsNullOrWhiteSpace(dataJanela.Text) Then
+            vDataJanela = DateTime.Parse(dataJanela.Text)
+
+        Else
+
+        End If
+
+        Debug.WriteLine("data: " & vDataJanela)
 
         If String.IsNullOrEmpty(Trim(txtCliente.Text)) Then
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta", "alert('Favor inserir o Fornecedor'); abrirModalEmbarque();", True)
@@ -147,7 +162,11 @@ Partial Public Class Embarque
                 cmd.Parameters.AddWithValue("@Observacao", vObs)
                 cmd.Parameters.AddWithValue("@Status", 1)
                 cmd.Parameters.AddWithValue("@TipoCadastro", vCadastro)
-                cmd.Parameters.AddWithValue("@DataJanela", vDataJanela)
+                If vDataJanela = DateTime.MinValue OrElse vDataJanela.TimeOfDay = TimeSpan.Zero Then
+                    cmd.Parameters.AddWithValue("@DataJanela", DBNull.Value)
+                Else
+                    cmd.Parameters.AddWithValue("@DataJanela", vDataJanela)
+                End If
 
                 Try
                     conn.Open()

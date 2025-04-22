@@ -9,6 +9,11 @@ Partial Public Class Historico
             CarregarNotasFiscais()
         End If
 
+        If Session("FuncaoUsuario") Is Nothing Then
+            Response.Redirect("Login.aspx")
+            Exit Sub
+        End If
+
     End Sub
 
     Private Sub CarregarNotasFiscais()
