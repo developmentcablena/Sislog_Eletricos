@@ -14,7 +14,7 @@ Public Class Login
     Private Function valorUsuarioBanco(userId As String) As String
         ' Obtém a string de conexão do Web.config
         Dim connectionString As String = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
-        Dim query As String = "SELECT Usuario, Funcao FROM tb_Usuarios WHERE Usuario = @usuario"
+        Dim query As String = "SELECT Usuario, Funcao, Nome FROM tb_Usuarios WHERE Usuario = @usuario"
         Dim usuarioBD As String = ""
 
         ' Usando bloco Using para garantir fechamento da conexão
@@ -33,10 +33,12 @@ Public Class Login
                             ' Obtém os valores e trata possíveis valores NULL
                             Dim funcaoBD As String = If(Not reader.IsDBNull(reader.GetOrdinal("Funcao")), reader("Funcao").ToString(), "")
                             Dim usuarioV As String = If(Not reader.IsDBNull(reader.GetOrdinal("Usuario")), reader("Usuario").ToString(), "")
+                            Dim nomeV As String = If(Not reader.IsDBNull(reader.GetOrdinal("Nome")), reader("Nome").ToString(), "")
 
                             ' Salva os valores na Sessão
                             HttpContext.Current.Session("FuncaoUsuario") = funcaoBD
                             HttpContext.Current.Session("Usuario") = usuarioV
+                            HttpContext.Current.Session("Nome") = nomeV
 
                             ' Define o retorno com o nome do usuário
                             usuarioBD = usuarioV

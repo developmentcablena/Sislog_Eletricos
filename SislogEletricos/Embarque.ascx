@@ -15,11 +15,11 @@
             </div>
             <div class="div__group">
                 <asp:Label ID="Label2" runat="server" Text="Cliente"></asp:Label>
-                <asp:TextBox ID="txtCliente" runat="server" CssClass="textBox" placeholder="Cliente" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtCliente" runat="server" CssClass="textBox" placeholder="Cliente" MaxLength="50" onkeyup="this.value = this.value.toUpperCase();"></asp:TextBox>
             </div>
             <div class="div__group">
                 <asp:Label ID="Label3" runat="server" Text="Cidade"></asp:Label>
-                <asp:TextBox ID="txtCidade" runat="server" CssClass="textBox" placeholder="Cidade" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtCidade" runat="server" CssClass="textBox" placeholder="Cidade" MaxLength="50" onkeyup="this.value = this.value.toUpperCase();"></asp:TextBox>
             </div>
             <div class="div__group">
                 <asp:Label runat="server" Text="UF"></asp:Label>
@@ -27,7 +27,7 @@
             </div>
             <div class="div__group">
                 <asp:Label runat="server" Text="Transportadora"></asp:Label>
-                <asp:TextBox ID="txtTransportadora" runat="server" CssClass="textBox" placeholder="Transportadora" MaxLength="100"></asp:TextBox>
+                <asp:TextBox ID="txtTransportadora" runat="server" CssClass="textBox" placeholder="Transportadora" MaxLength="100" onkeyup="this.value = this.value.toUpperCase();"></asp:TextBox>
             </div>
             <div class="div__group">
                 <asp:Label runat="server" Text="CIF / FOB"></asp:Label>
@@ -39,7 +39,7 @@
             </div>
             <div class="div__group">
                 <asp:Label runat="server" Text="Motorista"></asp:Label>
-                <asp:TextBox runat="server" ID="txtMotorista" CssClass="textBox" placeholder="Motorista" MaxLength="100" />
+                <asp:TextBox runat="server" ID="txtMotorista" CssClass="textBox" placeholder="Motorista" MaxLength="100" onkeyup="this.value = this.value.toUpperCase();" />
             </div>
             <div class="div__group">
                 <asp:Label Text="RG/CPF" runat="server" />
@@ -47,11 +47,11 @@
             </div>
             <div class="div__group">
                 <asp:Label Text="Placa" runat="server" />
-                <asp:TextBox runat="server" ID="txtPlaca" CssClass="textBox" placeholder="Placa" MaxLength="17" />
+                <asp:TextBox runat="server" ID="txtPlaca" CssClass="textBox" placeholder="Placa" MaxLength="17" onkeyup="this.value = this.value.toUpperCase();"/>
             </div>
             <div class="div__group">
                 <asp:Label Text="Material" runat="server" />
-                <asp:TextBox runat="server" ID="txtMaterial" CssClass="textBox" placeholder="Material" MaxLength="50" />
+                <asp:TextBox runat="server" ID="txtMaterial" CssClass="textBox" placeholder="Material" MaxLength="50" onkeyup="this.value = this.value.toUpperCase();"/>
             </div>
             <div>
                 <asp:Label Text="Quantidades" runat="server" />
@@ -59,7 +59,7 @@
             </div>
             <div class="div__group">
                 <asp:Label Text="Espécie" runat="server" />
-                <asp:TextBox runat="server" ID="txtPaletasbobinas"  CssClass="textBox" placeholder="Espécie"/>  
+                <asp:TextBox runat="server" ID="txtPaletasbobinas"  CssClass="textBox" placeholder="Espécie" onkeyup="this.value = this.value.toUpperCase();"/>  
             </div>
             <div class="div__group">
                 <asp:Label Text="Peso(kg)" runat="server" />
@@ -97,7 +97,7 @@
                 <asp:Label Text="Observação" runat="server" />
                 <asp:TextBox runat="server" ID="txtObservacao" CssClass="textBox__obs" TextMode="MultiLine" placeholder="Observação" />
             </div>
-            <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" CssClass="btn-cadastrar" OnClick="btnCadastrar_Embarque_Click" />
+            <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" CssClass="btn-cadastrar" OnClick="btnCadastrar_Embarque_Click" OnClientClick="this.value='Processando...'; this.disabled=true; document.body.style.cursor='wait';" UseSubmitBehavior="false"/>
         </div>
     </div>
 </div>

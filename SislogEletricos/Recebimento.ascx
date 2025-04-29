@@ -13,11 +13,11 @@
             </div>
             <div class="div__group">
                 <asp:Label ID="Label2" runat="server" Text="Fornecedor" ></asp:Label>
-                <asp:TextBox ID="txtFornecedor" runat="server" CssClass="textBox" placeholder="Fornecedor"  MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtFornecedor" runat="server" CssClass="textBox" placeholder="Fornecedor"  MaxLength="50" onkeyup="this.value = this.value.toUpperCase();"></asp:TextBox>
             </div>
             <div class="div__group">
                 <asp:Label ID="Label3" runat="server" Text="Cidade" ></asp:Label>
-                <asp:TextBox ID="txtCidade" runat="server" CssClass="textBox" placeholder="Cidade" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtCidade" runat="server" CssClass="textBox" placeholder="Cidade" MaxLength="50" onkeyup="this.value = this.value.toUpperCase();"></asp:TextBox>
             </div>
             <div class="div__group">
                 <asp:Label runat="server" Text="UF"></asp:Label>
@@ -25,7 +25,7 @@
             </div>
             <div class="div__group">
                 <asp:Label runat="server" text="Transportadora"></asp:Label>
-                <asp:TextBox  ID="txtTransportadora" runat="server" CssClass="textBox" placeholder="Transportadora" MaxLength="100"></asp:TextBox>
+                <asp:TextBox  ID="txtTransportadora" runat="server" CssClass="textBox" placeholder="Transportadora" MaxLength="100" onkeyup="this.value = this.value.toUpperCase();"></asp:TextBox>
             </div>
             <div class="div__group">
                 <asp:Label  runat="server" Text="CIF / FOB"></asp:Label>
@@ -37,7 +37,7 @@
             </div>
             <div class="div__group">
                 <asp:Label runat="server" Text="Motorista"></asp:Label>
-                <asp:TextBox runat="server" id="txtMotorista" CssClass="textBox" placeholder="Motorista" MaxLength="50" />
+                <asp:TextBox runat="server" id="txtMotorista" CssClass="textBox" placeholder="Motorista" MaxLength="50" onkeyup="this.value = this.value.toUpperCase();" />
             </div>
             <div class="div__group">
                 <asp:Label Text="RG/CPF" runat="server" />
@@ -45,11 +45,11 @@
             </div>
             <div class="div__group">
                 <asp:Label Text="Placa" runat="server" />
-                <asp:TextBox runat="server" ID="txtPlaca" CssClass="textBox" placeholder="Placa" MaxLength="17" />
+                <asp:TextBox runat="server" ID="txtPlaca" CssClass="textBox" placeholder="Placa" MaxLength="17" onkeyup="this.value = this.value.toUpperCase();" />
             </div>
             <div class="div__group">
                 <asp:Label Text="Material" runat="server" />
-                <asp:TextBox runat="server"  ID="txtMaterial" CssClass="textBox" placeholder="Material" MaxLength="50"/>
+                <asp:TextBox runat="server"  ID="txtMaterial" CssClass="textBox" placeholder="Material" MaxLength="50" onkeyup="this.value = this.value.toUpperCase();"/>
             </div>
             <div class="div__group">
                 <asp:Label Text="Quantidades" runat="server" />
@@ -68,7 +68,7 @@
                 <asp:Label Text="Observação" runat="server" />
                 <asp:TextBox runat="server" ID="txtObservacao"  CssClass="textBox__obs" TextMode="MultiLine" placeholder="Observação" />
             </div>
-            <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" CssClass="btn-cadastrar" OnClick="btnCadastrar_Click" />
+            <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" CssClass="btn-cadastrar" OnClick="btnCadastrar_Click"  OnClientClick="this.value='Processando...'; this.disabled=true; document.body.style.cursor='wait';" UseSubmitBehavior="false"  />
         </div>
     </div>
 </div>
@@ -82,4 +82,5 @@
         document.getElementById("meuModal").style.display = "none";
     }
     lucide.createIcons(); // Inicializar os ícones do Lucide
+
 </script>

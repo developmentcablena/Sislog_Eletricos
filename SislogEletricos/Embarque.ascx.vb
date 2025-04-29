@@ -13,25 +13,20 @@ Partial Public Class Embarque
             txtData.Text = DateTime.Now.ToString("yyyy-MM-ddTHH:mm")
             txtData.Enabled = False
             btnCadastrar.Enabled = True
-
         End If
-
         If Session("FuncaoUsuario") Is Nothing Then
             Response.Redirect("Login.aspx")
             Exit Sub
         End If
-
     End Sub
     Public Sub AtualizarDados()
         ' Atualiza os dados do modal com base na sessão
         If Session("Coluna1") IsNot Nothing Then
             txtCliente.Text = Session("Coluna1").ToString()
         End If
-
     End Sub
 
     Protected Sub btnCadastrar_Embarque_Click(sender As Object, e As EventArgs)
-
         Dim connectionString = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
         Dim vNotaFiscal As String = txtNotaFiscal.Text
         Dim vCliente As String = txtCliente.Text
@@ -46,7 +41,7 @@ Partial Public Class Embarque
         Dim vVolumes As String = txtVolumes.Text
         Dim vData As DateTime = DateTime.Parse(txtData.Text)
         Dim vObs As String = txtObservacao.Text
-        Dim vCadastro As String = "Embarque"
+        Dim vCadastro As String = "EMBARQUE"
         Dim vPaletaBonina As String = txtPaletasbobinas.Text
         Dim vPeso As String = txtPeso.Text
         Dim vVeiculo As String = ddlVeiculo.Text
@@ -54,15 +49,11 @@ Partial Public Class Embarque
         'Dim vDataJanela As DateTime = DateTime.Parse(dataJanela.Text)
         Dim dataHora As DateTime
         Dim vDataJanela As DateTime
-
         If Not String.IsNullOrWhiteSpace(dataJanela.Text) Then
             vDataJanela = DateTime.Parse(dataJanela.Text)
-
         Else
-
         End If
-
-        Debug.WriteLine("data: " & vDataJanela)
+        Dim IDnome As String = Session("Nome")
 
         If String.IsNullOrEmpty(Trim(txtCliente.Text)) Then
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta", "alert('Favor inserir o Fornecedor'); abrirModalEmbarque();", True)
@@ -135,11 +126,10 @@ Partial Public Class Embarque
             Exit Sub
         End If
 
-        btnCadastrar.Enabled = False
         Using conn As New SqlConnection(connectionString)
-            Dim Query As String = "INSERT INTO tb_Cadastro (NotaFiscal, FornecedorCliente, Cidade, UF, Transportadora, Frete, Motorista, RG, Placa, Material, Volumes, PaletesBobina, Peso, TipoVeiculo, CapacidadeCarga, DataCadastro, Observacao, Status, TipoCadastro, DataJanela)
+            Dim Query As String = "INSERT INTO tb_Cadastro (NotaFiscal, FornecedorCliente, Cidade, UF, Transportadora, Frete, Motorista, RG, Placa, Material, Volumes, PaletesBobina, Peso, TipoVeiculo, CapacidadeCarga, DataCadastro, Observacao, Status, TipoCadastro, DataJanela, IDnome )
 
-                VALUES(@NotaFiscal, @FornecedorCliente, @Cidade, @UF, @Transportadora, @Frete, @Motorista, @RG, @Placa, @Material, @Volumes, @PaletesBobina, @Peso, @TipoVeiculo, @CapacidadeCarga, @DataCadastro, @Observacao, @Status, @TipoCadastro, @DataJanela); " &
+                VALUES(@NotaFiscal, @FornecedorCliente, @Cidade, @UF, @Transportadora, @Frete, @Motorista, @RG, @Placa, @Material, @Volumes, @PaletesBobina, @Peso, @TipoVeiculo, @CapacidadeCarga, @DataCadastro, @Observacao, @Status, @TipoCadastro, @DataJanela, @idnome); " &
                     "SELECT SCOPE_IDENTITY();"
 
             Using cmd As New SqlCommand(Query, conn)
@@ -167,6 +157,7 @@ Partial Public Class Embarque
                 Else
                     cmd.Parameters.AddWithValue("@DataJanela", vDataJanela)
                 End If
+                cmd.Parameters.AddWithValue("@idnome", IDnome)
 
                 Try
                     conn.Open()

@@ -4,6 +4,8 @@ Public Class Principal
         Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+
         If Session("FuncaoUsuario") Is Nothing Then
             Response.Redirect("Login.aspx")
             Exit Sub

@@ -3,27 +3,8 @@ Imports System.Configuration
 Imports System.Net.Mail
 Imports System.Data
 
-
 Partial Public Class Recebimento
     Inherits System.Web.UI.UserControl
-
-    'Protected txtData As TextBox
-    'Protected txtNotaFiscal As TextBox
-    'Protected txtFornecedor As TextBox
-    'Protected txtCidade As TextBox
-    'Protected txtUF As TextBox
-    'Protected txtTransportadora As TextBox
-    'Protected ddlFrete As DropDownList
-    'Protected txtMotorista As TextBox
-    'Protected txtRG As TextBox
-    'Protected txtPlaca As TextBox
-    'Protected txtMaterial As TextBox
-    'Protected txtVolumes As TextBox
-    'Protected txtObservacao As TextBox
-    'Protected btnCadastrar As Button
-
-
-
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         If Not IsPostBack Then
@@ -31,7 +12,6 @@ Partial Public Class Recebimento
             txtData.Enabled = False
             btnCadastrar.Enabled = True
         End If
-
         If Session("FuncaoUsuario") Is Nothing Then
             Response.Redirect("Login.aspx")
             Exit Sub
@@ -50,151 +30,141 @@ Partial Public Class Recebimento
         '    Exit Sub
         'Else
         Dim connectionString = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
-            Dim vNotaFiscal As String = txtNotaFiscal.Text
-            Dim vFornecedor As String = txtFornecedor.Text
-            Dim vCidade As String = txtCidade.Text
-            Dim vUF As String = txtUF.Text
-            Dim vTransportadora As String = txtTransportadora.Text
-            Dim vFrete As String = ddlFrete.Text
-            Dim vMotorista As String = txtMotorista.Text
-            Dim vRG As String = txtRG.Text
-            Dim vPlaca As String = txtPlaca.Text
-            Dim vMaterial As String = txtMaterial.Text
-            Dim vVolumes As String = txtVolumes.Text
-            Dim vData As DateTime = DateTime.Parse(txtData.Text)
-            Dim vObs As String = txtObservacao.Text
-            Dim vCadastro As String = "Recebimento"
+        Dim vNotaFiscal As String = txtNotaFiscal.Text
+        Dim vFornecedor As String = txtFornecedor.Text
+        Dim vCidade As String = txtCidade.Text
+        Dim vUF As String = txtUF.Text
+        Dim vTransportadora As String = txtTransportadora.Text
+        Dim vFrete As String = ddlFrete.Text
+        Dim vMotorista As String = txtMotorista.Text
+        Dim vRG As String = txtRG.Text
+        Dim vPlaca As String = txtPlaca.Text
+        Dim vMaterial As String = txtMaterial.Text
+        Dim vVolumes As String = txtVolumes.Text
+        Dim vData As DateTime = DateTime.Parse(txtData.Text)
+        Dim vObs As String = txtObservacao.Text
+        Dim vCadastro As String = "RECEBIMENTO"
         'Dim vDataJanela As DateTime = DateTime.Parse(dataJanela.Text)
         Dim vDataJanela As DateTime
-
         If Not String.IsNullOrWhiteSpace(dataJanela.Text) Then
             vDataJanela = DateTime.Parse(dataJanela.Text)
-
         Else
-
         End If
-
-        Debug.WriteLine("data: " & vDataJanela)
+        Dim IDnome As String = Session("Nome")
 
         If String.IsNullOrEmpty(Trim(txtFornecedor.Text)) Then
-                ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta", "alert('Favor inserir o Fornecedor'); abrirModal();", True)
-                Me.txtFornecedor.Focus()
-                Exit Sub
-            End If
-            If String.IsNullOrEmpty(Trim(txtCidade.Text)) Then
-                ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta", "alert('Favor inserir a Cidade'); abrirModal();", True)
-                Me.txtCidade.Focus()
-                Exit Sub
-            End If
-            If String.IsNullOrEmpty(Trim(txtUF.Text)) Then
-                ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta", "alert('Favor colocar o UF'); abrirModal();", True)
-                Me.txtUF.Focus()
-                Exit Sub
-            End If
-            If String.IsNullOrEmpty(Trim(txtTransportadora.Text)) Then
-                ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta", "alert('Favor inserir a transportadora'); abrirModal();", True)
-                Me.txtTransportadora.Focus()
-                Exit Sub
-            End If
-            If String.IsNullOrEmpty(Trim(ddlFrete.Text)) Then
-                ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alert", "alert('Favor colocar o frete'); abrirModal();", True)
-                Me.ddlFrete.Focus()
-                Exit Sub
-            End If
-            If String.IsNullOrEmpty(Trim(txtMotorista.Text)) Then
-                ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alert", "alert('Favor inserir o nome do motorista'); abrirModal();", True)
-                Me.txtMotorista.Focus()
-                Exit Sub
-            End If
-            If String.IsNullOrEmpty(Trim(txtRG.Text)) Then
-                ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alert", "alert('Favor inserir o RG'); abrirModal();", True)
-                Me.txtRG.Focus()
-                Exit Sub
-            End If
-            If String.IsNullOrEmpty(Trim(txtPlaca.Text)) Then
-                ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alert", "alert('Favor inserir a placa'); abrirModal();", True)
-                Me.txtPlaca.Focus()
-                Exit Sub
-            End If
-            If String.IsNullOrEmpty(Trim(txtMaterial.Text)) Then
-                ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alert", "alert('Favor inserir o nome do material'); abrirModal();", True)
-                Me.txtMaterial.Focus()
-                Exit Sub
-            End If
-            If String.IsNullOrEmpty(Trim(txtVolumes.Text)) Then
-                ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alert", "alert('Favor colocar a quantidade de volumes'); abrirModal();", True)
-                Me.txtVolumes.Focus()
-                Exit Sub
-            End If
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta", "alert('Favor inserir o Fornecedor'); abrirModal();", True)
+            Me.txtFornecedor.Focus()
+            Exit Sub
+        End If
+        If String.IsNullOrEmpty(Trim(txtCidade.Text)) Then
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta", "alert('Favor inserir a Cidade'); abrirModal();", True)
+            Me.txtCidade.Focus()
+            Exit Sub
+        End If
+        If String.IsNullOrEmpty(Trim(txtUF.Text)) Then
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta", "alert('Favor colocar o UF'); abrirModal();", True)
+            Me.txtUF.Focus()
+            Exit Sub
+        End If
+        If String.IsNullOrEmpty(Trim(txtTransportadora.Text)) Then
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta", "alert('Favor inserir a transportadora'); abrirModal();", True)
+            Me.txtTransportadora.Focus()
+            Exit Sub
+        End If
+        If String.IsNullOrEmpty(Trim(ddlFrete.Text)) Then
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alert", "alert('Favor colocar o frete'); abrirModal();", True)
+            Me.ddlFrete.Focus()
+            Exit Sub
+        End If
+        If String.IsNullOrEmpty(Trim(txtMotorista.Text)) Then
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alert", "alert('Favor inserir o nome do motorista'); abrirModal();", True)
+            Me.txtMotorista.Focus()
+            Exit Sub
+        End If
+        If String.IsNullOrEmpty(Trim(txtRG.Text)) Then
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alert", "alert('Favor inserir o RG'); abrirModal();", True)
+            Me.txtRG.Focus()
+            Exit Sub
+        End If
+        If String.IsNullOrEmpty(Trim(txtPlaca.Text)) Then
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alert", "alert('Favor inserir a placa'); abrirModal();", True)
+            Me.txtPlaca.Focus()
+            Exit Sub
+        End If
+        If String.IsNullOrEmpty(Trim(txtMaterial.Text)) Then
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alert", "alert('Favor inserir o nome do material'); abrirModal();", True)
+            Me.txtMaterial.Focus()
+            Exit Sub
+        End If
+        If String.IsNullOrEmpty(Trim(txtVolumes.Text)) Then
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alert", "alert('Favor colocar a quantidade de volumes'); abrirModal();", True)
+            Me.txtVolumes.Focus()
+            Exit Sub
+        End If
 
-        btnCadastrar.Enabled = False
+
 
         Using conn As New SqlConnection(connectionString)
-                Dim Query As String = "INSERT INTO tb_Cadastro (NotaFiscal, FornecedorCliente, Cidade, UF, Transportadora, Frete, Motorista, RG, Placa, Material, Volumes, DataCadastro, Observacao, Status, TipoCadastro, DataJanela)
-                VALUES(@NotaFiscal, @Fornecedor, @Cidade, @UF, @Transportadora, @Frete, @Motorista, @RG, @Placa, @Material, @Volumes, @DataCadastro, @Observacao, @Status, @TipoCadastro, @DataJanela); " &
+            Dim Query As String = "INSERT INTO tb_Cadastro (NotaFiscal, FornecedorCliente, Cidade, UF, Transportadora, Frete, Motorista, RG, Placa, Material, Volumes, DataCadastro, Observacao, Status, TipoCadastro, DataJanela, IDnome)
+                VALUES(@NotaFiscal, @Fornecedor, @Cidade, @UF, @Transportadora, @Frete, @Motorista, @RG, @Placa, @Material, @Volumes, @DataCadastro, @Observacao, @Status, @TipoCadastro, @DataJanela, @idnome); " &
                 "SELECT SCOPE_IDENTITY();"
 
-                Using cmd As New SqlCommand(Query, conn)
-                    cmd.Parameters.AddWithValue("@NotaFiscal", vNotaFiscal)
-                    cmd.Parameters.AddWithValue("@Fornecedor", vFornecedor)
-                    cmd.Parameters.AddWithValue("@Cidade", vCidade)
-                    cmd.Parameters.AddWithValue("@UF", vUF)
-                    cmd.Parameters.AddWithValue("@Transportadora", vTransportadora)
-                    cmd.Parameters.AddWithValue("@Frete", vFrete)
-                    cmd.Parameters.AddWithValue("@Motorista", vMotorista)
-                    cmd.Parameters.AddWithValue("@RG", vRG)
-                    cmd.Parameters.AddWithValue("@Placa", vPlaca)
-                    cmd.Parameters.AddWithValue("@Material", vMaterial)
-                    cmd.Parameters.AddWithValue("@Volumes", vVolumes)
-                    cmd.Parameters.AddWithValue("@DataCadastro", vData)
-                    cmd.Parameters.AddWithValue("@Observacao", vObs)
-                    cmd.Parameters.AddWithValue("@Status", 1)
-                    cmd.Parameters.AddWithValue("@TipoCadastro", vCadastro)
+            Using cmd As New SqlCommand(Query, conn)
+                cmd.Parameters.AddWithValue("@NotaFiscal", vNotaFiscal)
+                cmd.Parameters.AddWithValue("@Fornecedor", vFornecedor)
+                cmd.Parameters.AddWithValue("@Cidade", vCidade)
+                cmd.Parameters.AddWithValue("@UF", vUF)
+                cmd.Parameters.AddWithValue("@Transportadora", vTransportadora)
+                cmd.Parameters.AddWithValue("@Frete", vFrete)
+                cmd.Parameters.AddWithValue("@Motorista", vMotorista)
+                cmd.Parameters.AddWithValue("@RG", vRG)
+                cmd.Parameters.AddWithValue("@Placa", vPlaca)
+                cmd.Parameters.AddWithValue("@Material", vMaterial)
+                cmd.Parameters.AddWithValue("@Volumes", vVolumes)
+                cmd.Parameters.AddWithValue("@DataCadastro", vData)
+                cmd.Parameters.AddWithValue("@Observacao", vObs)
+                cmd.Parameters.AddWithValue("@Status", 1)
+                cmd.Parameters.AddWithValue("@TipoCadastro", vCadastro)
                 If vDataJanela = DateTime.MinValue OrElse vDataJanela.TimeOfDay = TimeSpan.Zero Then
                     cmd.Parameters.AddWithValue("@DataJanela", DBNull.Value)
                 Else
                     cmd.Parameters.AddWithValue("@DataJanela", vDataJanela)
                 End If
+                cmd.Parameters.AddWithValue("@idnome", IDnome)
 
                 Try
-                        conn.Open()
-                        'cmd.ExecuteNonQuery()
-                        Dim registerID As Integer
-                        registerID = Convert.ToInt32(cmd.ExecuteScalar())
-                        conn.Close()
+                    conn.Open()
 
-                        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Sucesso", $"alert('Nº {registerID} cadastrado com sucesso!'); window.location.href='" & Request.Url.AbsoluteUri & "';", True)
+                    Dim registerID As Integer
+                    registerID = Convert.ToInt32(cmd.ExecuteScalar())
+                    conn.Close()
 
-                        FnEnviarEmail(registerID)
+                    ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Sucesso", $"alert('Nº {registerID} cadastrado com sucesso!'); window.location.href='" & Request.Url.AbsoluteUri & "';", True)
 
-                        txtNotaFiscal.Text = " "
-                        txtFornecedor.Text = " "
-                        txtCidade.Text = " "
-                        txtUF.Text = " "
-                        txtTransportadora.Text = " "
-                        ddlFrete.Text = " "
-                        txtMotorista.Text = " "
-                        txtRG.Text = " "
-                        txtPlaca.Text = " "
-                        txtMaterial.Text = " "
-                        txtMaterial.Text = " "
-                        txtData.Text = " "
+                    FnEnviarEmail(registerID)
+
+                    txtNotaFiscal.Text = " "
+                    txtFornecedor.Text = " "
+                    txtCidade.Text = " "
+                    txtUF.Text = " "
+                    txtTransportadora.Text = " "
+                    ddlFrete.Text = " "
+                    txtMotorista.Text = " "
+                    txtRG.Text = " "
+                    txtPlaca.Text = " "
+                    txtMaterial.Text = " "
+                    txtMaterial.Text = " "
+                    txtData.Text = " "
                     txtObservacao.Text = " "
-
                     btnCadastrar.Enabled = True
 
-
                 Catch ex As Exception
-                        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Error", "alert('Erro ao cadastrar: " & ex.Message.Replace("'", "\'") & "'); abrirmodal();", True)
-                    End Try
-                End Using
+                    ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Error", "alert('Erro ao cadastrar: " & ex.Message.Replace("'", "\'") & "'); abrirmodal();", True)
+                End Try
             End Using
-
-
-
+        End Using
     End Sub
-
-
 
     Private Function FnEnviarEmail(ByVal vID As Long) As Boolean
 
