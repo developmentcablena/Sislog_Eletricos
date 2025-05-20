@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="vb" AutoEventWireup="false" CodeBehind="LiberarPortaria.ascx.vb" Inherits="SislogEletricos.LiberarPortaria" %>
 <link href="Style/LiberarPortaria.css" rel="stylesheet" />
 <style>
-    .css__modal-Liberacao {
+.css__modal-Liberacao {
     display: none;
     position: fixed;
     z-index: 9999;
@@ -120,6 +120,7 @@
                     <asp:BoundField DataField="TipoCadastro" headertext="Tipo Cadastro" />
                     <asp:BoundField DataField="FornecedorCliente" HeaderText="Fornecedor/Cliente" />
                     <asp:BoundField DataField="Transportadora" HeaderText="Transportadora" />
+                    <asp:BoundField DataField="Motorista" HeaderText="Motorista" />
                     <asp:BoundField DataField="Placa" HeaderText="Placa" />
                     <asp:BoundField DataField="HorarioChegada" HeaderText="Chegada"/>
                     <asp:BoundField DataField="HorarioEntrada" HeaderText="Entrada" />

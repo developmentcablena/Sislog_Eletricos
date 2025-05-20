@@ -3,7 +3,7 @@
 <link href="Style/Historico.css" rel="stylesheet" type="text/css" />
 
 <style>
-    .modal3 {
+.modal3 {
         display: none;
         position: fixed;
         z-index: 9999;
@@ -216,10 +216,9 @@
                 <h1 class="h1__titulo-modal">Historico de Cadastro</h1>
                 <asp:Button CssClass="btnAtualizar" Text="🔄" runat="server" OnClick="Unnamed_Click" />
                 <span enableviewstate="true" class="span__close" runat="server" onclick="fecharModalHistorico();">x</span>
-                <div class="grid-rolagem">
-                    <div>
-                        <asp:GridView runat="server" ID="gvCadastros" AutoGenerateColumns="false" GridLines="None"
-                            CssClass="table" OnRowCommand="gvCadastros_RowCommand">
+
+                <div class="grid-container-historico">
+                        <asp:GridView runat="server" ID="gvCadastros" AutoGenerateColumns="false" GridLines="None" CssClass="grid-table-historico" UseAccessibleHeader="true" OnRowCommand="gvCadastros_RowCommand">
                             <Columns>
                                 <asp:BoundField DataField="CadastroID" HeaderText="Nº Cadastro" />
                                 <asp:BoundField DataField="TipoCadastro" HeaderText="Tipo Cadastro" />
@@ -239,7 +238,6 @@
                             </Columns>
                         </asp:GridView>
                     </div>
-                </div>
             </div>
         </div>
 
@@ -249,18 +247,18 @@
             <div class="modal__content-Embarque3">
                 <h1 class="h1__titulo-modal">Embarque</h1>
                 <span enableviewstate="true" class="span__close" runat="server" onclick="fecharModalEmbarque3();">x</span>
-                <div class="modal__body">
+                 <div class="modal__body">
                     <div class="div__group">
                         <asp:Label ID="Label1" runat="server" Text="Nota fiscal"></asp:Label>
                         <asp:TextBox ID="txtNotaFiscal" runat="server" CssClass="textBox" placeholder="Nota fiscal" TextMode="Number"></asp:TextBox>
                     </div>
                     <div class="div__group">
                         <asp:Label ID="Label2" runat="server" Text="Cliente"></asp:Label>
-                        <asp:TextBox ID="txtCliente" runat="server" CssClass="textBox" placeholder="Cliente" MaxLength="50"></asp:TextBox>
+                        <asp:TextBox ID="txtCliente" runat="server" CssClass="textBox" placeholder="Cliente" MaxLength="50" onkeyup="this.value = this.value.toUpperCase();"></asp:TextBox>
                     </div>
                     <div class="div__group">
                         <asp:Label ID="Label3" runat="server" Text="Cidade"></asp:Label>
-                        <asp:TextBox ID="txtCidade" runat="server" CssClass="textBox" placeholder="Cidade" MaxLength="50"></asp:TextBox>
+                        <asp:TextBox ID="txtCidade" runat="server" CssClass="textBox" placeholder="Cidade" MaxLength="50" onkeyup="this.value = this.value.toUpperCase();"></asp:TextBox>
                     </div>
                     <div class="div__group">
                         <asp:Label runat="server" Text="UF"></asp:Label>
@@ -268,7 +266,7 @@
                     </div>
                     <div class="div__group">
                         <asp:Label runat="server" Text="Transportadora"></asp:Label>
-                        <asp:TextBox ID="txtTransportadora" runat="server" CssClass="textBox" placeholder="Transportadora" MaxLength="100"></asp:TextBox>
+                        <asp:TextBox ID="txtTransportadora" runat="server" CssClass="textBox" placeholder="Transportadora" MaxLength="100" onkeyup="this.value = this.value.toUpperCase();"></asp:TextBox>
                     </div>
                     <div class="div__group">
                         <asp:Label runat="server" Text="CIF / FOB"></asp:Label>
@@ -280,7 +278,7 @@
                     </div>
                     <div class="div__group">
                         <asp:Label runat="server" Text="Motorista"></asp:Label>
-                        <asp:TextBox runat="server" ID="txtMotorista" CssClass="textBox" placeholder="Motorista" MaxLength="100" />
+                        <asp:TextBox runat="server" ID="txtMotorista" CssClass="textBox" placeholder="Motorista" MaxLength="100" onkeyup="this.value = this.value.toUpperCase();" />
                     </div>
                     <div class="div__group">
                         <asp:Label Text="RG/CPF" runat="server" />
@@ -288,23 +286,19 @@
                     </div>
                     <div class="div__group">
                         <asp:Label Text="Placa" runat="server" />
-                        <asp:TextBox runat="server" ID="txtPlaca" CssClass="textBox" placeholder="Placa" MaxLength="7" />
+                        <asp:TextBox runat="server" ID="txtPlaca" CssClass="textBox" placeholder="Placa" MaxLength="17" onkeyup="this.value = this.value.toUpperCase();" />
                     </div>
                     <div class="div__group">
                         <asp:Label Text="Material" runat="server" />
-                        <asp:TextBox runat="server" ID="txtMaterial" CssClass="textBox" placeholder="Material" MaxLength="50" />
+                        <asp:TextBox runat="server" ID="txtMaterial" CssClass="textBox" placeholder="Material" MaxLength="50" onkeyup="this.value = this.value.toUpperCase();" />
                     </div>
                     <div>
-                        <asp:Label Text="Volumes" runat="server" />
-                        <asp:TextBox runat="server" ID="txtVolumes" CssClass="textBox" placeholder="Volumes" TextMode="Number" />
+                        <asp:Label Text="Quantidades" runat="server" />
+                        <asp:TextBox runat="server" ID="txtVolumes" CssClass="textBox" placeholder="Quantidades" TextMode="Number" />
                     </div>
                     <div class="div__group">
-                        <asp:Label Text="Paletas/Bobinas" runat="server" />
-                        <asp:DropDownList runat="server" ID="txtPaletasbobinas" CssClass="textBox">
-                            <asp:ListItem Text="Selecione" Value="" />
-                            <asp:ListItem Text="Paletas" />
-                            <asp:ListItem Text="Bobinas" />
-                        </asp:DropDownList>
+                        <asp:Label Text="Espécie" runat="server" />
+                        <asp:TextBox runat="server" ID="txtPaletasbobinas" CssClass="textBox" placeholder="Espécie" onkeyup="this.value = this.value.toUpperCase();" />
                     </div>
                     <div class="div__group">
                         <asp:Label Text="Peso(kg)" runat="server" />
@@ -314,19 +308,30 @@
                         <asp:Label Text="Tipo de veiculo" runat="server" />
                         <asp:DropDownList runat="server" CssClass="textBox" ID="ddlVeiculo">
                             <asp:ListItem Text="Selecione" />
-                            <asp:ListItem Text="Fiorino 3/4" />
-                            <asp:ListItem Text="Carreta" />
-                            <asp:ListItem Text="Truck" />
+                            <asp:ListItem Text="MOTO" />
+                            <asp:ListItem Text="C.PASSEIO" />
+                            <asp:ListItem Text="FIORINO/PICK-UP" />
+                            <asp:ListItem Text="VAM" />
+                            <asp:ListItem Text="VEICULO 3/4" />
+                            <asp:ListItem Text="V.TOCO" />
+                            <asp:ListItem Text="V.CARRETA" />
+                            <asp:ListItem Text="V.BITREM" />
+                            <asp:ListItem Text="V.TRUCK" />
                         </asp:DropDownList>
                     </div>
                     <div class="div__group">
                         <asp:Label Text="Capacidade de carga" runat="server" />
-                        <asp:TextBox runat="server" ID="txtCarga" CssClass="textBox" placeholder="Capacidade de carga" />
+                        <asp:TextBox runat="server" ID="txtCarga" CssClass="textBox" placeholder="Capacidade de carga" onkeyup="formatarMoeda(this)" />
                     </div>
                     <div class="div__group">
-                        <asp:Label Text="Data" runat="server" />
+                        <asp:Label Text="Data cadastro" runat="server" />
                         <asp:TextBox ID="txtData" runat="server" TextMode="DateTimeLocal" CssClass="textBox" />
                     </div>
+                    <div class="div__group">
+                        <asp:Label Text="Data Embarque" runat="server" />
+                        <asp:TextBox ID="dataJanelaEmbarque" runat="server" TextMode="DateTimeLocal" CssClass="textBox" />
+                    </div>
+                    <br />
                     <div>
                         <asp:Label Text="Observação" runat="server" />
                         <asp:TextBox runat="server" ID="txtObservacao" CssClass="textBox__obs" TextMode="MultiLine" placeholder="Observação" />
@@ -342,18 +347,18 @@
             <div class="modal-content3">
                 <h1 class="h1__titulo-modal">Recebimento</h1>
                 <span enableviewstate="true" class="span__close" runat="server" onclick="fecharModal3();">x</span>
-                <div class="modal__body">
+                 <div class="modal__body">
                     <div class="div__group">
                         <asp:Label ID="Label4" runat="server" Text="Nota fiscal"></asp:Label>
                         <asp:TextBox ID="txtNotaFiscal2" runat="server" CssClass="textBox" placeholder="Nota fiscal" TextMode="Number"></asp:TextBox>
                     </div>
                     <div class="div__group">
                         <asp:Label ID="Label5" runat="server" Text="Fornecedor"></asp:Label>
-                        <asp:TextBox ID="txtFornecedor2" runat="server" CssClass="textBox" placeholder="Fornecedor" MaxLength="50"></asp:TextBox>
+                        <asp:TextBox ID="txtFornecedor2" runat="server" CssClass="textBox" placeholder="Fornecedor" MaxLength="50" onkeyup="this.value = this.value.toUpperCase();"></asp:TextBox>
                     </div>
                     <div class="div__group">
                         <asp:Label ID="Label6" runat="server" Text="Cidade"></asp:Label>
-                        <asp:TextBox ID="txtCidade2" runat="server" CssClass="textBox" placeholder="Cidade" MaxLength="50"></asp:TextBox>
+                        <asp:TextBox ID="txtCidade2" runat="server" CssClass="textBox" placeholder="Cidade" MaxLength="50" onkeyup="this.value = this.value.toUpperCase();"></asp:TextBox>
                     </div>
                     <div class="div__group">
                         <asp:Label runat="server" Text="UF"></asp:Label>
@@ -361,7 +366,7 @@
                     </div>
                     <div class="div__group">
                         <asp:Label runat="server" Text="Transportadora"></asp:Label>
-                        <asp:TextBox ID="txtTransportadora2" runat="server" CssClass="textBox" placeholder="Transportadora" MaxLength="100"></asp:TextBox>
+                        <asp:TextBox ID="txtTransportadora2" runat="server" CssClass="textBox" placeholder="Transportadora" MaxLength="100" onkeyup="this.value = this.value.toUpperCase();"></asp:TextBox>
                     </div>
                     <div class="div__group">
                         <asp:Label runat="server" Text="CIF / FOB"></asp:Label>
@@ -373,7 +378,7 @@
                     </div>
                     <div class="div__group">
                         <asp:Label runat="server" Text="Motorista"></asp:Label>
-                        <asp:TextBox runat="server" ID="txtMotorista2" CssClass="textBox" placeholder="Motorista" MaxLength="50" />
+                        <asp:TextBox runat="server" ID="txtMotorista2" CssClass="textBox" placeholder="Motorista" MaxLength="50" onkeyup="this.value = this.value.toUpperCase();" />
                     </div>
                     <div class="div__group">
                         <asp:Label Text="RG" runat="server" />
@@ -381,20 +386,25 @@
                     </div>
                     <div class="div__group">
                         <asp:Label Text="Placa" runat="server" />
-                        <asp:TextBox runat="server" ID="txtPlaca2" CssClass="textBox" placeholder="Placa" MaxLength="7" />
+                        <asp:TextBox runat="server" ID="txtPlaca2" CssClass="textBox" placeholder="Placa" MaxLength="15" onkeyup="this.value = this.value.toUpperCase();" />
                     </div>
                     <div class="div__group">
                         <asp:Label Text="Material" runat="server" />
-                        <asp:TextBox runat="server" ID="txtMaterial2" CssClass="textBox" placeholder="Material" MaxLength="50" />
+                        <asp:TextBox runat="server" ID="txtMaterial2" CssClass="textBox" placeholder="Material" MaxLength="50" onkeyup="this.value = this.value.toUpperCase();" />
                     </div>
                     <div class="div__group">
                         <asp:Label Text="Volumes" runat="server" />
                         <asp:TextBox runat="server" ID="txtVolumes2" CssClass="textBox" placeholder="Volumes" TextMode="Number" />
                     </div>
                     <div class="div__group">
-                        <asp:Label Text="Data" runat="server" />
+                        <asp:Label Text="Data cadastro" runat="server" />
                         <asp:TextBox ID="txtData2" runat="server" TextMode="DateTimeLocal" CssClass="textBox" />
                     </div>
+                    <div class="div__group">
+                        <asp:Label Text="Data Recebimento" runat="server" />
+                        <asp:TextBox ID="dataJanelaRecebimento" runat="server" TextMode="DateTimeLocal" CssClass="textBox" />
+                    </div>
+                    <br />
                     <div>
                         <asp:Label Text="Observação" runat="server" />
                         <asp:TextBox runat="server" ID="txtOBS2" CssClass="textBox__obs" TextMode="MultiLine" placeholder="Observação" />

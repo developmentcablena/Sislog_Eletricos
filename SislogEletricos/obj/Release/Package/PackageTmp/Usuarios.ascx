@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="vb" AutoEventWireup="false" CodeBehind="Usuarios.ascx.vb" Inherits="SislogEletricos.Usuarios" %>
 <link href="Style/Usuario.css" rel="stylesheet" />
 <style>
-    .css__modal-Cadastrar {
+.css__modal-Cadastrar {
     display: none;
     position: fixed;
     z-index: 9999;
@@ -129,6 +129,9 @@
         background-color: #28a745;
         color: white;
     }
+
+
+
 </style>
 
 <div id="modalUsuarios" class="css__modal-Usuarios">
@@ -136,8 +139,9 @@
         <h1 class="h1__titulo-modal">Usuários</h1>
         <asp:Button Text="Novo" runat="server"  CssClass="btn-novo" OnClick="btnAbrirModal" />
         <span EnableViewState="true"   class="span__close" runat="server"  onclick="fecharModalUsuarios();">x</span>
-        <div>
-            <asp:GridView runat="server" ID="gvCadastros" AutoGenerateColumns="false" GridLines="None" CssClass="table" OnRowCommand="gvCadastros_RowCommand">
+
+        <div class="grid-container-usuario">
+            <asp:GridView runat="server" ID="gvCadastros" AutoGenerateColumns="false" GridLines="None" CssClass="grid-table-usuario" UseAccessibleHeader="true"  OnRowCommand="gvCadastros_RowCommand">              
                 <Columns>
                     <asp:BoundField DataField="Nome" HeaderText="Nome" />
                     <asp:BoundField DataField="Usuario" HeaderText="Usuário" />

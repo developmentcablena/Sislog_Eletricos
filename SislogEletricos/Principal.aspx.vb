@@ -20,6 +20,7 @@ Public Class Principal
             btnHistorico.Enabled = False
             btnLiberar.Enabled = False
             btnUsuario.Enabled = False
+            btnRecusados.Visible = False
 
             Select Case funcao
                 Case "Adiministrador"
@@ -29,6 +30,7 @@ Public Class Principal
                     btnHistorico.Enabled = True
                     btnLiberar.Enabled = True
                     btnUsuario.Enabled = True
+                    btnRecusados.Visible = True
 
                 Case "Liberador"
                     btnRecebimento.Enabled = True
@@ -40,7 +42,7 @@ Public Class Principal
                 Case "Cadastrar"
                     btnRecebimento.Enabled = True
                     btnEmbarque.Enabled = True
-
+                    btnRecusados.Visible = True
 
                 Case "Portaria"
                     btnLiberar.Enabled = True

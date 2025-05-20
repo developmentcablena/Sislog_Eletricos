@@ -99,8 +99,10 @@
     <Content Include="KeepAlive.aspx" />
     <Content Include="LiberarPortaria.ascx" />
     <Content Include="Login.aspx" />
+    <Content Include="MotivoRecusado.ascx" />
     <Content Include="Principal.aspx" />
     <Content Include="Recebimento.ascx" />
+    <Content Include="Recusados.ascx" />
     <Content Include="Style\Autorizar.css" />
     <Content Include="Style\CadastroUsuario.css" />
     <Content Include="Style\Embarque.css" />
@@ -108,8 +110,10 @@
     <Content Include="Style\Liberacao.css" />
     <Content Include="Style\LiberarPortaria.css" />
     <Content Include="Style\Login.css" />
+    <Content Include="Style\MotivoRecusado.css" />
     <Content Include="Style\Principal.css" />
     <Content Include="Style\Recebimento.css" />
+    <Content Include="Style\Recusados.css" />
     <Content Include="Style\Usuario.css" />
     <Content Include="Usuarios.ascx" />
     <Content Include="Web.config" />
@@ -157,6 +161,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="MotivoRecusado.ascx.designer.vb">
+      <DependentUpon>MotivoRecusado.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="MotivoRecusado.ascx.vb">
+      <DependentUpon>MotivoRecusado.ascx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -188,6 +199,13 @@
     </Compile>
     <Compile Include="Recebimento.ascx.vb">
       <DependentUpon>Recebimento.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recusados.ascx.designer.vb">
+      <DependentUpon>Recusados.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Recusados.ascx.vb">
+      <DependentUpon>Recusados.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Usuarios.ascx.designer.vb">

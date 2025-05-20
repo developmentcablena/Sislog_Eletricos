@@ -55,9 +55,6 @@ Public Class Login
         Return usuarioBD
     End Function
 
-
-
-
     Private Function AutenticarUsuario(dominio As String, usuario As String, senha As String) As Boolean
         Try
             ' Concatena o domínio com o usuário (exemplo: empresa\usuario)

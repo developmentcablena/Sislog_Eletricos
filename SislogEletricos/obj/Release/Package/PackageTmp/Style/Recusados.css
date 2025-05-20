@@ -1,11 +1,10 @@
 ﻿body {
-
     margin: 0px;
     padding: 0px;
 }
 
 
-.css__modal-Usuarios {
+.css__modal-Recusados {
     display: none;
     position: fixed;
     z-index: 1;
@@ -16,18 +15,18 @@
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-.modal__content-Usuarios {
+.modal__content-Recusados {
     background-color: white;
     margin: 10% auto;
     padding: 20px;
-    width: 40%;
+    width: 60%;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#modalUsuarios .h1__titulo-modal {
-    background-color: black;
-    color: white;
+#modalRecusados .h1__titulo-modal {
+    background-color: #ff7f27;
+    color: white; 
     text-align: left;
     padding: 20px;
     margin: 0;
@@ -38,10 +37,10 @@
     position: relative;
     top: -40px;
     left: -20px;
-    border: 1px solid #000000;
+ 
 }
 
-#modalUsuarios .span__close {
+#modalRecusados .span__close {
     color: white;
     float: right;
     font-size: 20px;
@@ -51,45 +50,23 @@
     top: -85px;
 }
 
-    #modalUsuarios .span__close:hover {
+    #modalRecusados .span__close:hover {
         font-size: 25px;
         color: #918a8a;
     }
 
-#modalUsuarios .btn-novo {
-    position: relative;
-    z-index: 2;
-    top: -88px;
-    left: 103px;
-    border: 1px solid;
-    border-radius: 4px;
-    padding: 9px 16px;
-    font-size: 15px;
-    font-family: arial, sans-serif;
-    background-color: #ffffff;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-}
 
-    #modalUsuarios .btn-novo:hover {
-        background-color: #6c757d;
-        color: white;
-        border: 1px solid black;
-    }
-
- /*Personalização da tabela*/
- /*Conteiner onde define a barra de rolagem*/
-.grid-container-usuario {
+/*Personalização da tabela*/
+/*Conteiner onde define a barra de rolagem*/
+.grid-container-recusados {
     max-height: 400px;
     overflow-y: auto;
     overflow-x: auto;
-    border: 1px solid #f1f1f1;
-    margin-top: -63px;
+    margin-top: -35px;
 }
 
 /*estilizando tabela em geral*/
-.grid-table-usuario {
+.grid-table-recusados {
     width: 100%;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
@@ -98,7 +75,7 @@
 }
 
     /*estilizando o cabeçalho*/
-    .grid-table-usuario th {
+    .grid-table-recusados th {
         position: sticky;
         top: 0;
         background-color: white;
@@ -106,26 +83,39 @@
         padding: 8px;
         text-align: left;
         padding: 12px;
-        font-size: 18px;
+        font-size: 17px;
         border-bottom: 2px solid #ccc;
     }
 
     /*linha da tabela*/
-    .grid-table-usuario td {
-        padding: 8px;
+    .grid-table-recusados td {
+        padding: 6px;
         border-bottom: 1px solid #ddd;
         font-size: 16px;
     }
 
-/* Alternância de cor nas linhas */
-    .grid-table-usuario tr:nth-child(even) {
+    /* Alternância de cor nas linhas */
+    .grid-table-recusados tr:nth-child(even) {
         background-color: #f8f9fa;
     }
 
-/* Efeito ao passar o mouse */
-    .grid-table-usuario tr:hover {
+    /* Efeito ao passar o mouse */
+    .grid-table-recusados tr:hover {
         background-color: #e9ecef;
         transition: 0.3s;
     }
 
 
+#modalRecusados .btnAtualizar {
+    position: relative;
+    top: -37px;
+    font-size: 20px;
+    margin-bottom: -3%;
+    padding: 0px;
+}
+
+    #modalRecusados .btnAtualizar:hover {
+        background-color: #caddf2;
+        font-size: 20px;
+        cursor: pointer;
+    }

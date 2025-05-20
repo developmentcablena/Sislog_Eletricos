@@ -56,7 +56,7 @@
                 <asp:TextBox runat="server" ID="txtVolumes" CssClass="textBox" placeholder="Quantidades" TextMode="Number" />
             </div>
             <div class="div__group">
-                <asp:Label Text="Data" runat="server" />
+                <asp:Label Text="Data cadastro" runat="server" />
                 <asp:TextBox ID="txtData" runat="server"  TextMode="DateTimeLocal" CssClass="textBox"/>  
             </div>
             <div class="div__group">
@@ -68,7 +68,7 @@
                 <asp:Label Text="Observação" runat="server" />
                 <asp:TextBox runat="server" ID="txtObservacao"  CssClass="textBox__obs" TextMode="MultiLine" placeholder="Observação" />
             </div>
-            <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" CssClass="btn-cadastrar" OnClick="btnCadastrar_Click"  OnClientClick="this.value='Processando...'; this.disabled=true; document.body.style.cursor='wait';" UseSubmitBehavior="false"  />
+            <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrarteste" CssClass="btn-cadastrar" OnClick="btnCadastrar_Click"  OnClientClick="this.value='Processando...'; this.disabled=true; document.body.style.cursor='wait';" UseSubmitBehavior="false"  />
         </div>
     </div>
 </div>

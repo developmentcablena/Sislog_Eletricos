@@ -32,8 +32,8 @@ Partial Public Class LiberarPortaria
     Private Sub CarregarNotasFiscais()
         Try
             Using conn As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
-                Dim query As String = "SELECT CadastroID, TipoCadastro, FornecedorCliente, Transportadora, Placa, 
-                                           FORMAT(HorarioChegada, 'HH:mm') AS HorarioChegada,  
+                Dim query As String = "SELECT CadastroID, TipoCadastro, FornecedorCliente, Transportadora, Motorista, Placa, 
+                                           FORMAT(HorarioChegada, 'dd-MM-yy HH:mm') AS HorarioChegada,  
                                             FORMAT(HorarioEntrada, 'HH:mm') AS HorarioEntrada,  
                                             FORMAT(HorarioSaida, 'HH:mm dd-MM-yyyy') AS HorarioSaida 
                                             FROM tb_Cadastro 

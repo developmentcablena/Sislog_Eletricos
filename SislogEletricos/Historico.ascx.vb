@@ -20,16 +20,17 @@ Partial Public Class Historico
         Try
             Using conn As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
                 Dim query As String = "SELECT CadastroID, TipoCadastro, FornecedorCliente, Transportadora, Placa, " &
-                          "FORMAT(HorarioChegada, 'HH:mm ') AS HorarioChegada, " &
+                          "FORMAT(HorarioChegada, 'dd-MM-yy HH:mm ') AS HorarioChegada, " &
                           "FORMAT(HorarioEntrada, 'HH:mm') AS HorarioEntrada, " &
-                          "FORMAT(HorarioSaida, 'HH:mm ') AS HorarioSaida, " &
+                          "FORMAT(HorarioSaida, 'dd-MM-yy HH:mm ') AS HorarioSaida, " &
                           "CASE " &
                           "   WHEN Status = 4 THEN 'Concluido' " &
                           "   WHEN Status = 2 THEN 'Pendente' " &
                           "   ELSE '' " &
                           "END AS Status " &
                           "FROM tb_Cadastro " &
-                          "WHERE Status IN (2, 4)"
+                          "WHERE Status IN (2, 4)" &
+                          "ORDER BY CadastroID DESC"
 
                 Dim cmd As New SqlCommand(query, conn)
                 Dim da As New SqlDataAdapter(cmd)
@@ -70,10 +71,10 @@ Partial Public Class Historico
     Private Sub AbrirModal(ByVal vID As Integer, ByVal vTipo As String)
         CarregarDadosModal(vID, vTipo)
 
-        If vTipo = "Embarque" Then
+        If vTipo = "EMBARQUE" Then
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "SucessoEmail2", "abrirModalHistorico(); abrirModalEmbarque3();", True)
 
-        ElseIf vTipo = "Recebimento" Then
+        ElseIf vTipo = "RECEBIMENTO" Then
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "SucessoEmail2", "abrirModalHistorico(); abrirModal3();", True)
         End If
     End Sub
@@ -82,16 +83,16 @@ Partial Public Class Historico
         Dim conexao As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
         Dim comando As SqlCommand
 
-        If vTipo = "Embarque" Then
+        If vTipo = "EMBARQUE" Then
             comando = New SqlCommand("SELECT * FROM tb_Cadastro WHERE CadastroID = @ID", conexao)
-        ElseIf vTipo = "Recebimento" Then
+        ElseIf vTipo = "RECEBIMENTO" Then
             comando = New SqlCommand("SELECT * FROM tb_Cadastro WHERE CadastroID = @ID", conexao)
         Else
             Exit Sub ' Sai se o tipo de cadastro não for reconhecido
         End If
         comando.Parameters.AddWithValue("@ID", vID)
         Try
-            If Trim(vTipo) = "Embarque" Then
+            If Trim(vTipo) = "EMBARQUE" Then
                 conexao.Open()
                 Dim leitor As SqlDataReader = comando.ExecuteReader()
                 If leitor.Read() Then
@@ -113,6 +114,7 @@ Partial Public Class Historico
                     Dim valorColuna15 As String = leitor(15).ToString()
                     Dim valorColuna16 As String = leitor(16).ToString()
                     Dim valorColuna17 As String = leitor(17).ToString()
+                    Dim valorColuna24 As String = leitor(24).ToString()
 
                     txtNotaFiscal.Text = valorColuna1
                     txtNotaFiscal.Enabled = False
@@ -169,13 +171,23 @@ Partial Public Class Historico
                         ' Debug.WriteLine("data: errada")
                     End If
 
+                    Dim datajanela As String = valorColuna24
+                    If DateTime.TryParse(datajanela, dataConvertida) Then
+                        ' Se a conversão for bem-sucedida, formate a data e atribua ao txtData.Text
+                        dataJanelaEmbarque.Text = dataConvertida.ToString("yyyy-MM-ddTHH:mm")
+                        dataJanelaEmbarque.Enabled = False
+                    Else
+                        Debug.WriteLine("data: errada")
+                    End If
+                    dataJanelaEmbarque.Enabled = False
+
                     txtObservacao.Text = valorColuna17
                     txtObservacao.Enabled = False
 
                     btnCadastrar.Enabled = False
                 End If
 
-            ElseIf Trim(vTipo) = "Recebimento" Then
+            ElseIf Trim(vTipo) = "RECEBIMENTO" Then
                 conexao.Open()
                 Dim leitor As SqlDataReader = comando.ExecuteReader()
                 If leitor.Read() Then
@@ -193,6 +205,7 @@ Partial Public Class Historico
                     Dim valorColuna11 As String = leitor(11).ToString()
                     Dim valorColuna16 As String = leitor(16).ToString()
                     Dim valorColuna13 As String = leitor(13).ToString()
+                    Dim valorColuna24 As String = leitor(24).ToString()
 
                     txtNotaFiscal2.Text = valorColuna1
                     txtNotaFiscal2.Enabled = False
@@ -237,6 +250,15 @@ Partial Public Class Historico
                         ' Debug.WriteLine("data: errada")
                     End If
 
+                    Dim datajanela2 As String = valorColuna24
+                    If DateTime.TryParse(datajanela2, dataConvertida) Then
+                        ' Se a conversão for bem-sucedida, formate a data e atribua ao txtData.Text
+                        dataJanelaRecebimento.Text = dataConvertida.ToString("yyyy-MM-ddTHH:mm")
+                        dataJanelaRecebimento.Enabled = False
+                    Else
+                        Debug.WriteLine("data: errada")
+                    End If
+                    dataJanelaRecebimento.Enabled = False
                     txtOBS2.Text = valorColuna13
                     txtOBS2.Enabled = False
 

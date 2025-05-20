@@ -1,5 +1,4 @@
-﻿/* Estilos existentes (mantenha-os) */
-
+﻿
 .css__modal-Historico {
     display: none;
     position: fixed;
@@ -17,7 +16,7 @@
     background-color: white;
     margin: 8% auto; /* Ajuste a margem para centralizar */
     padding: 20px;
-    width: 60%;
+    width: 65%;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     /* top: -25%; Removido */
@@ -42,7 +41,6 @@
     margin-bottom: -3%;
     padding: 0px;
 }
-
     #modalHistorico .btnAtualizar:hover {
         background-color: #caddf2;
         font-size: 20px;
@@ -56,57 +54,13 @@
     cursor: pointer;
     z-index: 2;
 }
-
     #modalHistorico .span__close:hover {
         font-size: 20px;
         color: black;
         background-color: transparent;
     }
 
-
-/* Estilizando a tabela */
-.table {
-    position: relative;
-    top: -57px;
-    width: 100%;
-    font-family: Arial, sans-serif;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-    /* Cabeçalho da tabela */
-    .table th {
-        background: white;
-        position:sticky;
-        top:0px;
-        text-align: left;
-        padding: 12px;
-        font-size: 16px;
-        border-bottom: 2px solid #ccc;
-    }
-
-
-/* Linhas da tabela */
-.table td {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-    font-size: 16px;
-}
-
-/* Alternância de cor nas linhas */
-.table tr:nth-child(even) {
-    background-color: #f8f9fa;
-}
-
-/* Efeito ao passar o mouse */
-.table tr:hover {
-    background-color: #e9ecef;
-    transition: 0.3s;
-}
-
 /* Estilizando os botões */
-
 #modalLiberar .css_abir-dados-modal {
     border-radius: 5px;
     padding: 8px 7px;
@@ -114,18 +68,56 @@
     cursor: pointer;
     font-size: 22px;
 }
-
     #modalLiberar .css_abir-dados-modal:hover {
         background-color: #b4b2b2;
     }
-    
 
 
-.grid-rolagem {
-    padding-top: 80px;
-    margin-top: -28px;
-    max-height: 430px;
+/*Personalização da tabela*/
+/*Conteiner onde define a barra de rolagem*/
+.grid-container-historico {
+    max-height: 620px;
     overflow-y: auto;
-    border-radius: 5px;
+    overflow-x: auto;
+    margin-top: -30px;
+}
+
+/*estilizando tabela em geral*/
+.grid-table-historico {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+    /*estilizando o cabeçalho*/
+    .grid-table-historico th {
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 1;
+        padding: 8px;
+        text-align: left;
+        padding: 12px;
+        font-size: 16px;
+        border-bottom: 2px solid #ccc;
+    }
+
+    /*linha da tabela*/
+    .grid-table-historico td {
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+        font-size: 16px;
+    }
+
+    /* Alternância de cor nas linhas */
+    .grid-table-historico tr:nth-child(even) {
+        background-color: #f8f9fa;
+    }
+
+    /* Efeito ao passar o mouse */
+    .grid-table-historico tr:hover {
+        background-color: #e9ecef;
+        transition: 0.3s;
+    }

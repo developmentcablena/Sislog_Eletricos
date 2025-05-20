@@ -56,7 +56,6 @@
         color: #918a8a;
     }
 
-
 #modalUsuarios .btn-novo {
     position: relative;
     z-index: 2;
@@ -78,3 +77,55 @@
         color: white;
         border: 1px solid black;
     }
+
+ /*Personalização da tabela*/
+ /*Conteiner onde define a barra de rolagem*/
+.grid-container-usuario {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: auto;
+    border: 1px solid #f1f1f1;
+    margin-top: -63px;
+}
+
+/*estilizando tabela em geral*/
+.grid-table-usuario {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    /*estilizando o cabeçalho*/
+    .grid-table-usuario th {
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 1;
+        padding: 8px;
+        text-align: left;
+        padding: 12px;
+        font-size: 18px;
+        border-bottom: 2px solid #ccc;
+    }
+
+    /*linha da tabela*/
+    .grid-table-usuario td {
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+        font-size: 16px;
+    }
+
+/* Alternância de cor nas linhas */
+    .grid-table-usuario tr:nth-child(even) {
+        background-color: #f8f9fa;
+    }
+
+/* Efeito ao passar o mouse */
+    .grid-table-usuario tr:hover {
+        background-color: #e9ecef;
+        transition: 0.3s;
+    }
+
+

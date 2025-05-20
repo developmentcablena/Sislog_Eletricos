@@ -59,6 +59,15 @@ Partial Public Class Principal
     Protected WithEvents btnEmbarque As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
+    '''Controle btnRecusados.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents btnRecusados As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
     '''Controle btnAutorizar.
     '''</summary>
     '''<remarks>

@@ -184,5 +184,12 @@ Partial Public Class Usuarios
         End Using
     End Sub
 
+    Protected Sub gvCadastros_RowCreated(sender As Object, e As GridViewRowEventArgs) Handles gvCadastros.RowCreated
+        If e.Row.RowType = DataControlRowType.Header Then
+            e.Row.TableSection = TableRowSection.TableHeader
+        End If
+    End Sub
+
+
 
 End Class

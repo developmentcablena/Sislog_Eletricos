@@ -201,7 +201,6 @@ Partial Public Class Embarque
 
 
     Private Function FnEnviarEmail(ByVal vID As Long) As Boolean
-
         Try
             Dim mail As New MailMessage()
 
@@ -217,18 +216,14 @@ Partial Public Class Embarque
             smtp.Credentials = New System.Net.NetworkCredential(FnContaSMTP(), FnSenhaSMTP())
             smtp.EnableSsl = True
 
-
             smtp.Send(mail)
 
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "SucessoEmail2", $"alert('Email enviado com sucesso!'); fecharModalEmbarque();", True)
             Return True
-
-
         Catch ex As Exception
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Erro", $"alert('Erro ao enviar email: {ex.Message}'); abrirModalEmbarque();", True)
             Return False
         End Try
-
     End Function
 
     Private Function suRelatorio(ByVal vID As Long)

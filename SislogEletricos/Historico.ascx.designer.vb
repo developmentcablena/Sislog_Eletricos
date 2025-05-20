@@ -164,7 +164,7 @@ Partial Public Class Historico
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents txtPaletasbobinas As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents txtPaletasbobinas As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''Controle txtPeso.
@@ -201,6 +201,15 @@ Partial Public Class Historico
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
     Protected WithEvents txtData As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Controle dataJanelaEmbarque.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents dataJanelaEmbarque As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''Controle txtObservacao.
@@ -354,6 +363,15 @@ Partial Public Class Historico
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
     Protected WithEvents txtData2 As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Controle dataJanelaRecebimento.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents dataJanelaRecebimento As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''Controle txtOBS2.

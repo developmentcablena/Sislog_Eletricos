@@ -85,7 +85,7 @@
                 <asp:TextBox runat="server" ID="txtCarga" CssClass="textBox" placeholder="Capacidade de carga"  onkeyup="formatarMoeda(this)" />
             </div>
             <div class="div__group">
-                <asp:Label Text="Data" runat="server" />
+                <asp:Label Text="Data cadastro" runat="server" />
                 <asp:TextBox ID="txtData" runat="server" TextMode="DateTimeLocal" CssClass="textBox" />
             </div>
              <div class="div__group">

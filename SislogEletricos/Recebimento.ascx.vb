@@ -104,7 +104,6 @@ Partial Public Class Recebimento
         End If
 
 
-
         Using conn As New SqlConnection(connectionString)
             Dim Query As String = "INSERT INTO tb_Cadastro (NotaFiscal, FornecedorCliente, Cidade, UF, Transportadora, Frete, Motorista, RG, Placa, Material, Volumes, DataCadastro, Observacao, Status, TipoCadastro, DataJanela, IDnome)
                 VALUES(@NotaFiscal, @Fornecedor, @Cidade, @UF, @Transportadora, @Frete, @Motorista, @RG, @Placa, @Material, @Volumes, @DataCadastro, @Observacao, @Status, @TipoCadastro, @DataJanela, @idnome); " &

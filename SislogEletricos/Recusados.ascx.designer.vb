@@ -11,16 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Autorizar
-    
-    '''<summary>
-    '''Controle upModal1.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents upModal1 As Global.System.Web.UI.UpdatePanel
+Partial Public Class Recusados
     
     '''<summary>
     '''Controle gvCadastros.
@@ -239,13 +230,13 @@ Partial Public Class Autorizar
     Protected WithEvents Label4 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Controle txtNotaFiscal22.
+    '''Controle txtNotaFiscal2.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents txtNotaFiscal22 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtNotaFiscal2 As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''Controle Label5.
@@ -257,13 +248,13 @@ Partial Public Class Autorizar
     Protected WithEvents Label5 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Controle txtFornecedor22.
+    '''Controle txtFornecedor2.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents txtFornecedor22 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtFornecedor2 As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''Controle Label6.
@@ -275,112 +266,112 @@ Partial Public Class Autorizar
     Protected WithEvents Label6 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Controle txtCidade22.
+    '''Controle txtCidade2.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents txtCidade22 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtCidade2 As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Controle txtUF22.
+    '''Controle txtUF2.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents txtUF22 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtUF2 As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Controle txtTransportadora22.
+    '''Controle txtTransportadora2.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents txtTransportadora22 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtTransportadora2 As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Controle ddlFrete22.
+    '''Controle ddlFrete2.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents ddlFrete22 As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents ddlFrete2 As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
-    '''Controle txtMotorista22.
+    '''Controle txtMotorista2.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents txtMotorista22 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtMotorista2 As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Controle txtRG22.
+    '''Controle txtRG2.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents txtRG22 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtRG2 As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Controle txtPlaca22.
+    '''Controle txtPlaca2.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents txtPlaca22 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtPlaca2 As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Controle txtMaterial22.
+    '''Controle txtMaterial2.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents txtMaterial22 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtMaterial2 As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Controle txtVolumes22.
+    '''Controle txtVolumes2.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents txtVolumes22 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtVolumes2 As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Controle txtData22.
+    '''Controle txtData2.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents txtData22 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtData2 As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Controle dataJanelaRecebimento2.
+    '''Controle dataJanelaRecebimento.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents dataJanelaRecebimento2 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents dataJanelaRecebimento As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Controle txtOBS22.
+    '''Controle txtOBS2.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents txtOBS22 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtOBS2 As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''Controle btn2.
@@ -390,4 +381,22 @@ Partial Public Class Autorizar
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
     Protected WithEvents btn2 As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''Controle txtMotivo2.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents txtMotivo2 As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Controle btnEnviarMotivo2.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents btnEnviarMotivo2 As Global.System.Web.UI.WebControls.Button
 End Class
