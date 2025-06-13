@@ -2,6 +2,23 @@
 
 Todas as alterações importantes deste sistema serão documentadas neste arquivo.
 
+📋 [1.5.0.0] - 13/06/2025 
+Adicionado:
+ - Novo botão no sistema que exibe o nome do usuário logado e a versão atual do sistema.
+ - Ao clicar nesse botão, o usuário pode também sair do sistema rapidamente.
+
+Implementado:
+  - Nova aba de Relatório adicionada ao sistema. (Relatório Tempo de Permanencia)
+
+Melhorias:
+  - Na aba Cadastro Embarque, foi adicionado um campo para digitar o código do cliente. Ao inserir o código:
+  - O sistema automaticamente exibe o nome do cliente, tempo padrão, cidade e UF.
+  - Essa mesma melhoria foi replicada nas abas:
+      - Recusado
+      - Histórico
+      - Autorizado
+---
+
 ## [1.3.0.0] - 20/05/2025
 ### 🚀 Funcionalidades Novas
 - Criada a nova funcionalidade **"Recusados"**, com uma tela específica para usuários com permissão de cadastro.
