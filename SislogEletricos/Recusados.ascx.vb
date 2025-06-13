@@ -67,10 +67,23 @@ Partial Public Class Recusados
         Dim vVeiculo As String = ddlVeiculo.Text
         Dim vCarga As String = txtCarga.Text
         Dim id As String = Session("ValorID")
+        Dim vCodigo As Integer = txtCodigoRecusado.Text
+        Dim vTempo As String = txtTempo.Text
 
+
+        If String.IsNullOrEmpty(Trim(txtCodigoRecusado.Text)) Then
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta", "alert('Favor inserir o código'); abrirModalEmbarque();", True)
+            Me.txtCodigoRecusado.Focus()
+            Exit Sub
+        End If
         If String.IsNullOrEmpty(Trim(txtCliente.Text)) Then
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta", "alert('Favor inserir o Fornecedor'); abrirModalEmbarque2();", True)
             txtCliente.Focus()
+            Exit Sub
+        End If
+        If String.IsNullOrEmpty(Trim(txtTempo.Text)) Then
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta", "alert('Favor inserir o Tempo Padrão'); abrirModalEmbarque();", True)
+            Me.txtTempo.Focus()
             Exit Sub
         End If
         If String.IsNullOrEmpty(Trim(txtCidade.Text)) Then
@@ -142,7 +155,7 @@ Partial Public Class Recusados
         Using conn As New SqlConnection(connectionString)
             Try
                 conn.Open()
-                Dim sql As String = "UPDATE tb_Cadastro SET NotaFiscal = @notafiscal, FornecedorCliente = @fornecedorCliente, Cidade = @cidade, UF = @uf, Transportadora = @transportadora, Frete = @frete, Motorista = @motorista, RG = @rg, Placa = @placa, Material = @material, Volumes = @volumes, Observacao = @obs, PaletesBobina = @paletesBobina, Peso = @peso, TipoVeiculo = @veiculo, CapacidadeCarga = @carga, Status = @status WHERE CadastroID = @id"
+                Dim sql As String = "UPDATE tb_Cadastro SET NotaFiscal = @notafiscal, FornecedorCliente = @fornecedorCliente, Cidade = @cidade, UF = @uf, Transportadora = @transportadora, Frete = @frete, Motorista = @motorista, RG = @rg, Placa = @placa, Material = @material, Volumes = @volumes, Observacao = @obs, PaletesBobina = @paletesBobina, Peso = @peso, TipoVeiculo = @veiculo, CapacidadeCarga = @carga, CodigoCliente = @codigoCliente, TempoPadrao = @tempo, Status = @status WHERE CadastroID = @id"
                 Using cmd As New SqlCommand(sql, conn)
                     cmd.Parameters.AddWithValue("@notafiscal", vNotaFiscal)
                     cmd.Parameters.AddWithValue("@fornecedorCliente", vFornecedor)
@@ -160,6 +173,8 @@ Partial Public Class Recusados
                     cmd.Parameters.AddWithValue("@peso", vPeso)
                     cmd.Parameters.AddWithValue("@veiculo", vVeiculo)
                     cmd.Parameters.AddWithValue("@carga", vCarga)
+                    cmd.Parameters.AddWithValue("@codigoCliente", vCodigo)
+                    cmd.Parameters.AddWithValue("@tempo", vTempo)
                     cmd.Parameters.AddWithValue("@status", 1)
                     cmd.Parameters.AddWithValue("@id", id)
                     cmd.ExecuteNonQuery()
@@ -188,7 +203,9 @@ Partial Public Class Recusados
         Dim vVolumes As String = txtVolumes2.Text
         Dim vData As DateTime = DateTime.Parse(txtData2.Text)
         Dim vObs As String = txtOBS2.Text
+        Dim vCodigoCliente As Integer = txtCodigoRecusado.Text
         Dim id As String = Session("ValorID")
+
 
         If String.IsNullOrEmpty(Trim(txtFornecedor2.Text)) Then
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta", "alert('Favor inserir o Fornecedor'); abrirModal2();", True)
@@ -244,7 +261,7 @@ Partial Public Class Recusados
         Using conn As New SqlConnection(connectionString)
             Try
                 conn.Open()
-                Dim sql As String = "UPDATE tb_Cadastro SET NotaFiscal = @notafiscal, FornecedorCliente = @fornecedorCliente, Cidade = @cidade, UF = @uf, Transportadora = @transportadora, Frete = @frete, Motorista = @motorista, RG = @rg, Placa = @placa, Material = @material, Volumes = @volumes, Observacao = @obs, Status = @status WHERE CadastroID = @id"
+                Dim sql As String = "UPDATE tb_Cadastro SET NotaFiscal = @notafiscal, FornecedorCliente = @fornecedorCliente, Cidade = @cidade, UF = @uf, Transportadora = @transportadora, Frete = @frete, Motorista = @motorista, RG = @rg, Placa = @placa, Material = @material, Volumes = @volumes, Observacao = @obs, CodigoCliente = @codigoCliente, Status = @status WHERE CadastroID = @id"
                 Using cmd As New SqlCommand(sql, conn)
                     cmd.Parameters.AddWithValue("@notafiscal", vNotaFiscal)
                     cmd.Parameters.AddWithValue("@fornecedorCliente", vFornecedor)
@@ -258,6 +275,7 @@ Partial Public Class Recusados
                     cmd.Parameters.AddWithValue("@material", vMaterial)
                     cmd.Parameters.AddWithValue("@volumes", vVolumes)
                     cmd.Parameters.AddWithValue("@obs", vObs)
+                    cmd.Parameters.AddWithValue("@codigoCliente", vCodigoCliente)
                     cmd.Parameters.AddWithValue("@status", 1)
                     cmd.Parameters.AddWithValue("@id", id)
                     cmd.ExecuteNonQuery()
@@ -330,7 +348,7 @@ Partial Public Class Recusados
         CarregarDadosModal(cadastroID, tipoCadastro)
 
         If tipoCadastro = "EMBARQUE" Then
-            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "abrirEmbarque", "abrirModalRecusados(); abrirModalEmbarque2();", True)
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "abrirEmbarque", "abrirModalRecusados(); abrirModalEmbarque2Recusado();", True)
 
         ElseIf tipoCadastro = "RECEBIMENTO" Then
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "AbrirRecebimento", "abrirModalRecusados(); abrirModal2222();", True)
@@ -373,51 +391,56 @@ Partial Public Class Recusados
                     Dim valorColuna16 As String = leitor(16).ToString()
                     Dim valorColuna17 As String = leitor(17).ToString()
                     Dim valorColuna24 As String = leitor(24).ToString()
+                    Dim valorCodigo As Integer = leitor("CodigoCliente").ToString()
+                    Dim vTempoPadrao As String = leitor("TempoPadrao").ToString()
 
                     txtNotaFiscal.Text = valorColuna1
-                    txtNotaFiscal.Enabled = False
+                    txtNotaFiscal.Enabled = True
 
                     txtCliente.Text = valorColuna2
-                    txtCliente.Enabled = False
+                    txtCliente.Enabled = True
+
+                    txtTempo.Text = vTempoPadrao
+                    txtTempo.Enabled = True
 
                     txtCidade.Text = valorColuna3
-                    txtCidade.Enabled = False
+                    txtCidade.Enabled = True
 
                     txtUF.Text = valorColuna4
-                    txtUF.Enabled = False
+                    txtUF.Enabled = True
 
                     txtTransportadora.Text = valorColuna5
-                    txtTransportadora.Enabled = False
+                    txtTransportadora.Enabled = True
 
                     ddlFrete.Text = valorColuna6
-                    ddlFrete.Enabled = False
+                    ddlFrete.Enabled = True
 
                     txtMotorista.Text = valorColuna7
-                    txtMotorista.Enabled = False
+                    txtMotorista.Enabled = True
 
                     txtRG.Text = valorColuna8
-                    txtRG.Enabled = False
+                    txtRG.Enabled = True
 
                     txtPlaca.Text = valorColuna9
-                    txtPlaca.Enabled = False
+                    txtPlaca.Enabled = True
 
                     txtMaterial.Text = valorColuna10
-                    txtMaterial.Enabled = False
+                    txtMaterial.Enabled = True
 
                     txtVolumes.Text = valorColuna11
-                    txtVolumes.Enabled = False
+                    txtVolumes.Enabled = True
 
                     txtPaletasbobinas.Text = valorColuna12
-                    txtPaletasbobinas.Enabled = False
+                    txtPaletasbobinas.Enabled = True
 
                     txtPeso.Text = valorColuna13
-                    txtPeso.Enabled = False
+                    txtPeso.Enabled = True
 
                     ddlVeiculo.Text = valorColuna14
-                    ddlVeiculo.Enabled = False
+                    ddlVeiculo.Enabled = True
 
                     txtCarga.Text = valorColuna15
-                    txtCarga.Enabled = False
+                    txtCarga.Enabled = True
 
                     Dim dataBanco As String = valorColuna16
                     Dim dataConvertida As DateTime
@@ -439,10 +462,15 @@ Partial Public Class Recusados
                     End If
 
                     txtObservacao.Text = valorColuna17
-                    txtObservacao.Enabled = False
+                    txtObservacao.Enabled = True
 
-                    btnCadastrar.Enabled = False
+                    btnCadastrar.Enabled = True
+
+                    txtCodigoRecusado.Text = valorCodigo
+                    txtCodigoRecusado.Enabled = True
                 End If
+
+
 
             ElseIf Trim(tipoCadastro) = "RECEBIMENTO" Then
                 conexao.Open()
@@ -643,6 +671,31 @@ Partial Public Class Recusados
             End Using
         End Using
     End Function
+
+
+    Protected Sub txtCodigo_TextChanged(sender As Object, e As EventArgs)
+        Dim codigo As String = txtCodigoRecusado.Text.Trim()
+        Dim connectionString = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
+
+        Using conn As New SqlConnection(connectionString)
+            Dim cmd As New SqlCommand("SELECT * FROM tb_CodigoCliente WHERE Codigo = @codigo", conn)
+            cmd.Parameters.AddWithValue("@codigo", codigo)
+
+            conn.Open()
+            Dim reader As SqlDataReader = cmd.ExecuteReader()
+
+            If reader.Read() Then
+                txtCliente.Text = reader("ClienteTransportadora").ToString()
+                txtTempo.Text = reader("TempoPadrao").ToString()
+                txtCidade.Text = reader("Cidade").ToString()
+                txtTempo.Text = reader("TempoPadrao").ToString()
+                txtUF.Text = reader("UF").ToString()
+
+            Else
+                txtCliente.Text = "Cliente não encontrado"
+            End If
+        End Using
+    End Sub
 
 
 End Class

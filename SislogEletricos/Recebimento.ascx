@@ -68,7 +68,7 @@
                 <asp:Label Text="Observação" runat="server" />
                 <asp:TextBox runat="server" ID="txtObservacao"  CssClass="textBox__obs" TextMode="MultiLine" placeholder="Observação" />
             </div>
-            <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrarteste" CssClass="btn-cadastrar" OnClick="btnCadastrar_Click"  OnClientClick="this.value='Processando...'; this.disabled=true; document.body.style.cursor='wait';" UseSubmitBehavior="false"  />
+            <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" CssClass="btn-cadastrar" OnClick="btnCadastrar_Click"  OnClientClick="this.value='Processando...'; this.disabled=true; document.body.style.cursor='wait';" UseSubmitBehavior="false"  />
         </div>
     </div>
 </div>

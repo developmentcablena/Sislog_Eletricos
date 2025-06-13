@@ -115,12 +115,16 @@ Partial Public Class Historico
                     Dim valorColuna16 As String = leitor(16).ToString()
                     Dim valorColuna17 As String = leitor(17).ToString()
                     Dim valorColuna24 As String = leitor(24).ToString()
+                    Dim vTempo As String = leitor("TempoPadrao").ToString()
 
                     txtNotaFiscal.Text = valorColuna1
                     txtNotaFiscal.Enabled = False
 
                     txtCliente.Text = valorColuna2
                     txtCliente.Enabled = False
+
+                    txtTempo.Text = vTempo
+                    txtTempo.Enabled = False
 
                     txtCidade.Text = valorColuna3
                     txtCidade.Enabled = False

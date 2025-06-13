@@ -20,9 +20,10 @@
 
 }
 
-.nav__button{
-    display:flex;
+.nav__button {
+    display: flex;
     gap: 30px;
+    margin-left: 9%;
 }
     .nav__button input[type=submit] {
         padding: 8px 12px 8px 12px;
@@ -63,4 +64,13 @@
     padding: 3px 7px;
     border-radius: 10px;
     font-weight: bold;
+}
+
+.btn-avatar {
+    Width:45px; 
+    Height:auto;
+    margin-left: 48%;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
 }

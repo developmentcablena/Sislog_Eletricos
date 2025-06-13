@@ -73,9 +73,9 @@ Campo gerado automaticamente.
 Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
 </remarks>
 </member>
-<member name="F:SislogEletricos.Autorizar._Label2">
+<member name="F:SislogEletricos.Autorizar._txtCodigo">
 <summary>
-Controle Label2.
+Controle txtCodigo.
 </summary>
 <remarks>
 Campo gerado automaticamente.
@@ -85,6 +85,24 @@ Modificar a declaração do campo de movimento do arquivo de designer para o arq
 <member name="F:SislogEletricos.Autorizar._txtCliente">
 <summary>
 Controle txtCliente.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.Autorizar._Label2">
+<summary>
+Controle Label2.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.Autorizar._txtTempo">
+<summary>
+Controle txtTempo.
 </summary>
 <remarks>
 Campo gerado automaticamente.
@@ -433,9 +451,9 @@ Campo gerado automaticamente.
 Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
 </remarks>
 </member>
-<member name="F:SislogEletricos.Embarque._Label2">
+<member name="F:SislogEletricos.Embarque._txtCodigo">
 <summary>
-Controle Label2.
+Controle txtCodigo.
 </summary>
 <remarks>
 Campo gerado automaticamente.
@@ -445,6 +463,24 @@ Modificar a declaração do campo de movimento do arquivo de designer para o arq
 <member name="F:SislogEletricos.Embarque._txtCliente">
 <summary>
 Controle txtCliente.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.Embarque._Label2">
+<summary>
+Controle Label2.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.Embarque._txtTempo">
+<summary>
+Controle txtTempo.
 </summary>
 <remarks>
 Campo gerado automaticamente.
@@ -649,9 +685,9 @@ Campo gerado automaticamente.
 Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
 </remarks>
 </member>
-<member name="F:SislogEletricos.Historico._Label2">
+<member name="F:SislogEletricos.Historico._txtCodigo">
 <summary>
-Controle Label2.
+Controle txtCodigo.
 </summary>
 <remarks>
 Campo gerado automaticamente.
@@ -661,6 +697,24 @@ Modificar a declaração do campo de movimento do arquivo de designer para o arq
 <member name="F:SislogEletricos.Historico._txtCliente">
 <summary>
 Controle txtCliente.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.Historico._Label2">
+<summary>
+Controle Label2.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.Historico._txtTempo">
+<summary>
+Controle txtTempo.
 </summary>
 <remarks>
 Campo gerado automaticamente.
@@ -991,15 +1045,6 @@ Campo gerado automaticamente.
 Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
 </remarks>
 </member>
-<member name="F:SislogEletricos.KeepAlive._form1">
-<summary>
-Controle de form1.
-</summary>
-<remarks>
-Campo gerado automaticamente.
-Para modificar, mova a declaração de campo do arquivo do designer para o arquivo code-behind.
-</remarks>
-</member>
 <member name="F:SislogEletricos.LiberarPortaria._gvCadastros">
 <summary>
 Controle gvCadastros.
@@ -1171,9 +1216,27 @@ Campo gerado automaticamente.
 Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
 </remarks>
 </member>
+<member name="F:SislogEletricos.Principal._btnRelatorio">
+<summary>
+Controle btnRelatorio.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
 <member name="F:SislogEletricos.Principal._btnUsuario">
 <summary>
 Controle btnUsuario.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.Principal._btnPerfil">
+<summary>
+Controle btnPerfil.
 </summary>
 <remarks>
 Campo gerado automaticamente.
@@ -1378,9 +1441,9 @@ Campo gerado automaticamente.
 Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
 </remarks>
 </member>
-<member name="F:SislogEletricos.Recusados._Label2">
+<member name="F:SislogEletricos.Recusados._txtCodigoRecusado">
 <summary>
-Controle Label2.
+Controle txtCodigoRecusado.
 </summary>
 <remarks>
 Campo gerado automaticamente.
@@ -1390,6 +1453,24 @@ Modificar a declaração do campo de movimento do arquivo de designer para o arq
 <member name="F:SislogEletricos.Recusados._txtCliente">
 <summary>
 Controle txtCliente.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.Recusados._Label2">
+<summary>
+Controle Label2.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.Recusados._txtTempo">
+<summary>
+Controle txtTempo.
 </summary>
 <remarks>
 Campo gerado automaticamente.
@@ -1738,6 +1819,69 @@ Campo gerado automaticamente.
 Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
 </remarks>
 </member>
+<member name="F:SislogEletricos.Relatorio._txt_ano">
+<summary>
+Controle txt_ano.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.Relatorio._ddl_mes">
+<summary>
+Controle ddl_mes.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.Relatorio._ddl_dia">
+<summary>
+Controle ddl_dia.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.Relatorio._btnPermanencia">
+<summary>
+Controle btnPermanencia.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.Relatorio._btnGerarRelatorio">
+<summary>
+Controle btnGerarRelatorio.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.Relatorio._gvRelatorio">
+<summary>
+Controle gvRelatorio.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.Sair._btn_close">
+<summary>
+Controle btn_close.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
 <member name="F:SislogEletricos.Usuarios._gvCadastros">
 <summary>
 Controle gvCadastros.
@@ -1804,6 +1948,78 @@ Modificar a declaração do campo de movimento do arquivo de designer para o arq
 <member name="F:SislogEletricos.Usuarios._btnsalvar">
 <summary>
 Controle btnsalvar.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.WebForm1._form1">
+<summary>
+Controle form1.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.WebForm1._btn_voltar">
+<summary>
+Controle btn_voltar.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.WebForm1._txt_ano">
+<summary>
+Controle txt_ano.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.WebForm1._ddl_mes">
+<summary>
+Controle ddl_mes.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.WebForm1._ddl_dia">
+<summary>
+Controle ddl_dia.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.WebForm1._btnPermanencia">
+<summary>
+Controle btnPermanencia.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.WebForm1._btnGerarRelatorio">
+<summary>
+Controle btnGerarRelatorio.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.WebForm1._gvRelatorio">
+<summary>
+Controle gvRelatorio.
 </summary>
 <remarks>
 Campo gerado automaticamente.

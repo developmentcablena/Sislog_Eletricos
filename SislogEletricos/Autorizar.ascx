@@ -6,7 +6,7 @@
 
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <style>
-.modal22 {
+    .modal22 {
         display: none;
         position: fixed;
         z-index: 9999;
@@ -198,16 +198,16 @@
 
 
     .textBox__obs {
-        display: flex;
-        position: absolute;
-        resize: none;
-        overflow: auto;
-        width: 379px;
-        height: 86px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        margin-top: 4px;
-        font-family: Arial, sans-serif;
+     display: flex;
+    resize: none;
+    overflow: auto;
+    width: 379px;
+    height: 86px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-top: 4px;
+    font-family: Arial, sans-serif;
+    left: 750px; 
     }
 </style>
 
@@ -239,7 +239,7 @@
                                         CommandArgument='<%# Eval("CadastroID")%>' Text="🗑" ToolTip="Excluir" />
                                     <asp:Button ID="btnAbrir" runat="server" CssClass="css_abir-dados-modal" Text="📂" CommandName="abrirModal"
                                         CommandArgument='<%# Eval("CadastroID")%>' ToolTip="Visualizar" />
-                                        
+
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
@@ -260,8 +260,12 @@
                         <asp:TextBox ID="txtNotaFiscal" runat="server" CssClass="textBox" placeholder="Nota fiscal" TextMode="Number"></asp:TextBox>
                     </div>
                     <div class="div__group">
-                        <asp:Label ID="Label2" runat="server" Text="Cliente"></asp:Label>
+                        <asp:TextBox runat="server" ID="txtCodigo" CssClass="css_codigo" placeholder="Codigo" TextMode="Number" MaxLength="6" onkeyup="this.value = this.value.toUpperCase();" />
                         <asp:TextBox ID="txtCliente" runat="server" CssClass="textBox" placeholder="Cliente" MaxLength="50" onkeyup="this.value = this.value.toUpperCase();"></asp:TextBox>
+                    </div>
+                    <div class="div__group">
+                        <asp:Label ID="Label2" runat="server" Text="Tempo Padão"></asp:Label>
+                        <asp:TextBox ID="txtTempo" runat="server" CssClass="textBox" placeholder="Cidade" MaxLength="50" onkeyup="this.value = this.value.toUpperCase();"></asp:TextBox>
                     </div>
                     <div class="div__group">
                         <asp:Label ID="Label3" runat="server" Text="Cidade"></asp:Label>
@@ -340,7 +344,7 @@
                     </div>
                     <br />
                     <div>
-                        <asp:Label Text="Observação" runat="server" />
+      
                         <asp:TextBox runat="server" ID="txtObservacao" CssClass="textBox__obs" TextMode="MultiLine" placeholder="Observação" />
                     </div>
                     <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" CssClass="btn-cadastrar" />

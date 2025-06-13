@@ -1,0 +1,134 @@
+﻿
+.h1__titulo-modal {
+    background-color: #ff7f27;
+    color: white;
+    text-align: left;
+    padding: 20px;
+    margin: 0;
+    width: 100%;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 6px 6px 0 0;
+    margin-top: -8px;
+    margin-left: -11px;
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+
+/*Personalização da tabela*/
+
+/*Conteiner onde define a barra de rolagem*/
+.grid-container-relatorio {
+    max-height: 680px;
+    overflow-y: auto;
+    overflow-x: auto;
+    margin-top: -30px;
+}
+
+/*estilizando tabela em geral*/
+.grid-table-relatorio {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    /*estilizando o cabeçalho*/
+    .grid-table-relatorio th {
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 1;
+        padding: 8px;
+        text-align: left;
+        padding: 12px;
+        font-size: 16px;
+        border-bottom: 2px solid #ccc;
+    }
+
+    /*linha da tabela*/
+    .grid-table-relatorio td {
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+        font-size: 16px;
+    }
+
+    /* Alternância de cor nas linhas */
+    .grid-table-relatorio tr:nth-child(even) {
+        background-color: #f8f9fa;
+    }
+
+    /* Efeito ao passar o mouse */
+    .grid-table-relatorio tr:hover {
+        background-color: #e9ecef;
+        transition: 0.3s;
+    }
+
+
+#css_div_conteiner {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    margin-top: 41px;
+    padding-top: 19px;
+}
+
+.css_geral {
+    border-radius: 4px;
+    border: 1px solid #6f6e6e;
+    padding: 4px;
+    width: 76px;
+    margin-bottom: 80px;
+
+}
+
+.css_btn {
+    display: flex;
+    margin-top: -80px;
+    margin-left: auto;
+    border: 1px solid;
+    border-radius: 5px;
+    font-family: arial, sans-serif;
+    background-color: #ffffff;
+    color: #ff7f27;
+    padding: 9px;
+}
+
+    .css_btn:hover {
+        background-color: #FF7F27;
+        color: white;
+    }
+
+.css_btn2 {
+    display: flex;
+    margin-top: -80px;
+    margin-left: auto;
+    border: 1px solid;
+    border-radius: 5px;
+    font-family: arial, sans-serif;
+    background-color: #ffffff;
+    color: #978d00;
+    margin-left: -43px;
+    padding: 9px;
+}
+
+    .css_btn2:hover {
+        background-color: #978d00;
+        color: white;
+    }
+
+
+
+#div_global {
+    width: 75%;
+    margin: auto auto;
+    padding: 0px 10px;
+    box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+
+#btn_voltar {
+    margin-left: 99%;
+}

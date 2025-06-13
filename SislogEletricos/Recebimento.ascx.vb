@@ -105,8 +105,8 @@ Partial Public Class Recebimento
 
 
         Using conn As New SqlConnection(connectionString)
-            Dim Query As String = "INSERT INTO tb_Cadastro (NotaFiscal, FornecedorCliente, Cidade, UF, Transportadora, Frete, Motorista, RG, Placa, Material, Volumes, DataCadastro, Observacao, Status, TipoCadastro, DataJanela, IDnome)
-                VALUES(@NotaFiscal, @Fornecedor, @Cidade, @UF, @Transportadora, @Frete, @Motorista, @RG, @Placa, @Material, @Volumes, @DataCadastro, @Observacao, @Status, @TipoCadastro, @DataJanela, @idnome); " &
+            Dim Query As String = "INSERT INTO tb_Cadastro (NotaFiscal, FornecedorCliente, Cidade, UF, Transportadora, Frete, Motorista, RG, Placa, Material, Volumes, DataCadastro, Observacao, Status, TipoCadastro, DataJanela, LogCriadoPor)
+                VALUES(@NotaFiscal, @Fornecedor, @Cidade, @UF, @Transportadora, @Frete, @Motorista, @RG, @Placa, @Material, @Volumes, @DataCadastro, @Observacao, @Status, @TipoCadastro, @DataJanela, @LogCriadoPor); " &
                 "SELECT SCOPE_IDENTITY();"
 
             Using cmd As New SqlCommand(Query, conn)
@@ -130,7 +130,7 @@ Partial Public Class Recebimento
                 Else
                     cmd.Parameters.AddWithValue("@DataJanela", vDataJanela)
                 End If
-                cmd.Parameters.AddWithValue("@idnome", IDnome)
+                cmd.Parameters.AddWithValue("@LogCriadoPor", IDnome)
 
                 Try
                     conn.Open()

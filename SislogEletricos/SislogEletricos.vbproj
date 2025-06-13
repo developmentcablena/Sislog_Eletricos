@@ -96,13 +96,15 @@
     <Content Include="Autorizar.ascx" />
     <Content Include="Embarque.ascx" />
     <Content Include="Historico.ascx" />
-    <Content Include="KeepAlive.aspx" />
+    <Content Include="Images\avatar_profile.svg" />
     <Content Include="LiberarPortaria.ascx" />
     <Content Include="Login.aspx" />
     <Content Include="MotivoRecusado.ascx" />
     <Content Include="Principal.aspx" />
     <Content Include="Recebimento.ascx" />
     <Content Include="Recusados.ascx" />
+    <Content Include="Relatorio-Teste.ascx" />
+    <Content Include="Sair.ascx" />
     <Content Include="Style\Autorizar.css" />
     <Content Include="Style\CadastroUsuario.css" />
     <Content Include="Style\Embarque.css" />
@@ -114,9 +116,11 @@
     <Content Include="Style\Principal.css" />
     <Content Include="Style\Recebimento.css" />
     <Content Include="Style\Recusados.css" />
+    <Content Include="Style\Relatorio.css" />
     <Content Include="Style\Usuario.css" />
     <Content Include="Usuarios.ascx" />
     <Content Include="Web.config" />
+    <Content Include="Relatorio.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Autorizar.ascx.designer.vb">
@@ -139,13 +143,6 @@
     <Compile Include="Historico.ascx.vb">
       <DependentUpon>Historico.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="KeepAlive.aspx.designer.vb">
-      <DependentUpon>KeepAlive.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="KeepAlive.aspx.vb">
-      <DependentUpon>KeepAlive.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="LiberarPortaria.ascx.designer.vb">
       <DependentUpon>LiberarPortaria.ascx</DependentUpon>
@@ -208,12 +205,33 @@
       <DependentUpon>Recusados.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Relatorio-Teste.ascx.designer.vb">
+      <DependentUpon>Relatorio-Teste.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorio-Teste.ascx.vb">
+      <DependentUpon>Relatorio-Teste.ascx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Sair.ascx.designer.vb">
+      <DependentUpon>Sair.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Sair.ascx.vb">
+      <DependentUpon>Sair.ascx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Usuarios.ascx.designer.vb">
       <DependentUpon>Usuarios.ascx</DependentUpon>
     </Compile>
     <Compile Include="Usuarios.ascx.vb">
       <DependentUpon>Usuarios.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorio.aspx.designer.vb">
+      <DependentUpon>Relatorio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorio.aspx.vb">
+      <DependentUpon>Relatorio.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

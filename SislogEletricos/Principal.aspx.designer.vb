@@ -95,6 +95,15 @@ Partial Public Class Principal
     Protected WithEvents btnHistorico As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
+    '''Controle btnRelatorio.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents btnRelatorio As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
     '''Controle btnUsuario.
     '''</summary>
     '''<remarks>
@@ -102,6 +111,15 @@ Partial Public Class Principal
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
     Protected WithEvents btnUsuario As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''Controle btnPerfil.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents btnPerfil As Global.System.Web.UI.WebControls.ImageButton
     
     '''<summary>
     '''Controle Image1.

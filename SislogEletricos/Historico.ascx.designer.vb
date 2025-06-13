@@ -50,13 +50,13 @@ Partial Public Class Historico
     Protected WithEvents txtNotaFiscal As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Controle Label2.
+    '''Controle txtCodigo.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents txtCodigo As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''Controle txtCliente.
@@ -66,6 +66,24 @@ Partial Public Class Historico
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
     Protected WithEvents txtCliente As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Controle Label2.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Controle txtTempo.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents txtTempo As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''Controle Label3.

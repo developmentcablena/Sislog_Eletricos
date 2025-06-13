@@ -4,6 +4,7 @@ Imports System.Net
 Imports System.Net.Mail
 Imports System.Data
 Imports System.Diagnostics
+Imports System.Web.Services
 
 Partial Public Class Embarque
     Inherits System.Web.UI.UserControl
@@ -13,7 +14,16 @@ Partial Public Class Embarque
             txtData.Text = DateTime.Now.ToString("yyyy-MM-ddTHH:mm")
             txtData.Enabled = False
             btnCadastrar.Enabled = True
+            txtUF.Enabled = False
+            txtCidade.Enabled = False
+            txtCliente.Enabled = False
+            txtTempo.Enabled = False
+
+
+
         End If
+
+
         If Session("FuncaoUsuario") Is Nothing Then
             Response.Redirect("Login.aspx")
             Exit Sub
@@ -27,37 +37,19 @@ Partial Public Class Embarque
     End Sub
 
     Protected Sub btnCadastrar_Embarque_Click(sender As Object, e As EventArgs)
-        Dim connectionString = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
-        Dim vNotaFiscal As String = txtNotaFiscal.Text
-        Dim vCliente As String = txtCliente.Text
-        Dim vCidade As String = txtCidade.Text
-        Dim vUF As String = txtUF.Text
-        Dim vTransportadora As String = txtTransportadora.Text
-        Dim vFrete As String = ddlFrete.Text
-        Dim vMotorista As String = txtMotorista.Text
-        Dim vRG As String = txtRG.Text
-        Dim vPlaca As String = txtPlaca.Text
-        Dim vMaterial As String = txtMaterial.Text
-        Dim vVolumes As String = txtVolumes.Text
-        Dim vData As DateTime = DateTime.Parse(txtData.Text)
-        Dim vObs As String = txtObservacao.Text
-        Dim vCadastro As String = "EMBARQUE"
-        Dim vPaletaBonina As String = txtPaletasbobinas.Text
-        Dim vPeso As String = txtPeso.Text
-        Dim vVeiculo As String = ddlVeiculo.Text
-        Dim vCarga As String = txtCarga.Text
-        'Dim vDataJanela As DateTime = DateTime.Parse(dataJanela.Text)
-        Dim dataHora As DateTime
-        Dim vDataJanela As DateTime
-        If Not String.IsNullOrWhiteSpace(dataJanela.Text) Then
-            vDataJanela = DateTime.Parse(dataJanela.Text)
-        Else
+        If String.IsNullOrEmpty(Trim(txtCodigo.Text)) Then
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta", "alert('Favor inserir o código'); abrirModalEmbarque();", True)
+            Me.txtCodigo.Focus()
+            Exit Sub
         End If
-        Dim IDnome As String = Session("Nome")
-
         If String.IsNullOrEmpty(Trim(txtCliente.Text)) Then
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta", "alert('Favor inserir o Fornecedor'); abrirModalEmbarque();", True)
             Me.txtCliente.Focus()
+            Exit Sub
+        End If
+        If String.IsNullOrEmpty(Trim(txtTempo.Text)) Then
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta", "alert('Favor inserir o Tempo Padrão'); abrirModalEmbarque();", True)
+            Me.txtTempo.Focus()
             Exit Sub
         End If
         If String.IsNullOrEmpty(Trim(txtCidade.Text)) Then
@@ -126,10 +118,42 @@ Partial Public Class Embarque
             Exit Sub
         End If
 
-        Using conn As New SqlConnection(connectionString)
-            Dim Query As String = "INSERT INTO tb_Cadastro (NotaFiscal, FornecedorCliente, Cidade, UF, Transportadora, Frete, Motorista, RG, Placa, Material, Volumes, PaletesBobina, Peso, TipoVeiculo, CapacidadeCarga, DataCadastro, Observacao, Status, TipoCadastro, DataJanela, IDnome )
+        Dim connectionString = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
+        Dim vNotaFiscal As String = txtNotaFiscal.Text
+        Dim vCliente As String = txtCliente.Text
+        Dim vCidade As String = txtCidade.Text
+        Dim vUF As String = txtUF.Text
+        Dim vTransportadora As String = txtTransportadora.Text
+        Dim vFrete As String = ddlFrete.Text
+        Dim vMotorista As String = txtMotorista.Text
+        Dim vRG As String = txtRG.Text
+        Dim vPlaca As String = txtPlaca.Text
+        Dim vMaterial As String = txtMaterial.Text
+        Dim vVolumes As String = txtVolumes.Text
+        Dim vData As DateTime = DateTime.Parse(txtData.Text)
+        Dim vObs As String = txtObservacao.Text
+        Dim vCadastro As String = "EMBARQUE"
+        Dim vPaletaBonina As String = txtPaletasbobinas.Text
+        Dim vPeso As String = txtPeso.Text
+        Dim vVeiculo As String = ddlVeiculo.Text
+        Dim vCarga As String = txtCarga.Text
+        Dim vTempo As String = txtTempo.Text
 
-                VALUES(@NotaFiscal, @FornecedorCliente, @Cidade, @UF, @Transportadora, @Frete, @Motorista, @RG, @Placa, @Material, @Volumes, @PaletesBobina, @Peso, @TipoVeiculo, @CapacidadeCarga, @DataCadastro, @Observacao, @Status, @TipoCadastro, @DataJanela, @idnome); " &
+        'Dim vDataJanela As DateTime = DateTime.Parse(dataJanela.Text)
+        Dim dataHora As DateTime
+        Dim vDataJanela As DateTime
+        If Not String.IsNullOrWhiteSpace(dataJanela.Text) Then
+            vDataJanela = DateTime.Parse(dataJanela.Text)
+        Else
+        End If
+        Dim IDnome As String = Session("Nome")
+        Dim vCodigoCliente As String = txtCodigo.Text
+
+
+        Using conn As New SqlConnection(connectionString)
+            Dim Query As String = "INSERT INTO tb_Cadastro (NotaFiscal, FornecedorCliente, Cidade, UF, Transportadora, Frete, Motorista, RG, Placa, Material, Volumes, PaletesBobina, Peso, TipoVeiculo, CapacidadeCarga, DataCadastro, Observacao, Status, TipoCadastro, DataJanela, IDnome,  CodigoCliente, TempoPadrao)
+
+                VALUES(@NotaFiscal, @FornecedorCliente, @Cidade, @UF, @Transportadora, @Frete, @Motorista, @RG, @Placa, @Material, @Volumes, @PaletesBobina, @Peso, @TipoVeiculo, @CapacidadeCarga, @DataCadastro, @Observacao, @Status, @TipoCadastro, @DataJanela, @LogCriadoPor, @codigo, @TempoPadrao); " &
                     "SELECT SCOPE_IDENTITY();"
 
             Using cmd As New SqlCommand(Query, conn)
@@ -157,7 +181,15 @@ Partial Public Class Embarque
                 Else
                     cmd.Parameters.AddWithValue("@DataJanela", vDataJanela)
                 End If
-                cmd.Parameters.AddWithValue("@idnome", IDnome)
+                cmd.Parameters.AddWithValue("@LogCriadoPor", IDnome)
+
+                If String.IsNullOrEmpty(vCodigoCliente) Then
+                    cmd.Parameters.AddWithValue("@codigo", DBNull.Value)
+                Else
+                    cmd.Parameters.AddWithValue("@codigo", vCodigoCliente)
+                End If
+                cmd.Parameters.AddWithValue("@TempoPadrao", vTempo)
+
 
                 Try
                     conn.Open()
@@ -312,4 +344,33 @@ Partial Public Class Embarque
         End Using
     End Function
 
+    Protected Sub txtCodigo_TextChanged(sender As Object, e As EventArgs)
+        Dim codigo As String = txtCodigo.Text.Trim()
+        Dim connectionString = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
+
+        Using conn As New SqlConnection(connectionString)
+            Dim cmd As New SqlCommand("SELECT * FROM tb_CodigoCliente WHERE Codigo = @codigo", conn)
+            cmd.Parameters.AddWithValue("@codigo", codigo)
+
+            conn.Open()
+            Dim reader As SqlDataReader = cmd.ExecuteReader()
+
+            If reader.Read() Then
+                txtCliente.Text = reader("ClienteTransportadora").ToString()
+                txtTempo.Text = reader("TempoPadrao").ToString()
+                txtCidade.Text = reader("Cidade").ToString()
+                txtUF.Text = reader("UF").ToString()
+
+            Else
+                txtCliente.Text = "Cliente não encontrado"
+                txtTempo.Text = ""
+            End If
+
+            If txtCodigo.Text = "0" Then
+                txtCliente.Enabled = True
+            Else
+                txtCliente.Enabled = False
+            End If
+        End Using
+    End Sub
 End Class

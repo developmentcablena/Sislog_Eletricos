@@ -2,6 +2,7 @@
 
 <link href="Style/Embarque.css" rel="stylesheet" type="text/css" />
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <div id="modalEmbarque" class="css__modal-Embarque">
     <div class="modal__content-Embarque">
@@ -14,8 +15,12 @@
                 <asp:TextBox ID="txtNotaFiscal" runat="server" CssClass="textBox" placeholder="Nota fiscal" TextMode="Number"></asp:TextBox>
             </div>
             <div class="div__group">
-                <asp:Label ID="Label2" runat="server" Text="Cliente"></asp:Label>
+              <asp:TextBox runat="server" ID="txtCodigo" CssClass="css_codigo" placeholder="Codigo" TextMode="Number" MaxLength="6" onkeyup="this.value = this.value.toUpperCase();" AutoPostBack="True"  OnTextChanged="txtCodigo_TextChanged" />
                 <asp:TextBox ID="txtCliente" runat="server" CssClass="textBox" placeholder="Cliente" MaxLength="50" onkeyup="this.value = this.value.toUpperCase();"></asp:TextBox>
+            </div>
+            <div class="div__group">
+                <asp:Label ID="Label2" runat="server" Text="Tempo Padão"></asp:Label>
+                <asp:TextBox ID="txtTempo" runat="server" CssClass="textBox" placeholder="Cidade" MaxLength="50" onkeyup="this.value = this.value.toUpperCase();"></asp:TextBox>
             </div>
             <div class="div__group">
                 <asp:Label ID="Label3" runat="server" Text="Cidade"></asp:Label>
@@ -94,7 +99,6 @@
             </div>
             <br />
             <div>
-                <asp:Label Text="Observação" runat="server" />
                 <asp:TextBox runat="server" ID="txtObservacao" CssClass="textBox__obs" TextMode="MultiLine" placeholder="Observação" />
             </div>
             <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" CssClass="btn-cadastrar" OnClick="btnCadastrar_Embarque_Click" OnClientClick="this.value='Processando...'; this.disabled=true; document.body.style.cursor='wait';" UseSubmitBehavior="false"/>
@@ -103,10 +107,10 @@
 </div>
 
 <script>
-    function atualizarModal() {
-        // Código para atualizar o modal
-        $('#upModal1').modal('show'); // Exemplo usando jQuery para mostrar o modal
-    }
+    //function atualizarModal() {
+    //    // Código para atualizar o modal
+    //    $('#upModal1').modal('show'); // Exemplo usando jQuery para mostrar o modal
+    //}
     function abrirModalEmbarque() {
         document.getElementById("modalEmbarque").style.display = "block";
     }
@@ -124,4 +128,26 @@
         campo.value = valor;
     }
 
+</script>
+
+<script type="text/javascript">
+    function buscarCliente(codigo) {
+        if (codigo.length === 6) {
+            $.ajax({
+                type: "POST",
+                url: "Embarque.ascx/BuscarCliente",
+                data: JSON.stringify({ codigo: codigo }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    $("#txtCliente").val(response.d);
+                },
+                error: function (xhr, status, error) {
+                    console.error("Erro:", error);
+                }
+            });
+        } else {
+            $("#txtCliente").val("");
+        }
+    }
 </script>

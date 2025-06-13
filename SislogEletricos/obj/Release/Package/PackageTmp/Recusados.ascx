@@ -4,88 +4,88 @@
 
 <style>
     /*Modal Motivo*/
-.css__modal-Motivo2 {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0;
-    top: -0%;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal__content-Motivo2 {
-    background-color: white;
-    margin: 16% auto;
-    padding: 20px;
-    width: 19%;
-    border-radius: 6px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-#modalMotivo2 .h1__titulo-modal {
-    background-color: #ff7f27;
-    color: white;
-    text-align: left;
-    padding: 20px;
-    margin: 0;
-    width: 100%;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 6px 6px 0 0;
-    position: relative;
-    top: -40px;
-    left: -20px;
-    margin-bottom: -48px;
-}
-
-#modalMotivo2 .span__close {
-    color: white;
-    float: right;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 2;
-    position: relative;
-    top: -40px;
-}
-
-    #modalMotivo2 .span__close:hover {
-        font-size: 25px;
-        color: #918a8a;
+    .css__modal-Motivo2 {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: -0%;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
     }
 
-.txtMotivo2 {
-    display: flex;
-    resize: none;
-    overflow: auto;
-    width: 360px;
-    height: 100px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    margin-top: 4px;
-    font-family: Arial, sans-serif;
-}
+    .modal__content-Motivo2 {
+        background-color: white;
+        margin: 16% auto;
+        padding: 20px;
+        width: 19%;
+        border-radius: 6px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-#modalMotivo2 .btn_css {
-    background-color: #dc3545;
-    border-radius: 4px;
-    padding: 6px 42%;
-    margin-top: 6px;
-    cursor: pointer;
-    color: black;
-    font-family: Arial, sans-serif;
-}
+    #modalMotivo2 .h1__titulo-modal {
+        background-color: #ff7f27;
+        color: white;
+        text-align: left;
+        padding: 20px;
+        margin: 0;
+        width: 100%;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 6px 6px 0 0;
+        position: relative;
+        top: -40px;
+        left: -20px;
+        margin-bottom: -48px;
+    }
 
-    #modalMotivo2 .btn_css:hover {
+    #modalMotivo2 .span__close {
+        color: white;
+        float: right;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 2;
+        position: relative;
+        top: -40px;
+    }
+
+        #modalMotivo2 .span__close:hover {
+            font-size: 25px;
+            color: #918a8a;
+        }
+
+    .txtMotivo2 {
+        display: flex;
+        resize: none;
+        overflow: auto;
+        width: 360px;
+        height: 100px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        margin-top: 4px;
+        font-family: Arial, sans-serif;
+    }
+
+    #modalMotivo2 .btn_css {
         background-color: #dc3545;
         border-radius: 4px;
-        color: white;
+        padding: 6px 42%;
+        margin-top: 6px;
+        cursor: pointer;
+        color: black;
+        font-family: Arial, sans-serif;
     }
 
+        #modalMotivo2 .btn_css:hover {
+            background-color: #dc3545;
+            border-radius: 4px;
+            color: white;
+        }
 
-/*Modal Recebimento*/
-.modal2222 {
+
+    /*Modal Recebimento*/
+    .modal2222 {
         display: none;
         position: fixed;
         z-index: 9999;
@@ -222,7 +222,7 @@
         left: -20px;
     }
 
-    #modalEmbarque .span__close {
+    #modalEmbarque2Recusado .span__close {
         color: white;
         float: right;
         font-size: 20px;
@@ -232,7 +232,7 @@
         top: -85px;
     }
 
-        #modalEmbarque .span__close:hover {
+        #modalEmbarque2Recusado .span__close:hover {
             font-size: 20px;
             color: black;
             background-color: transparent;
@@ -262,7 +262,7 @@
         font-size: 14px;
     }
 
-    #modalEmbarque2 .btn_enviar_embarque {
+    #modalEmbarque2Recusado .btn_enviar_embarque {
         grid-column: span 2;
         padding: 10px;
         background-color: #ff7f27;
@@ -277,16 +277,16 @@
 
 
     .textBox__obs {
-        display: flex;
-        position: absolute;
-        resize: none;
-        overflow: auto;
-        width: 379px;
-        height: 86px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        margin-top: 4px;
-        font-family: Arial, sans-serif;
+    display: flex;
+    resize: none;
+    overflow: auto;
+    width: 379px;
+    height: 86px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-top: 4px;
+    font-family: Arial, sans-serif;
+    left: 750px; 
     }
 </style>
 
@@ -322,10 +322,10 @@
 </div>
 
 <!-- Estrotura para abrir o modal Embarque  -->
-<div id="modalEmbarque2" class="css__modal-Embarque2">
+<div id="modalEmbarque2Recusado" class="css__modal-Embarque2">
     <div class="modal__content-Embarque2">
         <h1 class="h1__titulo-modal">Embarque</h1>
-        <span enableviewstate="true" class="span__close" runat="server" onclick="fecharModalEmbarque2();">x</span>
+        <span enableviewstate="true" class="span__close" runat="server" onclick="fecharModalEmbarque2Recusado();">x</span>
 
         <div class="modal__body">
             <div class="div__group">
@@ -333,8 +333,12 @@
                 <asp:TextBox ID="txtNotaFiscal" runat="server" CssClass="textBox" placeholder="Nota fiscal" TextMode="Number"></asp:TextBox>
             </div>
             <div class="div__group">
-                <asp:Label ID="Label2" runat="server" Text="Cliente"></asp:Label>
+                <asp:TextBox runat="server" ID="txtCodigoRecusado" CssClass="css_codigo" placeholder="Codigo" TextMode="Number" MaxLength="6" onkeyup="this.value = this.value.toUpperCase();" AutoPostBack="True"  OnTextChanged="txtCodigo_TextChanged" />
                 <asp:TextBox ID="txtCliente" runat="server" CssClass="textBox" placeholder="Cliente" MaxLength="50" onkeyup="this.value = this.value.toUpperCase();"></asp:TextBox>
+            </div>
+            <div class="div__group">
+                <asp:Label ID="Label2" runat="server" Text="Tempo Padão"></asp:Label>
+                <asp:TextBox ID="txtTempo" runat="server" CssClass="textBox" placeholder="Cidade" MaxLength="50" onkeyup="this.value = this.value.toUpperCase();"></asp:TextBox>
             </div>
             <div class="div__group">
                 <asp:Label ID="Label3" runat="server" Text="Cidade"></asp:Label>
@@ -413,10 +417,9 @@
             </div>
             <br />
             <div>
-                <asp:Label Text="Observação" runat="server" />
                 <asp:TextBox runat="server" ID="txtObservacao" CssClass="textBox__obs" TextMode="MultiLine" placeholder="Observação" />
             </div>
-            <asp:Button ID="btnCadastrar" runat="server" Text="Enviar" CssClass="btn_enviar_embarque" OnClick="btn_enviar_embarque" OnClientClick="this.value='Processando...'; this.disabled=true;" UseSubmitBehavior="false"/>
+            <asp:Button ID="btnCadastrar" runat="server" Text="Enviar" CssClass="btn_enviar_embarque" OnClick="btn_enviar_embarque" OnClientClick="this.value='Processando...'; this.disabled=true;" UseSubmitBehavior="false" />
         </div>
     </div>
 </div>
@@ -488,7 +491,7 @@
                 <asp:Label Text="Observação" runat="server" />
                 <asp:TextBox runat="server" ID="txtOBS2" CssClass="textBox__obs" TextMode="MultiLine" placeholder="Observação" />
             </div>
-            <asp:Button ID="btn2" runat="server" Text="Enviar" CssClass="btn_enviar_recebimento"   OnClick="btn_enviar_recebimento" OnClientClick="this.value='Processando...'; this.disabled=true;" UseSubmitBehavior="false"/>
+            <asp:Button ID="btn2" runat="server" Text="Enviar" CssClass="btn_enviar_recebimento" OnClick="btn_enviar_recebimento" OnClientClick="this.value='Processando...'; this.disabled=true;" UseSubmitBehavior="false" />
         </div>
     </div>
 </div>
@@ -499,8 +502,8 @@
         <h1 class="h1__titulo-modal">Motivo</h1>
         <span enableviewstate="true" class="span__close" runat="server" onclick="fehcarModalMotivo2();">x</span>
         <div class="div_motivo">
-            <asp:TextBox runat="server" ID="txtMotivo2" CssClass="txtMotivo" TextMode="MultiLine" placeholder="Digite o motivo recusado" /> 
-            <asp:Button ID="btnEnviarMotivo2"  Text ="Recusar" runat="server" CssClass="btn_css"/>
+            <asp:TextBox runat="server" ID="txtMotivo2" CssClass="txtMotivo" TextMode="MultiLine" placeholder="Digite o motivo recusado" />
+            <asp:Button ID="btnEnviarMotivo2" Text="Recusar" runat="server" CssClass="btn_css" />
         </div>
     </div>
 </div>
@@ -522,11 +525,11 @@
     }
 
 
-    function abrirModalEmbarque2() {
-        document.getElementById("modalEmbarque2").style.display = "block";
+    function abrirModalEmbarque2Recusado() {
+        document.getElementById("modalEmbarque2Recusado").style.display = "block";
     }
-    function fecharModalEmbarque2() {
-        document.getElementById("modalEmbarque2").style.display = "none";
+    function fecharModalEmbarque2Recusado() {
+        document.getElementById("modalEmbarque2Recusado").style.display = "none";
     }
 
 
