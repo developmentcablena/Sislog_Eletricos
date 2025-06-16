@@ -94,13 +94,13 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>05/12/2025 11:15:34</publishTime>
     </File>
     <File Include="bin/SislogEletricos.dll">
-      <publishTime>06/13/2025 16:32:16</publishTime>
+      <publishTime>06/16/2025 15:52:33</publishTime>
     </File>
     <File Include="bin/SislogEletricos.pdb">
-      <publishTime>06/13/2025 16:32:16</publishTime>
+      <publishTime>06/16/2025 15:52:33</publishTime>
     </File>
     <File Include="bin/SislogEletricos.xml">
-      <publishTime>06/13/2025 16:32:16</publishTime>
+      <publishTime>06/16/2025 15:52:33</publishTime>
     </File>
     <File Include="Embarque.ascx">
       <publishTime>06/10/2025 12:07:20</publishTime>
@@ -136,10 +136,10 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>06/09/2025 16:08:37</publishTime>
     </File>
     <File Include="Relatorio.aspx">
-      <publishTime>06/09/2025 16:39:22</publishTime>
+      <publishTime>06/16/2025 14:56:58</publishTime>
     </File>
     <File Include="Sair.ascx">
-      <publishTime>06/13/2025 16:19:34</publishTime>
+      <publishTime>06/16/2025 15:51:17</publishTime>
     </File>
     <File Include="Style/Autorizar.css">
       <publishTime>05/12/2025 11:15:33</publishTime>
@@ -175,7 +175,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>05/14/2025 16:25:51</publishTime>
     </File>
     <File Include="Style/Relatorio.css">
-      <publishTime>06/09/2025 16:36:01</publishTime>
+      <publishTime>06/16/2025 15:08:10</publishTime>
     </File>
     <File Include="Style/Usuario.css">
       <publishTime>05/12/2025 15:31:55</publishTime>

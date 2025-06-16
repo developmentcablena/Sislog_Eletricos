@@ -132,3 +132,11 @@
 #btn_voltar {
     margin-left: 99%;
 }
+
+.css_tipoRelatorio {
+    border-radius: 4px;
+    border: 1px solid #6f6e6e;
+    padding: 4px;
+    width: 208px;
+    margin-bottom: 80px;
+}

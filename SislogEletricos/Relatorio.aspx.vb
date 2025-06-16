@@ -55,6 +55,11 @@ Public Class WebForm1
         campo8.HeaderText = "Status"
         gvRelatorio.Columns.Add(campo8)
 
+        Dim campo9 As New BoundField()
+        campo9.DataField = "Observacao"
+        campo9.HeaderText = "Observação"
+        gvRelatorio.Columns.Add(campo9)
+
 
         dt.Columns.Add("TempoPermanencia", GetType(String))
 
@@ -86,28 +91,100 @@ Public Class WebForm1
         gvRelatorio.DataBind()
     End Sub
 
-    Protected Sub gvRelatorio_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles gvRelatorio.RowDataBound
-        If e.Row.RowType = DataControlRowType.DataRow Then
-            Dim tempoPermanenciaStr As String = DataBinder.Eval(e.Row.DataItem, "TempoPermanencia").ToString()
-            Dim tempoPadraoStr As String = DataBinder.Eval(e.Row.DataItem, "TempoPadrao").ToString()
+    Public Sub executar2()
+        Dim dt As DataTable = ObterDadosBanco2()
+        Debug.WriteLine("exewcutar")
+        gvRelatorio.Columns.Clear()
 
-            Dim tempoPermanencia As TimeSpan
-            Dim tempoPadrao As TimeSpan
-            Dim status As String = "DADOS INVÁLIDOS"
+        ' Criar colunas dinamicamente com base nas colunas do DataTable
 
-            If TimeSpan.TryParse(tempoPermanenciaStr, tempoPermanencia) AndAlso TimeSpan.TryParse(tempoPadraoStr, tempoPadrao) Then
-                If tempoPermanencia > tempoPadrao Then
-                    status = "FORA DO TEMPO"
-                ElseIf tempoPermanencia < tempoPadrao Then
-                    status = "TEMPO ANTECIPADO"
+        Dim campo1 As New BoundField()
+        campo1.DataField = "Transportadora"
+        campo1.HeaderText = "Transportadora"
+        gvRelatorio.Columns.Add(campo1)
+
+        Dim campo2 As New BoundField()
+        campo2.DataField = "DataCadastro"
+        campo2.HeaderText = "Data Cadastro"
+        campo2.DataFormatString = "{0:dd/MM/yyyy}"
+        campo2.HtmlEncode = False
+        gvRelatorio.Columns.Add(campo2)
+
+        Dim campo3 As New BoundField()
+        campo3.DataField = "HorarioEntrada"
+        campo3.HeaderText = "Horario Entrada"
+        campo3.DataFormatString = "{0:HH:mm}"
+        gvRelatorio.Columns.Add(campo3)
+
+        Dim campo4 As New BoundField()
+        campo4.DataField = "HorarioSaida"
+        campo4.HeaderText = "Horario Saída"
+        campo4.DataFormatString = "{0:HH:mm}"
+        gvRelatorio.Columns.Add(campo4)
+
+        Dim campo5 As New BoundField()
+        campo5.DataField = "TempoPermanencia"
+        campo5.HeaderText = "Tempo de Permanencia"
+        gvRelatorio.Columns.Add(campo5)
+
+        Dim campo9 As New BoundField()
+        campo9.DataField = "Observacao"
+        campo9.HeaderText = "Observação"
+        gvRelatorio.Columns.Add(campo9)
+
+        dt.Columns.Add("TempoPermanencia", GetType(String))
+        For Each row As DataRow In dt.Rows
+            Dim entradaStr As String = row("HorarioEntrada").ToString()
+            Dim saidaStr As String = row("HorarioSaida").ToString()
+
+            If Not String.IsNullOrEmpty(entradaStr) AndAlso Not String.IsNullOrEmpty(saidaStr) Then
+                Dim entrada As DateTime
+                Dim saida As DateTime
+
+                If DateTime.TryParse(entradaStr, entrada) AndAlso DateTime.TryParse(saidaStr, saida) Then
+                    Dim permanencia As TimeSpan = saida - entrada
+
+                    row("TempoPermanencia") = permanencia
+
                 Else
-                    status = "DENTRO DO TEMPO"
+                    row("TempoPermanencia") = "-"
                 End If
+            Else
+                row("TempoPermanencia") = "-"
             End If
+        Next
 
-            ' Agora usando o índice correto da coluna "Status"
-            e.Row.Cells(6).Text = status
+        ' Fazer o bind dos dados no GridView
+        gvRelatorio.DataSource = dt
+        gvRelatorio.DataBind()
+    End Sub
+
+    Protected Sub gvRelatorio_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles gvRelatorio.RowDataBound
+
+        If Trim(ddl_tipoRelatorio.Text) = "TEMPO DE PERMANENCIA" Then
+            If e.Row.RowType = DataControlRowType.DataRow Then
+                Dim tempoPermanenciaStr As String = DataBinder.Eval(e.Row.DataItem, "TempoPermanencia").ToString()
+                Dim tempoPadraoStr As String = DataBinder.Eval(e.Row.DataItem, "TempoPadrao").ToString()
+
+                Dim tempoPermanencia As TimeSpan
+                Dim tempoPadrao As TimeSpan
+                Dim status As String = "DADOS INVÁLIDOS"
+
+                If TimeSpan.TryParse(tempoPermanenciaStr, tempoPermanencia) AndAlso TimeSpan.TryParse(tempoPadraoStr, tempoPadrao) Then
+                    If tempoPermanencia > tempoPadrao Then
+                        status = "FORA DO TEMPO"
+                    ElseIf tempoPermanencia < tempoPadrao Then
+                        status = "TEMPO ANTECIPADO"
+                    Else
+                        status = "DENTRO DO TEMPO"
+                    End If
+                End If
+
+                ' Agora usando o índice correto da coluna "Status"
+                e.Row.Cells(6).Text = status
+            End If
         End If
+
     End Sub
 
     Private Function ObterDadosBanco() As DataTable
@@ -117,6 +194,44 @@ Public Class WebForm1
         Dim conexaoBD As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
 
         Dim consultaSQL As String = $"SELECT * FROM tb_Cadastro WHERE YEAR(DataCadastro) = {vAno} AND TipoCadastro = 'EMBARQUE' AND Status = 4 "
+
+        If Not String.IsNullOrEmpty(ddl_dia.Text) Then
+            Dim vDia As Integer = CInt(ddl_dia.Text)
+            consultaSQL &= $" AND DAY(DataCadastro) = {vDia}"
+        End If
+
+        If Not String.IsNullOrEmpty(ddl_mes.Text) Then
+            Dim vMes As Integer = CInt(ddl_mes.Text)
+            consultaSQL &= $" AND MONTH(DataCadastro) = {vMes}"
+        End If
+
+        ' Veja a query que será executada
+        System.Diagnostics.Debug.WriteLine("Consulta SQL: " & consultaSQL)
+
+        Dim dt As New DataTable()
+
+        Using conexaoBD
+            conexaoBD.Open()
+            Using cmd As New SqlCommand(consultaSQL, conexaoBD)
+                Using adaptador As New SqlDataAdapter(cmd)
+                    adaptador.Fill(dt)
+                End Using
+            End Using
+        End Using
+
+        ' Mostre quantas linhas vieram
+        System.Diagnostics.Debug.WriteLine("Qtd Linhas retornadas: " & dt.Rows.Count)
+
+
+        Return dt
+    End Function
+
+    Private Function ObterDadosBanco2() As DataTable
+        Dim vAno As Integer = txt_ano.Text
+
+        Dim conexaoBD As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+
+        Dim consultaSQL As String = $"SELECT * FROM tb_Cadastro WHERE YEAR(DataCadastro) = {vAno} AND TipoCadastro = 'RECEBIMENTO' AND Status = 4 "
 
         If Not String.IsNullOrEmpty(ddl_dia.Text) Then
             Dim vDia As Integer = CInt(ddl_dia.Text)
@@ -160,22 +275,35 @@ Public Class WebForm1
             Exit Sub
         End If
 
-        executar()
-        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "abrir", "abrirModalRelatorio();", True)
-        'ScriptManager.RegisterStartupScript(Me, Me.GetType(), "abrirModal", "abrirModalRelatorio();", True)
-        HttpContext.Current.Session("StatusRelatorio") = 1
+        If String.IsNullOrEmpty(Trim(ddl_tipoRelatorio.Text)) Then
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "abrirModal", "alert('Favor selecione o tipo de relatório'); abrirModalRelatorio();", True)
+            ddl_tipoRelatorio.Focus()
+            Exit Sub
+        End If
+
+        If Trim(ddl_tipoRelatorio.Text) = "TEMPO DE PERMANENCIA" Then
+            executar()
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "abrir", "abrirModalRelatorio();", True)
+        ElseIf Trim(ddl_tipoRelatorio.Text) = "RECEBIMENTO" Then
+            executar2()
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "abrir", "abrirModalRelatorio();", True)
+        Else
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "abrir", "alert('Erro ao gerar relatório!')", True)
+        End If
+
+
 
     End Sub
 
     Protected Sub btnGerarRelatorio_Click(sender As Object, e As EventArgs)
-        Dim vStatusRelatorio As Integer = Session("StatusRelatorio")
-        If vStatusRelatorio = 1 Then
-            ' Recrie os dados e o bind antes de exportar, se necessário
-            'executar() ' Se precisar garantir que o GridView está preenchido
-
+        If gvRelatorio.Rows.Count = 0 Then
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "abrirModal", "alert('Favor gerar o relatório');", True)
+            btnPermanencia.Focus()
+            Exit Sub
+        Else
             Response.Clear()
             Response.Buffer = True
-            Response.AddHeader("content-disposition", "attachment;filename=Relatorio.xls")
+            Response.AddHeader("content-disposition", "attachment;filename=Relatorio.xlsx")
             Response.Charset = ""
             Response.ContentType = "application/vnd.ms-excel"
             Response.ContentEncoding = System.Text.Encoding.UTF8
@@ -193,13 +321,7 @@ Public Class WebForm1
             Response.Output.Write(sw.ToString())
             Response.Flush()
             Response.[End]()
-        Else
-
-            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "erro", "alert('Favor gerar o relatório!')", True)
-            btnPermanencia.Focus()
-            Exit Sub
         End If
-
 
     End Sub
 

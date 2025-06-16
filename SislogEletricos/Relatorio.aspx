@@ -72,6 +72,14 @@
                         <asp:ListItem Text="30" />
                     </asp:DropDownList>
                 </div>
+                <div>
+                    <asp:Label Text="Tipo Relatório" runat="server" />
+                    <asp:DropDownList runat="server" ID="ddl_tipoRelatorio" CssClass="css_tipoRelatorio">
+                        <asp:ListItem Text="" />
+                        <asp:ListItem Text="TEMPO DE PERMANENCIA" />
+                        <asp:ListItem Text="RECEBIMENTO" />
+                    </asp:DropDownList>
+                </div>
                 <asp:Button ID="btnPermanencia" Text="Gerar Relatório" runat="server" OnClick="BtnTempoPermanencia_Click" CssClass="css_btn" />
                 <asp:Button ID="btnGerarRelatorio" Text="Exportar XLSX" runat="server" OnClick="btnGerarRelatorio_Click" CssClass="css_btn2" />
             </div>

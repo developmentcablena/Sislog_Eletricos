@@ -368,8 +368,12 @@ Partial Public Class Embarque
 
             If txtCodigo.Text = "0" Then
                 txtCliente.Enabled = True
+                txtUF.Enabled = True
+                txtCidade.Enabled = True
             Else
                 txtCliente.Enabled = False
+                txtCidade.Enabled = False
+                txtUF.Enabled = False
             End If
         End Using
     End Sub

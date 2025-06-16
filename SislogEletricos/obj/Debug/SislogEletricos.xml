@@ -1999,6 +1999,15 @@ Campo gerado automaticamente.
 Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
 </remarks>
 </member>
+<member name="F:SislogEletricos.WebForm1._ddl_tipoRelatorio">
+<summary>
+Controle ddl_tipoRelatorio.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
 <member name="F:SislogEletricos.WebForm1._btnPermanencia">
 <summary>
 Controle btnPermanencia.

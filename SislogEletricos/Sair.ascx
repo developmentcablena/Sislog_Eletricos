@@ -91,7 +91,7 @@
         <h1 class="h1__titulo-modal">Olá, <%= Session("Usuario") %>!</h1>
         <span enableviewstate="true" class="span__close" runat="server" onclick="fehcarModalSair();">x</span>
         <asp:Button ID="btn_close" Text="Sair do sistema" runat="server" CssClass="css_sair" OnClick="Btn_close_Click" />
-        <asp:Label Text="Versão 1.5.0.0" runat="server" CssClass="css_versao" />
+        <asp:Label Text="Versão 1.5.1.3" runat="server" CssClass="css_versao" />
     </div>
 </div>
 
