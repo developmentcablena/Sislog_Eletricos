@@ -2,7 +2,7 @@
 
 Todas as alterações importantes deste sistema serão documentadas neste arquivo.
 
-📋 [1.5.0.0] - 13/06/2025 
+📋 [1.5.1.3] - 16/06/2025 
 Adicionado:
  - Novo botão no sistema que exibe o nome do usuário logado e a versão atual do sistema.
  - Ao clicar nesse botão, o usuário pode também sair do sistema rapidamente.
@@ -17,6 +17,10 @@ Melhorias:
       - Recusado
       - Histórico
       - Autorizado
+   - Correção para quando o usuário colocar o codigo do cliente = 0 deixa o campo Cliente, UF e Cidade liberado.
+   - Adicionado a observação no relatório.
+   - Adicionado um relatório para "RECEBIMENTO".
+   - Trava no botão ao tentar exportar o relatório para excel sem gerar.
 ---
 
 ## [1.3.0.0] - 20/05/2025
