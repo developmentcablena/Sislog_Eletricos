@@ -2,6 +2,13 @@
 
 Todas as alterações importantes deste sistema serão documentadas neste arquivo.
 
+📋 [1.6.0.0] - 24/06/2025
+### 🚀 Funcionalidades Novas
+Adicionado:
+ - Adicionada nova guia no sistema para cadastro e edição de clientes.
+   
+---
+
 📋 [1.5.1.3] - 16/06/2025 
 Adicionado:
  - Novo botão no sistema que exibe o nome do usuário logado e a versão atual do sistema.
