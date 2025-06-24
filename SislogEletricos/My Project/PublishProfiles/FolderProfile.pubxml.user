@@ -10,7 +10,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
   </PropertyGroup>
   <ItemGroup>
     <File Include="Autorizar.ascx">
-      <publishTime>06/13/2025 11:30:43</publishTime>
+      <publishTime>06/16/2025 16:04:08</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>05/12/2025 11:15:34</publishTime>
@@ -94,22 +94,25 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>05/12/2025 11:15:34</publishTime>
     </File>
     <File Include="bin/SislogEletricos.dll">
-      <publishTime>06/16/2025 15:52:33</publishTime>
+      <publishTime>06/24/2025 16:26:05</publishTime>
     </File>
     <File Include="bin/SislogEletricos.pdb">
-      <publishTime>06/16/2025 15:52:33</publishTime>
+      <publishTime>06/24/2025 16:26:05</publishTime>
     </File>
     <File Include="bin/SislogEletricos.xml">
-      <publishTime>06/16/2025 15:52:33</publishTime>
+      <publishTime>06/24/2025 16:26:05</publishTime>
+    </File>
+    <File Include="CodigoCliente.ascx">
+      <publishTime>06/24/2025 13:04:03</publishTime>
     </File>
     <File Include="Embarque.ascx">
-      <publishTime>06/10/2025 12:07:20</publishTime>
+      <publishTime>06/16/2025 16:04:08</publishTime>
     </File>
     <File Include="Historico.ascx">
-      <publishTime>06/13/2025 11:33:30</publishTime>
+      <publishTime>06/16/2025 16:04:08</publishTime>
     </File>
     <File Include="Images/avatar_profile.svg">
-      <publishTime>05/23/2025 16:16:09</publishTime>
+      <publishTime>06/16/2025 16:04:08</publishTime>
     </File>
     <File Include="KeepAlive.aspx">
       <publishTime>05/12/2025 11:15:33</publishTime>
@@ -124,22 +127,22 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>05/20/2025 11:20:04</publishTime>
     </File>
     <File Include="Principal.aspx">
-      <publishTime>06/10/2025 17:39:39</publishTime>
+      <publishTime>06/24/2025 14:49:05</publishTime>
     </File>
     <File Include="Recebimento.ascx">
-      <publishTime>05/23/2025 12:01:33</publishTime>
+      <publishTime>06/16/2025 16:04:08</publishTime>
     </File>
     <File Include="Recusados.ascx">
-      <publishTime>06/13/2025 09:28:34</publishTime>
+      <publishTime>06/16/2025 16:04:08</publishTime>
     </File>
     <File Include="Relatorio-Teste.ascx">
-      <publishTime>06/09/2025 16:08:37</publishTime>
+      <publishTime>06/16/2025 16:04:08</publishTime>
     </File>
     <File Include="Relatorio.aspx">
-      <publishTime>06/16/2025 14:56:58</publishTime>
+      <publishTime>06/16/2025 16:04:09</publishTime>
     </File>
     <File Include="Sair.ascx">
-      <publishTime>06/16/2025 15:51:17</publishTime>
+      <publishTime>06/24/2025 16:25:55</publishTime>
     </File>
     <File Include="Style/Autorizar.css">
       <publishTime>05/12/2025 11:15:33</publishTime>
@@ -147,8 +150,11 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
     <File Include="Style/CadastroUsuario.css">
       <publishTime>05/12/2025 11:15:33</publishTime>
     </File>
+    <File Include="Style/CodigoCliente.css">
+      <publishTime>06/24/2025 13:14:26</publishTime>
+    </File>
     <File Include="Style/Embarque.css">
-      <publishTime>06/13/2025 09:28:34</publishTime>
+      <publishTime>06/16/2025 16:04:08</publishTime>
     </File>
     <File Include="Style/Historico.css">
       <publishTime>05/20/2025 14:52:37</publishTime>
@@ -166,7 +172,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>05/16/2025 15:35:58</publishTime>
     </File>
     <File Include="Style/Principal.css">
-      <publishTime>06/10/2025 11:26:05</publishTime>
+      <publishTime>06/20/2025 17:45:15</publishTime>
     </File>
     <File Include="Style/Recebimento.css">
       <publishTime>05/12/2025 11:15:33</publishTime>
@@ -175,13 +181,13 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>05/14/2025 16:25:51</publishTime>
     </File>
     <File Include="Style/Relatorio.css">
-      <publishTime>06/16/2025 15:08:10</publishTime>
+      <publishTime>06/16/2025 16:04:09</publishTime>
     </File>
     <File Include="Style/Usuario.css">
       <publishTime>05/12/2025 15:31:55</publishTime>
     </File>
     <File Include="Usuarios.ascx">
-      <publishTime>05/14/2025 14:27:32</publishTime>
+      <publishTime>06/20/2025 16:56:57</publishTime>
     </File>
     <File Include="Web.config">
       <publishTime>06/13/2025 16:19:57</publishTime>

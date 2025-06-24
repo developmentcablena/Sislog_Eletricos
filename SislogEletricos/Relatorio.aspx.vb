@@ -303,7 +303,7 @@ Public Class WebForm1
         Else
             Response.Clear()
             Response.Buffer = True
-            Response.AddHeader("content-disposition", "attachment;filename=Relatorio.xlsx")
+            Response.AddHeader("content-disposition", "attachment;filename=Relatorio.xls")
             Response.Charset = ""
             Response.ContentType = "application/vnd.ms-excel"
             Response.ContentEncoding = System.Text.Encoding.UTF8

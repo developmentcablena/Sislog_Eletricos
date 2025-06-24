@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Autorizar.ascx" />
+    <Content Include="CodigoCliente.ascx" />
     <Content Include="Embarque.ascx" />
     <Content Include="Historico.ascx" />
     <Content Include="Images\avatar_profile.svg" />
@@ -103,10 +104,10 @@
     <Content Include="Principal.aspx" />
     <Content Include="Recebimento.ascx" />
     <Content Include="Recusados.ascx" />
-    <Content Include="Relatorio-Teste.ascx" />
     <Content Include="Sair.ascx" />
     <Content Include="Style\Autorizar.css" />
     <Content Include="Style\CadastroUsuario.css" />
+    <Content Include="Style\CodigoCliente.css" />
     <Content Include="Style\Embarque.css" />
     <Content Include="Style\Historico.css" />
     <Content Include="Style\Liberacao.css" />
@@ -129,6 +130,13 @@
     <Compile Include="Autorizar.ascx.vb">
       <DependentUpon>Autorizar.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CodigoCliente.ascx.designer.vb">
+      <DependentUpon>CodigoCliente.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CodigoCliente.ascx.vb">
+      <DependentUpon>CodigoCliente.ascx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Embarque.ascx.designer.vb">
       <DependentUpon>Embarque.ascx</DependentUpon>
@@ -204,13 +212,6 @@
     <Compile Include="Recusados.ascx.vb">
       <DependentUpon>Recusados.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Relatorio-Teste.ascx.designer.vb">
-      <DependentUpon>Relatorio-Teste.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Relatorio-Teste.ascx.vb">
-      <DependentUpon>Relatorio-Teste.ascx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Sair.ascx.designer.vb">
       <DependentUpon>Sair.ascx</DependentUpon>

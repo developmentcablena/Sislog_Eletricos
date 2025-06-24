@@ -9,6 +9,8 @@
 <%@ Register Src="~/Recusados.ascx" TagName="Recusados" TagPrefix="uc6" %>
 <%@ Register Src="~/MotivoRecusado.ascx" TagName="Motivo" TagPrefix="uc7" %>
 <%@ Register Src="~/Sair.ascx" TagName="Sair" TagPrefix="uc8" %>
+<%@ Register Src="~/CodigoCliente.ascx" TagName="Codigo" TagPrefix="uc9" %>
+
 
 
 
@@ -33,16 +35,25 @@
                     <nav class="nav__button">
                         <asp:Button ID="btnRecebimento" runat="server" Text="Recebimento" OnClientClick="abrirModal(); return false;" />
                         <uc:Recebimento runat="server" />
+
                         <asp:Button ID="btnEmbarque" runat="server" Text="Embarque" OnClientClick="abrirModalEmbarque(); return false;" />
                         <uc1:Embarque runat="server" />
+
                         <asp:Button ID="btnRecusados" Text="Recusados" runat="server" OnClientClick="abrirModalRecusados(); return false;" />
                         <uc6:Recusados runat="server" />
+
                         <asp:Button ID="btnAutorizar" runat="server" Text="Autorizar" OnClientClick="abrirModalAutorizacao(); return false;" />
                         <uc2:Autorizar runat="server" />
+
+                        <asp:Button ID="btnCodigoCliente"  Text="Código Cliente" runat="server" OnClientClick="abrirModalCodigo(); return false;" />
+                        <uc9:Codigo runat="server" />
+
                         <asp:Button ID="btnLiberar" runat="server" Text="Liberar" OnClientClick="abrirModalLiberar(); return false;" />
                         <uc3:LiberarPortaria runat="server" />
+
                         <asp:Button ID="btnHistorico" runat="server" Text="Histórico" OnClientClick="abrirModalHistorico(); return false;" />
                         <uc4:Historico runat="server" />
+
                         <asp:Button ID="btnRelatorio" runat="server" Text="Relatório" OnClick="btnRelatorio_Click" />                               
                         <asp:Button ID="btnUsuario" Text="Usuário" runat="server" OnClientClick="abrirModalUsuarios(); return false;" />
                         <uc5:Usuarios runat="server" />
@@ -163,6 +174,13 @@
         }
         function fecharModalRelatorio() {
             document.getElementById("modalRelatorio").style.display = "none";
+        }
+
+         function abrirModalCodigo() {
+            document.getElementById("modalCodigoCliente").style.display = "block";
+        }
+        function fecharModalCodigo() {
+            document.getElementById("modalCodigoCliente").style.display = "none";
         }
 
     </script>

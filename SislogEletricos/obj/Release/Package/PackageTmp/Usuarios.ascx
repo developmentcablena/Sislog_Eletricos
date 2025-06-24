@@ -130,8 +130,6 @@
         color: white;
     }
 
-
-
 </style>
 
 <div id="modalUsuarios" class="css__modal-Usuarios">

@@ -11,59 +11,77 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Relatorio
+Partial Public Class CodigoCliente
     
     '''<summary>
-    '''Controle txt_ano.
+    '''Controle btnNovo.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents txt_ano As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents btnNovo As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''Controle ddl_mes.
+    '''Controle gvCodigoCliente.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents ddl_mes As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents gvCodigoCliente As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
-    '''Controle ddl_dia.
+    '''Controle txtCodigo.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents ddl_dia As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents txtCodigo As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Controle btnPermanencia.
+    '''Controle txtCliente.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents btnPermanencia As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents txtCliente As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Controle btnGerarRelatorio.
+    '''Controle txtTempo.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents btnGerarRelatorio As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents txtTempo As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Controle gvRelatorio.
+    '''Controle txtUF.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents gvRelatorio As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents txtUF As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Controle txtCidade.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents txtCidade As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Controle btnsalvar.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents btnsalvar As Global.System.Web.UI.WebControls.Button
 End Class

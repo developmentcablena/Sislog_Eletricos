@@ -34,6 +34,7 @@ Public Class Principal
             btnUsuario.Enabled = False
             btnRecusados.Visible = False
             btnRelatorio.Enabled = False
+            btnCodigoCliente.Enabled = False
 
             Select Case funcao
                 Case "Adiministrador"
@@ -45,7 +46,7 @@ Public Class Principal
                     btnUsuario.Enabled = True
                     btnRecusados.Visible = True
                     btnRelatorio.Enabled = True
-
+                    btnCodigoCliente.Enabled = True
 
                 Case "Liberador"
                     btnRecebimento.Enabled = True
@@ -54,6 +55,7 @@ Public Class Principal
                     btnHistorico.Enabled = True
                     btnUsuario.Enabled = True
                     btnRelatorio.Enabled = True
+                    btnCodigoCliente.Enabled = True
 
                 Case "Cadastrar"
                     btnRecebimento.Enabled = True
