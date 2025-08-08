@@ -2,6 +2,15 @@
 
 Todas as alterações importantes deste sistema serão documentadas neste arquivo.
 
+📄 Sistema Cablena Unificado
+Versão 1.7.0.0 – [08/08/2025]
+- Integração dos sistemas Telecom e Elétricos em uma única aplicação.
+- Implementação da lógica de seleção de empresa com base em checkbox ou dropdown.
+- Configuração dinâmica de conexão com banco de dados conforme empresa selecionada.
+- Ajustes nas queries para suportar múltiplos bancos.
+- Correções de layout e melhorias na interface.
+
+
 📋 [1.6.0.0] - 24/06/2025
 ### 🚀 Funcionalidades Novas
 Adicionado:
