@@ -5,13 +5,23 @@ Imports System.Diagnostics
 
 Partial Public Class Usuarios
     Inherits System.Web.UI.UserControl
-
+    Private vConexao As String
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
+        vConexao = Session("vConexao")
+
         If Not IsPostBack Then
             CarregarNotasFiscais()
+
+            If Session("FuncaoUsuario") = "Adiministrador" Then
+                chk_eletricos.Enabled = True
+                chk_telecom.Enabled = True
+            Else
+                chk_eletricos.Enabled = False
+                chk_telecom.Enabled = False
+            End If
         End If
 
-        If Session("FuncaoUsuario") Is Nothing Then
+            If Session("FuncaoUsuario") Is Nothing Then
             Response.Redirect("Login.aspx")
             Exit Sub
         End If
@@ -19,7 +29,7 @@ Partial Public Class Usuarios
 
     Private Sub CarregarNotasFiscais()
         Try
-            Using conn As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+            Using conn As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
                 Dim query As String = "SELECT Nome, Usuario, Funcao FROM tb_Usuarios"
                 Dim cmd As New SqlCommand(query, conn)
                 Dim da As New SqlDataAdapter(cmd)
@@ -70,7 +80,7 @@ Partial Public Class Usuarios
 
     Private Sub CarregarDadosModal(ByVal cadastroID As String)
         btnsalvar.Text = "Atualizar"
-        Dim conexao As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+        Dim conexao As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
         Dim comando As SqlCommand
 
         comando = New SqlCommand("SELECT * FROM tb_Usuarios WHERE Usuario = @ID", conexao)
@@ -85,11 +95,22 @@ Partial Public Class Usuarios
                 Dim valorColuna2 As String = leitor(1).ToString()
                 Dim valorColuna3 As String = leitor(2).ToString()
                 Dim valorFuncao As String = leitor(3).ToString()
+                Dim valorEmpresa As Integer = leitor("Empresa").ToString()
 
                 txtNome.Text = valorColuna1
                 txtUsuario.Text = valorColuna2
                 txtEmail.Text = valorColuna3
                 ddlFuncao.Text = valorFuncao
+                If valorEmpresa = 1 Then
+                    chk_eletricos.Checked = True
+                    chk_telecom.Checked = False
+                ElseIf valorEmpresa = 2 Then
+                    chk_telecom.Checked = True
+                    chk_eletricos.Checked = False
+                ElseIf valorEmpresa = 3 Then
+                    chk_eletricos.Checked = True
+                    chk_telecom.Checked = True
+                End If
 
             End If
         Catch ex As Exception
@@ -105,7 +126,7 @@ Partial Public Class Usuarios
         Dim usuario As String = txtUsuario.Text
         Dim email As String = txtEmail.Text
         Dim funcao As String = ddlFuncao.Text.Trim()
-        Dim senha As String = Trim(txtSenha.Text)
+
 
         If String.IsNullOrEmpty(Trim(nome)) Then
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "alerta", "alert('Favor colocar o nome!')", True)
@@ -122,19 +143,30 @@ Partial Public Class Usuarios
         If btnsalvar.Text = "Atualizar" Then
             AtualizarDados(usuario)
         Else
-            If txtSenha.Text = txtconfirmarSenha.Text Then
-                Dim connectionString = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
-                Using conn As New SqlConnection(connectionString)
-                    Dim sql As String = "INSERT INTO tb_Usuarios (Nome, Usuario, Email, Funcao, Senha) 
-                             VALUES (@Nome, @Usuario, @Email, @Funcao, @Senha)"
+            Dim vEmpresa As Integer = 0
 
-                    Using cmd As New SqlCommand(sql, conn)
+            If chk_eletricos.Checked And chk_telecom.Checked Then
+                vEmpresa = 3
+            ElseIf chk_eletricos.Checked Then
+                vEmpresa = 1
+            ElseIf chk_telecom.Checked Then
+                vEmpresa = 2
+            End If
+
+            btnsalvar.Text = "Salvar"
+            Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
+                Using conn As New SqlConnection(connectionString)
+                Dim sql As String = "INSERT INTO tb_Usuarios (Nome, Usuario, Email, Funcao, Empresa) 
+                             VALUES (@Nome, @Usuario, @Email, @Funcao, @empresa)"
+
+                Using cmd As New SqlCommand(sql, conn)
                         cmd.Parameters.AddWithValue("@Nome", nome)
                         cmd.Parameters.AddWithValue("@Usuario", usuario)
                         cmd.Parameters.AddWithValue("@Email", email)
-                        cmd.Parameters.AddWithValue("@Funcao", funcao)
-                        cmd.Parameters.AddWithValue("@Senha", senha)
-                        Try
+                    cmd.Parameters.AddWithValue("@Funcao", funcao)
+                    cmd.Parameters.AddWithValue("@empresa", vEmpresa)
+
+                    Try
                             conn.Open()
                             cmd.ExecuteNonQuery()
                             conn.Close()
@@ -146,10 +178,10 @@ Partial Public Class Usuarios
 
                     End Using
                 End Using
-            Else
-                ScriptManager.RegisterStartupScript(Me, Me.GetType(), "sucesso", "abrirModalUsuarios(); alert('Senhas não se conferem!');", True)
+
+                'ScriptManager.RegisterStartupScript(Me, Me.GetType(), "sucesso", "abrirModalUsuarios(); alert('Senhas não se conferem!');", True)
+
             End If
-        End If
 
 
     End Sub
@@ -159,17 +191,25 @@ Partial Public Class Usuarios
         Dim usuario As String = txtUsuario.Text
         Dim email As String = txtEmail.Text
         Dim funcao As String = ddlFuncao.Text.Trim()
-        Dim senha As String = Trim(txtSenha.Text)
+        Dim vEmpresa As Integer = 0
 
-        Dim connectionString = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
+        If chk_eletricos.Checked And chk_telecom.Checked Then
+            vEmpresa = 3
+        ElseIf chk_eletricos.Checked Then
+            vEmpresa = 1
+        ElseIf chk_telecom.Checked Then
+            vEmpresa = 2
+        End If
+
+        Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
         Using conn As New SqlConnection(connectionString)
-            Dim sql As String = "UPDATE  tb_Usuarios set Nome = @nome, Usuario = @usuario, Email = @email, Funcao = @funcao, Senha = @senha WHERE Usuario = @usuarioID"
+            Dim sql As String = "UPDATE  tb_Usuarios set Nome = @nome, Usuario = @usuario, Email = @email, Funcao = @funcao, Empresa = @empresa WHERE Usuario = @usuarioID"
             Using cmd As New SqlCommand(sql, conn)
                 cmd.Parameters.AddWithValue("@nome", nome)
                 cmd.Parameters.AddWithValue("@usuario", usuario)
                 cmd.Parameters.AddWithValue("@email", email)
                 cmd.Parameters.AddWithValue("@funcao", funcao)
-                cmd.Parameters.AddWithValue("@senha", senha)
+                cmd.Parameters.AddWithValue("@empresa", vEmpresa)
                 cmd.Parameters.AddWithValue("@usuarioID", usuario)
                 Try
                     conn.Open()

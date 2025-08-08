@@ -59,22 +59,22 @@ Partial Public Class Usuarios
     Protected WithEvents ddlFuncao As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
-    '''Controle txtSenha.
+    '''Controle chk_eletricos.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents txtSenha As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents chk_eletricos As Global.System.Web.UI.WebControls.CheckBox
     
     '''<summary>
-    '''Controle txtconfirmarSenha.
+    '''Controle chk_telecom.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents txtconfirmarSenha As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents chk_telecom As Global.System.Web.UI.WebControls.CheckBox
     
     '''<summary>
     '''Controle btnsalvar.

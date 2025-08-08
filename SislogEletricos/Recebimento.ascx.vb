@@ -6,7 +6,12 @@ Imports System.Data
 Partial Public Class Recebimento
     Inherits System.Web.UI.UserControl
 
+    Private vConexao As String
+    Dim tituloEmail As String
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
+        vConexao = Session("vConexao")
+
         If Not IsPostBack Then
             txtData.Text = DateTime.Now.ToString("yyyy-MM-ddTHH:mm")
             txtData.Enabled = False
@@ -29,7 +34,7 @@ Partial Public Class Recebimento
         '    ScriptManager.RegisterStartupScript(Me, Me.GetType(), "alerta", "alert('PROIBIDO cadastrarno horário das 11:00 às 12:00, 12:30 às 13:30 e 14:00 às 14:35');", True)
         '    Exit Sub
         'Else
-        Dim connectionString = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
+        Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
         Dim vNotaFiscal As String = txtNotaFiscal.Text
         Dim vFornecedor As String = txtFornecedor.Text
         Dim vCidade As String = txtCidade.Text
@@ -44,7 +49,6 @@ Partial Public Class Recebimento
         Dim vData As DateTime = DateTime.Parse(txtData.Text)
         Dim vObs As String = txtObservacao.Text
         Dim vCadastro As String = "RECEBIMENTO"
-        'Dim vDataJanela As DateTime = DateTime.Parse(dataJanela.Text)
         Dim vDataJanela As DateTime
         If Not String.IsNullOrWhiteSpace(dataJanela.Text) Then
             vDataJanela = DateTime.Parse(dataJanela.Text)
@@ -166,13 +170,31 @@ Partial Public Class Recebimento
     End Sub
 
     Private Function FnEnviarEmail(ByVal vID As Long) As Boolean
+        Dim vUsuario As String = Session("Usuario")
+        Dim vConexaoEmpresa As String = Session("vConexao")
 
         Try
             Dim mail As New MailMessage()
-
             mail.From = New MailAddress(FnContaSMTP())
-            mail.To.Add("mpaixao@cablena.com.br")
-            mail.Subject = "SisLOG Elétricos - novo cadastro " & Format(vID, "0000")
+            If vUsuario = "premium" Then
+                mail.To.Add("rh@cablena.com.br")
+                mail.To.Add("luana.valle@cablena.com.br")
+                mail.To.Add("llopes@cablena.com.br")
+                tituloEmail = "SisLOG Elétricos - NOVO CADASTRO "
+
+            ElseIf vConexaoEmpresa = "ConectarBD" Then
+                'mail.To.Add("mpaixao@cablena.com.br")
+                mail.To.Add("emperes@cablena.com.br")
+                tituloEmail = "SisLOG Elétricos - NOVO CADASTRO "
+            ElseIf vConexaoEmpresa = "ConectarBD_Telecom" Then
+                'mail.To.Add("jefferson.silva@cablena.com.br")
+                mail.To.Add("emperes@cablena.com.br")
+                tituloEmail = "SisLOG Telecom - NOVO CADASTRO "
+            Else
+
+            End If
+
+            mail.Subject = $"{tituloEmail}" & Format(vID, "0000")
             Dim corpoEmail As String = suRelatorio(vID)
             mail.Body = corpoEmail
             mail.IsBodyHtml = False
@@ -196,7 +218,7 @@ Partial Public Class Recebimento
 
     Private Function suRelatorio(ByVal vID As Long)
         Dim str As String = New String("="c, 120) & vbCrLf & vbCrLf
-        Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+        Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
         Dim query As String = "SELECT * FROM tb_Cadastro WHERE CadastroID = @CadastroID"
         Dim cmd As New SqlCommand(query, con)
 
@@ -232,7 +254,7 @@ Partial Public Class Recebimento
 
     Private Function FnContaSMTP() As String
         Dim strSQL As String = "SELECT * FROM tb_Email WHERE ID = 1"
-        Using cn As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+        Using cn As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
             Using cmd As New SqlCommand(strSQL, cn)
                 Try
                     cn.Open()
@@ -257,7 +279,7 @@ Partial Public Class Recebimento
 
     Private Function FnSenhaSMTP() As String
         Dim strSQL As String = "SELECT * FROM tb_Email WHERE ID = 2"
-        Using cn As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+        Using cn As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
             Using cmd As New SqlCommand(strSQL, cn)
                 Try
                     cn.Open()

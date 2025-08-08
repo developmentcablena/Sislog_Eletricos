@@ -7,8 +7,12 @@ Imports System.Net.Mail
 
 Partial Public Class Recusados
     Inherits System.Web.UI.UserControl
+    Dim tituloEmail As String
+    Private vConexao As String
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        vConexao = Session("vConexao")
+
         If Not IsPostBack Then
             CarregarDados()
         End If
@@ -16,7 +20,7 @@ Partial Public Class Recusados
 
     Private Sub CarregarDados()
         Try
-            Using conn As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+            Using conn As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
                 Dim query As String = "SELECT CadastroID, TipoCadastro, FornecedorCliente, Transportadora, Placa, " &
                                   "CASE WHEN Status = 3 THEN 'Recusado' ELSE '' END AS Status " &
                                   "FROM tb_Cadastro WHERE Status = 3"
@@ -48,7 +52,7 @@ Partial Public Class Recusados
     End Sub
 
     Protected Sub btn_enviar_embarque(sender As Object, e As EventArgs)
-        Dim connectionString = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
+        Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
         Dim vNotaFiscal As String = txtNotaFiscal.Text
         Dim vFornecedor As String = txtCliente.Text
         Dim vCidade As String = txtCidade.Text
@@ -189,7 +193,7 @@ Partial Public Class Recusados
     End Sub
 
     Protected Sub btn_enviar_recebimento(sender As Object, e As EventArgs)
-        Dim connectionString = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
+        Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
         Dim vNotaFiscal As String = txtNotaFiscal2.Text
         Dim vFornecedor As String = txtFornecedor2.Text
         Dim vCidade As String = txtCidade2.Text
@@ -202,9 +206,14 @@ Partial Public Class Recusados
         Dim vMaterial As String = txtMaterial2.Text
         Dim vVolumes As String = txtVolumes2.Text
         Dim vData As DateTime = DateTime.Parse(txtData2.Text)
+        Dim vDataJanela As DateTime
+        If Not String.IsNullOrWhiteSpace(dataJanelaRecebimento.Text) Then
+            vDataJanela = DateTime.Parse(dataJanelaRecebimento.Text)
+        Else
+        End If
         Dim vObs As String = txtOBS2.Text
-        Dim vCodigoCliente As Integer = txtCodigoRecusado.Text
         Dim id As String = Session("ValorID")
+
 
 
         If String.IsNullOrEmpty(Trim(txtFornecedor2.Text)) Then
@@ -261,7 +270,7 @@ Partial Public Class Recusados
         Using conn As New SqlConnection(connectionString)
             Try
                 conn.Open()
-                Dim sql As String = "UPDATE tb_Cadastro SET NotaFiscal = @notafiscal, FornecedorCliente = @fornecedorCliente, Cidade = @cidade, UF = @uf, Transportadora = @transportadora, Frete = @frete, Motorista = @motorista, RG = @rg, Placa = @placa, Material = @material, Volumes = @volumes, Observacao = @obs, CodigoCliente = @codigoCliente, Status = @status WHERE CadastroID = @id"
+                Dim sql As String = "UPDATE tb_Cadastro SET NotaFiscal = @notafiscal, FornecedorCliente = @fornecedorCliente, Cidade = @cidade, UF = @uf, Transportadora = @transportadora, Frete = @frete, Motorista = @motorista, RG = @rg, Placa = @placa, Material = @material, Volumes = @volumes, Observacao = @obs, DataJanela = @datajanela,  Status = @status WHERE CadastroID = @id"
                 Using cmd As New SqlCommand(sql, conn)
                     cmd.Parameters.AddWithValue("@notafiscal", vNotaFiscal)
                     cmd.Parameters.AddWithValue("@fornecedorCliente", vFornecedor)
@@ -275,8 +284,12 @@ Partial Public Class Recusados
                     cmd.Parameters.AddWithValue("@material", vMaterial)
                     cmd.Parameters.AddWithValue("@volumes", vVolumes)
                     cmd.Parameters.AddWithValue("@obs", vObs)
-                    cmd.Parameters.AddWithValue("@codigoCliente", vCodigoCliente)
                     cmd.Parameters.AddWithValue("@status", 1)
+                    If vDataJanela = DateTime.MinValue OrElse vDataJanela.TimeOfDay = TimeSpan.Zero Then
+                        cmd.Parameters.AddWithValue("@datajanela", DBNull.Value)
+                    Else
+                        cmd.Parameters.AddWithValue("@datajanela", vDataJanela)
+                    End If
                     cmd.Parameters.AddWithValue("@id", id)
                     cmd.ExecuteNonQuery()
                 End Using
@@ -284,6 +297,8 @@ Partial Public Class Recusados
                 CarregarDados()
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "sucesso", "alert('Dados atualizados com sucesso.'); abrirModalRecusados();", True)
             Catch ex As Exception
+                'Dim mensagemErro As String = ex.Message.Replace("'", "").Replace(vbCrLf, " ").Replace("""", "")
+                'ScriptManager.RegisterStartupScript(Me, Me.GetType(), "erro", $"alert('Erro: {mensagemErro}'); abrirModalRecusados();", True)
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "sucesso", "alert('ERRO ao atualizar os dados!!'); abrirModalRecusados();", True)
             End Try
         End Using
@@ -318,7 +333,7 @@ Partial Public Class Recusados
     End Sub
 
     Private Sub CarregarDadosMotivo(ByVal cadastroID As Integer, ByVal tipoCadastro As String)
-        Dim conexao As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+        Dim conexao As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
         Dim comando As SqlCommand
 
         comando = New SqlCommand("SELECT * FROM tb_MotivoRecusado WHERE CadastroID = @ID", conexao)
@@ -356,7 +371,7 @@ Partial Public Class Recusados
     End Sub
 
     Private Sub CarregarDadosModal(ByVal cadastroID As Integer, ByVal tipoCadastro As String)
-        Dim conexao As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+        Dim conexao As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
         Dim comando As SqlCommand
 
         If tipoCadastro = "EMBARQUE" Then
@@ -563,10 +578,19 @@ Partial Public Class Recusados
     Private Function FnEnviarEmail(ByVal vID As Long) As Boolean
         Try
             Dim mail As New MailMessage()
-
             mail.From = New MailAddress(FnContaSMTP())
-            mail.To.Add("mpaixao@cablena.com.br")
-            mail.Subject = "SisLOG Elétricos - CADASTRO ATUALIZADO " & Format(vID, "0000")
+
+            If vConexao = "ConectarBD" Then
+                mail.To.Add("emperes@cablena.com.br")
+                'mail.To.Add("mpaixao@cablena.com.br")
+                tituloEmail = "SisLOG Elétricos - CADASTRO ATUALIZADO "
+            ElseIf vConexao = "ConectarBD_Telecom" Then
+                mail.To.Add("emperes@cablena.com.br")
+                'mail.To.Add("jefferson.silva@cablena.com.br")
+                tituloEmail = "SisLOG Telecom - CADASTRO ATUALIZADO "
+            End If
+
+            mail.Subject = $"{tituloEmail}" & Format(vID, "0000")
             Dim corpoEmail As String = suRelatorio(vID)
             mail.Body = corpoEmail
             mail.IsBodyHtml = False
@@ -588,7 +612,7 @@ Partial Public Class Recusados
 
     Private Function suRelatorio(ByVal vID As Long)
         Dim str As String = New String("="c, 120) & vbCrLf & vbCrLf
-        Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+        Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
         Dim query As String = "SELECT * FROM tb_Cadastro WHERE CadastroID = @CadastroID"
         Dim cmd As New SqlCommand(query, con)
 
@@ -624,7 +648,7 @@ Partial Public Class Recusados
 
     Private Function FnContaSMTP() As String
         Dim strSQL As String = "SELECT * FROM tb_Email WHERE ID = 1"
-        Using cn As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+        Using cn As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
             Using cmd As New SqlCommand(strSQL, cn)
                 Try
                     cn.Open()
@@ -649,7 +673,7 @@ Partial Public Class Recusados
 
     Private Function FnSenhaSMTP() As String
         Dim strSQL As String = "SELECT * FROM tb_Email WHERE ID = 2"
-        Using cn As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+        Using cn As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
             Using cmd As New SqlCommand(strSQL, cn)
                 Try
                     cn.Open()
@@ -675,7 +699,7 @@ Partial Public Class Recusados
 
     Protected Sub txtCodigo_TextChanged(sender As Object, e As EventArgs)
         Dim codigo As String = txtCodigoRecusado.Text.Trim()
-        Dim connectionString = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
+        Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
 
         Using conn As New SqlConnection(connectionString)
             Dim cmd As New SqlCommand("SELECT * FROM tb_CodigoCliente WHERE Codigo = @codigo", conn)

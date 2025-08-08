@@ -17,8 +17,9 @@ Partial Public Class Historico
     End Sub
 
     Private Sub CarregarNotasFiscais()
+        Dim vConexao As String = Session("vConexao")
         Try
-            Using conn As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+            Using conn As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
                 Dim query As String = "SELECT CadastroID, TipoCadastro, FornecedorCliente, Transportadora, Placa, " &
                           "FORMAT(HorarioChegada, 'dd-MM-yy HH:mm ') AS HorarioChegada, " &
                           "FORMAT(HorarioEntrada, 'HH:mm') AS HorarioEntrada, " &
@@ -80,7 +81,8 @@ Partial Public Class Historico
     End Sub
 
     Private Sub CarregarDadosModal(ByVal vID As Integer, ByVal vTipo As String)
-        Dim conexao As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+        Dim vConexao As String = Session("vConexao")
+        Dim conexao As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
         Dim comando As SqlCommand
 
         If vTipo = "EMBARQUE" Then
@@ -208,7 +210,7 @@ Partial Public Class Historico
                     Dim valorColuna10 As String = leitor(10).ToString()
                     Dim valorColuna11 As String = leitor(11).ToString()
                     Dim valorColuna16 As String = leitor(16).ToString()
-                    Dim valorColuna13 As String = leitor(13).ToString()
+                    Dim valorColuna13 As String = leitor("Observacao").ToString()
                     Dim valorColuna24 As String = leitor(24).ToString()
 
                     txtNotaFiscal2.Text = valorColuna1

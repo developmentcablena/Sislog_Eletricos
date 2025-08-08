@@ -6,10 +6,12 @@ Imports System.Diagnostics
 
 Partial Public Class Autorizar
     Inherits System.Web.UI.UserControl
+    Private vConexao As String
 
-    Private Shared connectionString = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
-    Private ReadOnly conexao As String = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
+        vConexao = Session("vConexao")
+
         If Not IsPostBack Then
             CarregarDados()
         End If
@@ -26,31 +28,62 @@ Partial Public Class Autorizar
     End Sub
 
     Private Sub CarregarDados()
-        Try
-            Using conn As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
-                Dim query As String = "SELECT CadastroID, TipoCadastro, FornecedorCliente, Transportadora, Placa, " &
-                                  "CASE WHEN Status = 1 THEN 'Pendente' ELSE '' END AS Status " &
-                                  "FROM tb_Cadastro WHERE Status = 1"
-                Dim cmd As New SqlCommand(query, conn)
-                Dim da As New SqlDataAdapter(cmd)
-                Dim dt As New DataTable()
+        Dim vUsuario As String = Session("Usuario")
+        If vUsuario = "recursos.humano" Then
+            Try
+                Using conn As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
+                    Dim query As String = "SELECT CadastroID, TipoCadastro, FornecedorCliente, Transportadora, Placa, " &
+                              "CASE WHEN Status = 1 THEN 'Pendente' ELSE '' END AS Status " &
+                              "FROM tb_Cadastro WHERE Status = 1 AND IDnome = 'Restaurante Premium' "
 
-                conn.Open()
-                da.Fill(dt)
-                conn.Close()
+                    Dim cmd As New SqlCommand(query, conn)
+                    Dim da As New SqlDataAdapter(cmd)
+                    Dim dt As New DataTable()
 
-                ' Se houver dados, exibe no GridView
-                If dt.Rows.Count > 0 Then
-                    gvCadastros.DataSource = dt
-                    gvCadastros.DataBind()
-                Else
-                    gvCadastros.DataSource = Nothing
-                    gvCadastros.DataBind()
-                End If
-            End Using
-        Catch ex As Exception
-            Response.Write("<script>alert('Erro ao carregar dados: " & ex.Message & "');</script>")
-        End Try
+                    conn.Open()
+                    da.Fill(dt)
+                    conn.Close()
+
+                    ' Se houver dados, exibe no GridView
+                    If dt.Rows.Count > 0 Then
+                        gvCadastros.DataSource = dt
+                        gvCadastros.DataBind()
+                    Else
+                        gvCadastros.DataSource = Nothing
+                        gvCadastros.DataBind()
+                    End If
+                End Using
+            Catch ex As Exception
+                Response.Write("<script>alert('Erro ao carregar dados: " & ex.Message & "');</script>")
+            End Try
+        Else
+            Try
+                Using conn As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
+                    Dim query As String = "SELECT CadastroID, TipoCadastro, FornecedorCliente, Transportadora, Placa, " &
+                      "CASE WHEN Status = 1 THEN 'Pendente' ELSE '' END AS Status " &
+                      "FROM tb_Cadastro WHERE Status = 1 AND IDnome <> 'Restaurante Premium'"
+
+                    Dim cmd As New SqlCommand(query, conn)
+                    Dim da As New SqlDataAdapter(cmd)
+                    Dim dt As New DataTable()
+
+                    conn.Open()
+                    da.Fill(dt)
+                    conn.Close()
+
+                    ' Se houver dados, exibe no GridView
+                    If dt.Rows.Count > 0 Then
+                        gvCadastros.DataSource = dt
+                        gvCadastros.DataBind()
+                    Else
+                        gvCadastros.DataSource = Nothing
+                        gvCadastros.DataBind()
+                    End If
+                End Using
+            Catch ex As Exception
+                Response.Write("<script>alert('Erro ao carregar dados: " & ex.Message & "');</script>")
+            End Try
+        End If
     End Sub
     Protected Sub gvCadastros_RowCommand(sender As Object, e As GridViewCommandEventArgs)
         Dim commandName As String = e.CommandName
@@ -75,6 +108,7 @@ Partial Public Class Autorizar
         End Select
     End Sub
     Private Sub AutorizarCadastro(ByVal cadastroID As Integer)
+        Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
         Try
             Using conn As New SqlConnection(connectionString)
                 Dim sql As String = "UPDATE tb_Cadastro SET Status = 2, StatusHorario = 1 WHERE CadastroID = @id"
@@ -102,6 +136,7 @@ Partial Public Class Autorizar
     End Sub
 
     Private Sub ExcluirCadastro(ByVal cadastroID As Integer)
+        Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
         Using conn As New SqlConnection(connectionString)
             Dim sql As String = "UPDATE tb_Cadastro SET Status= 5 WHERE CadastroID= @id"
             Using cmd As New SqlCommand(sql, conn)
@@ -139,7 +174,7 @@ Partial Public Class Autorizar
     End Sub
 
     Private Sub CarregarDadosModal(ByVal cadastroID As Integer, ByVal tipoCadastro As String)
-        Dim conexao As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+        Dim conexao As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
         Dim comando As SqlCommand
         Debug.WriteLine("" & cadastroID)
         If tipoCadastro = "EMBARQUE" Then
@@ -178,7 +213,6 @@ Partial Public Class Autorizar
                     Dim valorColuna24 As String = leitor(24).ToString()
                     Dim valorCodigo As Integer = leitor("CodigoCliente").ToString()
                     Dim vTempo As String = leitor("TempoPadrao").ToString()
-
 
                     txtNotaFiscal.Text = valorColuna1
                     txtNotaFiscal.Enabled = False
@@ -272,10 +306,10 @@ Partial Public Class Autorizar
                     Dim valorcoluna10 As String = leitor(10).ToString()
                     Dim valorcoluna11 As String = leitor(11).ToString() 'volumes
                     Dim valorcoluna16 As String = leitor(16).ToString()
-                    Dim valorcoluna13 As String = leitor(25).ToString() 'obs 17
+                    Dim valorcoluna13 As String = leitor("Observacao").ToString() 'obs 17
                     Dim valorcoluna24 As String = leitor(24).ToString()
 
-                    Debug.WriteLine("Campos disponíveis: " & valorcoluna1)
+                    'Debug.WriteLine("Campos disponíveis: " & valorcoluna1)
 
                     txtNotaFiscal22.Text = valorcoluna1
                     txtNotaFiscal22.Enabled = False
@@ -333,16 +367,16 @@ Partial Public Class Autorizar
                     txtOBS22.Enabled = False
 
                     btn2.Enabled = False
-                    Debug.WriteLine("Query SQL: " & comando.CommandText)
-                    Debug.WriteLine("Parâmetro @ID: " & cadastroID)
+                    'Debug.WriteLine("Query SQL: " & comando.CommandText)
+                    'Debug.WriteLine("Parâmetro @ID: " & cadastroID)
 
                 End If
             Else
-                Debug.WriteLine("Nenhum registro encontrado para o ID informado.")
-                Debug.WriteLine(" deu erro em recebimento") ' Log para testar
+                'Debug.WriteLine("Nenhum registro encontrado para o ID informado.")
+                'Debug.WriteLine(" deu erro em recebimento") ' Log para testar
             End If
         Catch ex As Exception
-            Debug.WriteLine("Erro: " & ex.Message)
+            'Debug.WriteLine("Erro: " & ex.Message)
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "erroDB", "alert('Erro ao carregar os dados!');", True)
         Finally
             conexao.Close()

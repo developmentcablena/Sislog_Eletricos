@@ -5,10 +5,12 @@ Imports System.Diagnostics
 
 Partial Public Class CodigoCliente
     Inherits System.Web.UI.UserControl
-
-    Public connectionString = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
+    Private vConexao As String
+    ' Public connectionString = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        vConexao = Session("vConexao")
+
         If Not IsPostBack Then
             CarregarCodigoCliente()
 
@@ -18,7 +20,7 @@ Partial Public Class CodigoCliente
 
     Private Sub CarregarCodigoCliente()
         Try
-            Using conn As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+            Using conn As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
                 Dim query As String = "SELECT * FROM tb_CodigoCliente"
                 Dim cmd As New SqlCommand(query, conn)
                 Dim da As New SqlDataAdapter(cmd)
@@ -94,6 +96,7 @@ Partial Public Class CodigoCliente
     End Sub
 
     Private Sub ExcluirRegistro(ByVal vCodigoID As Integer)
+        Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
         Using conn As New SqlConnection(connectionString)
             Dim sql As String = "DELETE FROM tb_CodigoCliente WHERE CodigoID = @idCodigo"
             Using cmd As New SqlCommand(sql, conn)
@@ -148,6 +151,7 @@ Partial Public Class CodigoCliente
             Dim vUF As String = txtUF.Text
             Dim vCidade As String = txtCidade.Text
 
+            Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
             Using conn As New SqlConnection(connectionString)
                 Dim sql As String = "INSERT INTO tb_CodigoCliente (Codigo, ClienteTransportadora, TempoPadrao, UF, Cidade)
                                     VALUES(@codigo, @cliente, @tempo, @uf, @cidade)"
@@ -205,6 +209,7 @@ Partial Public Class CodigoCliente
             Dim vUF As String = txtUF.Text
             Dim vCidade As String = txtCidade.Text
 
+            Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
             Using conn As New SqlConnection(connectionString)
                 Dim sql As String = "UPDATE tb_CodigoCliente SET Codigo = @codigo, ClienteTransportadora = @cliente, TempoPadrao = @tempo, UF = @uf, Cidade = @cidade WHERE CodigoID = @idCodigo"
                 Using cmd As New SqlCommand(sql, conn)

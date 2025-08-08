@@ -6,11 +6,12 @@ Imports System.Diagnostics
 Partial Public Class LiberarPortaria
     Inherits System.Web.UI.UserControl
 
-    Private Shared connectionString = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
+    Private vConexao As String
     Public cadastroID As Integer
 
     'Private Shared cadastroID As Integer
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
+        vConexao = Session("vConexao")
 
         If Not IsPostBack Then
             CarregarNotasFiscais()
@@ -31,7 +32,7 @@ Partial Public Class LiberarPortaria
 
     Private Sub CarregarNotasFiscais()
         Try
-            Using conn As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+            Using conn As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
                 Dim query As String = "SELECT CadastroID, TipoCadastro, FornecedorCliente, Transportadora, Motorista, Placa, 
                                            FORMAT(HorarioChegada, 'dd-MM-yy HH:mm') AS HorarioChegada,  
                                             FORMAT(HorarioEntrada, 'HH:mm') AS HorarioEntrada,  
@@ -68,6 +69,7 @@ Partial Public Class LiberarPortaria
             cadastroID = 0
         End If
 
+        Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
         Using conn As New SqlConnection(connectionString)
             Try
                 conn.Open()
@@ -102,6 +104,7 @@ Partial Public Class LiberarPortaria
             cadastroID = 0
         End If
 
+        Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
         Using conn As New SqlConnection(connectionString)
             Try
                 conn.Open()
@@ -136,6 +139,7 @@ Partial Public Class LiberarPortaria
             cadastroID = 0
         End If
 
+        Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
         Using conn As New SqlConnection(connectionString)
             Try
                 conn.Open()
@@ -175,6 +179,7 @@ Partial Public Class LiberarPortaria
                     cadastroID = 0
                 End If
 
+                Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
                 Using conn As New SqlConnection(connectionString)
                     Try
                         conn.Open()

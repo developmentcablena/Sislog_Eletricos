@@ -54,3 +54,12 @@
     .login-form .btn:hover {
         background-color: #0056b3;
     }
+
+
+.ddl_tipoEmpresa {
+    margin-bottom: 23px;
+    border-radius: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    font-family: sans-serif;
+}

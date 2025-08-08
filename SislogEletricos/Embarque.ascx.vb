@@ -8,8 +8,12 @@ Imports System.Web.Services
 
 Partial Public Class Embarque
     Inherits System.Web.UI.UserControl
+    Private vConexao As String
+    Dim tituloEmail As String
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        vConexao = Session("vConexao")
+
         If Not IsPostBack Then
             txtData.Text = DateTime.Now.ToString("yyyy-MM-ddTHH:mm")
             txtData.Enabled = False
@@ -19,10 +23,7 @@ Partial Public Class Embarque
             txtCliente.Enabled = False
             txtTempo.Enabled = False
 
-
-
         End If
-
 
         If Session("FuncaoUsuario") Is Nothing Then
             Response.Redirect("Login.aspx")
@@ -118,7 +119,7 @@ Partial Public Class Embarque
             Exit Sub
         End If
 
-        Dim connectionString = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
+        Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
         Dim vNotaFiscal As String = txtNotaFiscal.Text
         Dim vCliente As String = txtCliente.Text
         Dim vCidade As String = txtCidade.Text
@@ -235,10 +236,19 @@ Partial Public Class Embarque
     Private Function FnEnviarEmail(ByVal vID As Long) As Boolean
         Try
             Dim mail As New MailMessage()
-
             mail.From = New MailAddress(FnContaSMTP())
-            mail.To.Add("mpaixao@cablena.com.br")
-            mail.Subject = "SisLOG Elétricos - novo cadastro " & Format(vID, "0000")
+
+            If vConexao = "ConectarBD" Then
+                mail.To.Add("emperes@cablena.com.br")
+                'mail.To.Add("mpaixao@cablena.com.br")
+                tituloEmail = "SisLOG Elétricos - NOVO CADASTRO "
+            ElseIf vConexao = "ConectarBD_Telecom" Then
+                mail.To.Add("emperes@cablena.com.br")
+                'mail.To.Add("jefferson.silva@cablena.com.br")
+                tituloEmail = "SisLOG Telecom - NOVO CADASTRO "
+            End If
+
+            mail.Subject = $"{tituloEmail}" & Format(vID, "0000")
             Dim corpoEmail As String = suRelatorio(vID)
             mail.Body = corpoEmail
             mail.IsBodyHtml = False
@@ -260,7 +270,7 @@ Partial Public Class Embarque
 
     Private Function suRelatorio(ByVal vID As Long)
         Dim str As String = New String("="c, 120) & vbCrLf & vbCrLf
-        Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+        Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
         Dim query As String = "SELECT * FROM tb_Cadastro WHERE CadastroID = @CadastroID"
         Dim cmd As New SqlCommand(query, con)
 
@@ -296,7 +306,7 @@ Partial Public Class Embarque
 
     Private Function FnContaSMTP() As String
         Dim strSQL As String = "SELECT * FROM tb_Email WHERE ID = 1"
-        Using cn As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+        Using cn As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
             Using cmd As New SqlCommand(strSQL, cn)
                 Try
                     cn.Open()
@@ -321,7 +331,7 @@ Partial Public Class Embarque
 
     Private Function FnSenhaSMTP() As String
         Dim strSQL As String = "SELECT * FROM tb_Email WHERE ID = 2"
-        Using cn As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+        Using cn As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
             Using cmd As New SqlCommand(strSQL, cn)
                 Try
                     cn.Open()
@@ -346,7 +356,7 @@ Partial Public Class Embarque
 
     Protected Sub txtCodigo_TextChanged(sender As Object, e As EventArgs)
         Dim codigo As String = txtCodigo.Text.Trim()
-        Dim connectionString = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
+        Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
 
         Using conn As New SqlConnection(connectionString)
             Dim cmd As New SqlCommand("SELECT * FROM tb_CodigoCliente WHERE Codigo = @codigo", conn)

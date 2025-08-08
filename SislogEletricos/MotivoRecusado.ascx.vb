@@ -8,8 +8,10 @@ Imports System.Net.Mail
 
 Partial Public Class MotivoRecusado
     Inherits System.Web.UI.UserControl
-
+    Private vConexao As String
+    Dim tituloEmail As String
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        vConexao = Session("vConexao")
     End Sub
 
     Protected Sub btnEnviarMotivo_Click(sender As Object, e As EventArgs)
@@ -28,7 +30,7 @@ Partial Public Class MotivoRecusado
         Dim vCadastroID As Integer = Session("vCadastroID")
         Debug.WriteLine("motivo" & motivo)
         Debug.WriteLine("id " & vCadastroID)
-        Dim connectionString = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
+        Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
 
         Using conn As New SqlConnection(connectionString)
             Dim Query As String = "INSERT INTO tb_MotivoRecusado (MotivoRecusado, CadastroID) VALUES(@motivo, @cadastroID)"
@@ -54,7 +56,7 @@ Partial Public Class MotivoRecusado
     End Sub
 
     Private Sub IDnomeCadastro(ByVal vID As Integer) 'Captura o nome do usuario que fez o cadastro.
-        Dim connectionString As String = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
+        Dim connectionString As String = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
         Dim query As String = "SELECT IDnome FROM tb_Cadastro WHERE CadastroID = @id"
 
         Using connection As New SqlConnection(connectionString)
@@ -88,7 +90,7 @@ Partial Public Class MotivoRecusado
     End Sub
 
     Private Sub EmailDeUsuario() 'Captura o email de quem cadastrou
-        Dim connectionString As String = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
+        Dim connectionString As String = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
         Dim nomeUser As String = Session("Nome")
 
         Dim query As String = "SELECT Email FROM tb_Usuarios WHERE Nome = @nome"
@@ -127,10 +129,17 @@ Partial Public Class MotivoRecusado
         Try
             Dim mail As New MailMessage()
             Dim emailUser As String = Session("Email")
+            Dim vConexaoEmpresa As String = Session("vConexao")
+
+            If vConexao = "ConectarBD" Then
+                tituloEmail = "SisLOG Elétricos - CADASTRO RECUSADO "
+            ElseIf vConexao = "ConectarBD_Telecom" Then
+                tituloEmail = "SisLOG Telecom - CADASTRO RECUSADO "
+            End If
 
             mail.From = New MailAddress(FnContaSMTP())
             mail.To.Add(emailUser)
-            mail.Subject = "SisLOG Elétricos - CADASTRO RECUSADO " & Format(vID, "0000")
+            mail.Subject = $"{tituloEmail}" & Format(vID, "0000")
             Dim corpoEmail As String = suRelatorio(vID)
             mail.Body = corpoEmail
             mail.IsBodyHtml = False
@@ -150,7 +159,7 @@ Partial Public Class MotivoRecusado
 
     Private Function suRelatorio(ByVal vID As Long)
         Dim str As String = New String("="c, 120) & vbCrLf & vbCrLf
-        Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+        Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
         Dim query As String = "SELECT * FROM tb_Cadastro WHERE CadastroID = @CadastroID"
         Dim query1 As String = "SELECT * FROM tb_MotivoRecusado WHERE CadastroID = @id"
         Dim cmd As New SqlCommand(query, con)
@@ -202,7 +211,7 @@ Partial Public Class MotivoRecusado
 
     Private Function FnContaSMTP() As String
         Dim strSQL As String = "SELECT * FROM tb_Email WHERE ID = 1"
-        Using cn As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+        Using cn As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
             Using cmd As New SqlCommand(strSQL, cn)
                 Try
                     cn.Open()
@@ -227,7 +236,7 @@ Partial Public Class MotivoRecusado
 
     Private Function FnSenhaSMTP() As String
         Dim strSQL As String = "SELECT * FROM tb_Email WHERE ID = 2"
-        Using cn As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+        Using cn As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
             Using cmd As New SqlCommand(strSQL, cn)
                 Try
                     cn.Open()
@@ -251,7 +260,7 @@ Partial Public Class MotivoRecusado
     End Function
 
     Private Sub atualizarStatus()
-        Dim connectionString = ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString
+        Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
         Dim vCadastroID As Integer = Session("vCadastroID")
 
         Using conn As New SqlConnection(connectionString)

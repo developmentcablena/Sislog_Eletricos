@@ -22,6 +22,8 @@ Public Class Principal
             Exit Sub
         End If
 
+        Dim vUsuario As String = Session("Usuario")
+
         If Not IsPostBack Then
 
             Dim funcao As String = Session("FuncaoUsuario")
@@ -66,6 +68,28 @@ Public Class Principal
                 Case "Portaria"
                     btnLiberar.Enabled = True
             End Select
+
+            If vUsuario = "recursos.humano" Then
+                btnRecebimento.Enabled = False
+                btnAutorizar.Enabled = True
+                btnEmbarque.Enabled = False
+                btnHistorico.Enabled = False
+                btnLiberar.Enabled = False
+                btnUsuario.Enabled = False
+                btnRecusados.Visible = False
+                btnRelatorio.Enabled = False
+                btnCodigoCliente.Enabled = False
+            ElseIf vUsuario = "premium" Then
+                btnRecebimento.Enabled = True
+                btnAutorizar.Enabled = False
+                btnEmbarque.Enabled = False
+                btnHistorico.Enabled = False
+                btnLiberar.Enabled = False
+                btnUsuario.Enabled = False
+                btnRecusados.Visible = False
+                btnRelatorio.Enabled = False
+                btnCodigoCliente.Enabled = False
+            End If
         End If
 
     End Sub

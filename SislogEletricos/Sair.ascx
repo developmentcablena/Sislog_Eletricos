@@ -83,15 +83,23 @@
             background-color: #dc3545;
             color: white
         }
+
+    .lblDescricao {
+        display: flex;
+        margin-top: -30px;
+        padding-bottom: 33px;
+    }
+
 </style>
 
 
 <div id="modalSair" class="css__modal-sair">
     <div class="modal__content-sair">
-        <h1 class="h1__titulo-modal">Olá, <%= Session("Usuario") %>!</h1>
+        <h1 class="h1__titulo-modal">Olá, <%= Session("Usuario") %>!</h1> 
         <span enableviewstate="true" class="span__close" runat="server" onclick="fehcarModalSair();">x</span>
+        <asp:Label Text="" runat="server" id="lbl_descricao_emperesa" CssClass="lblDescricao"/>
         <asp:Button ID="btn_close" Text="Sair do sistema" runat="server" CssClass="css_sair" OnClick="Btn_close_Click" />
-        <asp:Label Text="Versão 1.6.0.0" runat="server" CssClass="css_versao" />
+        <asp:Label id="lbl_versao" Text="" runat="server" CssClass="css_versao" />
     </div>
 </div>
 

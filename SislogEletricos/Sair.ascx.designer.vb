@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class Sair
     
     '''<summary>
+    '''Controle lbl_descricao_emperesa.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents lbl_descricao_emperesa As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Controle btn_close.
     '''</summary>
     '''<remarks>
@@ -21,4 +30,13 @@ Partial Public Class Sair
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
     Protected WithEvents btn_close As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''Controle lbl_versao.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents lbl_versao As Global.System.Web.UI.WebControls.Label
 End Class

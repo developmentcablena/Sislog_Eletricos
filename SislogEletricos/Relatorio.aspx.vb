@@ -3,9 +3,9 @@ Imports System.Data.SqlClient
 
 Public Class WebForm1
     Inherits System.Web.UI.Page
-
+    Private vConexao As String
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        vConexao = Session("vConexao")
     End Sub
 
 
@@ -83,8 +83,6 @@ Public Class WebForm1
                 row("TempoPermanencia") = "-"
             End If
         Next
-
-
 
         ' Fazer o bind dos dados no GridView
         gvRelatorio.DataSource = dt
@@ -191,7 +189,7 @@ Public Class WebForm1
         Dim vAno As Integer = txt_ano.Text
         Dim vTipoCadastro As String = "EMBARQUE"
 
-        Dim conexaoBD As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+        Dim conexaoBD As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
 
         Dim consultaSQL As String = $"SELECT * FROM tb_Cadastro WHERE YEAR(DataCadastro) = {vAno} AND TipoCadastro = 'EMBARQUE' AND Status = 4 "
 
@@ -206,7 +204,7 @@ Public Class WebForm1
         End If
 
         ' Veja a query que será executada
-        System.Diagnostics.Debug.WriteLine("Consulta SQL: " & consultaSQL)
+        ' System.Diagnostics.Debug.WriteLine("Consulta SQL: " & consultaSQL)
 
         Dim dt As New DataTable()
 
@@ -220,7 +218,7 @@ Public Class WebForm1
         End Using
 
         ' Mostre quantas linhas vieram
-        System.Diagnostics.Debug.WriteLine("Qtd Linhas retornadas: " & dt.Rows.Count)
+        ' System.Diagnostics.Debug.WriteLine("Qtd Linhas retornadas: " & dt.Rows.Count)
 
 
         Return dt
@@ -229,7 +227,7 @@ Public Class WebForm1
     Private Function ObterDadosBanco2() As DataTable
         Dim vAno As Integer = txt_ano.Text
 
-        Dim conexaoBD As New SqlConnection(ConfigurationManager.ConnectionStrings("ConectarBD").ConnectionString)
+        Dim conexaoBD As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
 
         Dim consultaSQL As String = $"SELECT * FROM tb_Cadastro WHERE YEAR(DataCadastro) = {vAno} AND TipoCadastro = 'RECEBIMENTO' AND Status = 4 "
 

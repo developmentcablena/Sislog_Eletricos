@@ -48,4 +48,13 @@ Partial Public Class Login
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
     Protected WithEvents txtSenha As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Controle ddl_Empresa.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents ddl_Empresa As Global.System.Web.UI.WebControls.DropDownList
 End Class
