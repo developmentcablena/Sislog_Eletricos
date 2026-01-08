@@ -20,7 +20,7 @@
             </div>
             <div class="div__group">
                 <asp:Label ID="Label2" runat="server" Text="Tempo Padão"></asp:Label>
-                <asp:TextBox ID="txtTempo" runat="server" CssClass="textBox" placeholder="Cidade" MaxLength="50" onkeyup="this.value = this.value.toUpperCase();"></asp:TextBox>
+                <asp:TextBox ID="txtTempo" runat="server" CssClass="textBox" placeholder="Exemplo 03:00" onkeyup="formatarHora(this)" MaxLength="5"></asp:TextBox>
             </div>
             <div class="div__group">
                 <asp:Label ID="Label3" runat="server" Text="Cidade"></asp:Label>
@@ -125,6 +125,22 @@
         valor = (valor / 100).toFixed(2) + '';
         valor = valor.replace(".", ",");
         valor = valor.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+        campo.value = valor;
+    }
+
+    function formatarHora(campo) {
+        let valor = campo.value.replace(/\D/g, ''); // Remove tudo que não for número
+
+        if (valor.length > 4) {
+            valor = valor.substring(0, 4); // Limita a 4 dígitos
+        }
+
+        if (valor.length >= 3) {
+            let horas = valor.slice(0, valor.length - 2);
+            let minutos = valor.slice(-2);
+            valor = horas + ':' + minutos;
+        }
+
         campo.value = valor;
     }
 

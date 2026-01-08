@@ -95,6 +95,15 @@ Partial Public Class Principal
     Protected WithEvents btnLiberar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
+    '''Controle btnEntradaNotas.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents btnEntradaNotas As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
     '''Controle btnHistorico.
     '''</summary>
     '''<remarks>

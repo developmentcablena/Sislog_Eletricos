@@ -129,3 +129,14 @@
     }
 
 
+
+#div_empresa {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 195%;
+    padding: 11px;
+    font-size: 15px;
+    font-family: arial, sans-serif;
+    text-align:center;
+}

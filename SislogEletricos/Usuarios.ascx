@@ -144,7 +144,7 @@
                     <asp:BoundField DataField="Nome" HeaderText="Nome" />
                     <asp:BoundField DataField="Usuario" HeaderText="Usuário" />
                     <asp:BoundField DataField="Funcao" HeaderText="Função" />
-                    <%--<asp:BoundField datafield="Empresa" HeaderText="Empresa" />--%>
+                    <asp:BoundField datafield="Empresa" HeaderText="Empresa" />
                     <asp:TemplateField HeaderText="Ações">
                         <ItemTemplate>
                             <asp:Button ID="btnAbrir" runat="server" CssClass="css_abir-dados-modal" CommandName="Editar"

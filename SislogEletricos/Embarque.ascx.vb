@@ -15,13 +15,22 @@ Partial Public Class Embarque
         vConexao = Session("vConexao")
 
         If Not IsPostBack Then
+
             txtData.Text = DateTime.Now.ToString("yyyy-MM-ddTHH:mm")
             txtData.Enabled = False
             btnCadastrar.Enabled = True
-            txtUF.Enabled = False
-            txtCidade.Enabled = False
-            txtCliente.Enabled = False
-            txtTempo.Enabled = False
+
+            If Session("Vconexao") = "ConectarBD_Telecom" Then
+                txtUF.Enabled = True
+                txtCidade.Enabled = True
+                txtCliente.Enabled = True
+                txtTempo.Enabled = True
+            Else
+                txtUF.Enabled = False
+                txtCidade.Enabled = False
+                txtCliente.Enabled = False
+                txtTempo.Enabled = False
+            End If
 
         End If
 
@@ -44,7 +53,7 @@ Partial Public Class Embarque
             Exit Sub
         End If
         If String.IsNullOrEmpty(Trim(txtCliente.Text)) Then
-            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta", "alert('Favor inserir o Fornecedor'); abrirModalEmbarque();", True)
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta", "alert('Favor inserir o Cliente'); abrirModalEmbarque();", True)
             Me.txtCliente.Focus()
             Exit Sub
         End If
@@ -239,12 +248,12 @@ Partial Public Class Embarque
             mail.From = New MailAddress(FnContaSMTP())
 
             If vConexao = "ConectarBD" Then
-                mail.To.Add("emperes@cablena.com.br")
-                'mail.To.Add("mpaixao@cablena.com.br")
+                'mail.To.Add("emperes@cablena.com.br")
+                mail.To.Add("mpaixao@cablena.com.br")
                 tituloEmail = "SisLOG Elétricos - NOVO CADASTRO "
             ElseIf vConexao = "ConectarBD_Telecom" Then
-                mail.To.Add("emperes@cablena.com.br")
-                'mail.To.Add("jefferson.silva@cablena.com.br")
+                'mail.To.Add("emperes@cablena.com.br")
+                mail.To.Add("jefferson.silva@cablena.com.br")
                 tituloEmail = "SisLOG Telecom - NOVO CADASTRO "
             End If
 
@@ -372,19 +381,38 @@ Partial Public Class Embarque
                 txtUF.Text = reader("UF").ToString()
 
             Else
-                txtCliente.Text = "Cliente não encontrado"
-                txtTempo.Text = ""
+                If vConexao = "ConectarBD_Telecom" Then
+                    '
+                Else
+                    txtCliente.Text = "Cliente não encontrado"
+                    txtTempo.Text = ""
+                End If
+
             End If
 
-            If txtCodigo.Text = "0" Then
-                txtCliente.Enabled = True
-                txtUF.Enabled = True
-                txtCidade.Enabled = True
+                If Session("Vconexao") = "ConectarBD_Telecom" Then
+                If txtCodigo.Text = "0" Then
+                    txtCliente.Enabled = True
+                    txtUF.Enabled = True
+                    txtCidade.Enabled = True
+                Else
+                    txtCliente.Enabled = True
+                    txtCidade.Enabled = True
+                    txtUF.Enabled = True
+                End If
             Else
-                txtCliente.Enabled = False
-                txtCidade.Enabled = False
-                txtUF.Enabled = False
+                If txtCodigo.Text = "0" Then
+                    txtCliente.Enabled = True
+                    txtUF.Enabled = True
+                    txtCidade.Enabled = True
+                Else
+                    txtCliente.Enabled = False
+                    txtCidade.Enabled = False
+                    txtUF.Enabled = False
+                End If
             End If
+
+
         End Using
     End Sub
 End Class

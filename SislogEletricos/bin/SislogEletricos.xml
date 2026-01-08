@@ -433,6 +433,33 @@ Campo gerado automaticamente.
 Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
 </remarks>
 </member>
+<member name="F:SislogEletricos.CadastrarNF._txtDANFE">
+<summary>
+Controle txtDANFE.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.CadastrarNF._danfe">
+<summary>
+Controle danfe.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.CadastrarNF._CadastrarNF">
+<summary>
+Controle CadastrarNF.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
 <member name="F:SislogEletricos.CodigoCliente._btnNovo">
 <summary>
 Controle btnNovo.
@@ -715,6 +742,42 @@ Modificar a declaração do campo de movimento do arquivo de designer para o arq
 <member name="F:SislogEletricos.Embarque._btnCadastrar">
 <summary>
 Controle btnCadastrar.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.EntradaNotas._form1">
+<summary>
+Controle form1.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.EntradaNotas._btnCadastrar">
+<summary>
+Controle btnCadastrar.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.EntradaNotas._btn_voltar">
+<summary>
+Controle btn_voltar.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.EntradaNotas._gvEntradaNotas">
+<summary>
+Controle gvEntradaNotas.
 </summary>
 <remarks>
 Campo gerado automaticamente.
@@ -1198,6 +1261,15 @@ Campo gerado automaticamente.
 Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
 </remarks>
 </member>
+<member name="F:SislogEletricos.Login._lbl_versao">
+<summary>
+Controle lbl_versao.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
 <member name="F:SislogEletricos.MotivoRecusado._txtMotivo">
 <summary>
 Controle txtMotivo.
@@ -1291,6 +1363,15 @@ Modificar a declaração do campo de movimento do arquivo de designer para o arq
 <member name="F:SislogEletricos.Principal._btnLiberar">
 <summary>
 Controle btnLiberar.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.Principal._btnEntradaNotas">
+<summary>
+Controle btnEntradaNotas.
 </summary>
 <remarks>
 Campo gerado automaticamente.

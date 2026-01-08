@@ -143,7 +143,8 @@
                 <Columns>
                     <asp:BoundField DataField="Nome" HeaderText="Nome" />
                     <asp:BoundField DataField="Usuario" HeaderText="Usuário" />
-                    <asp:BoundField DataField="Funcao" HeaderText="Função" />              
+                    <asp:BoundField DataField="Funcao" HeaderText="Função" />
+                    <asp:BoundField datafield="Empresa" HeaderText="Empresa" />
                     <asp:TemplateField HeaderText="Ações">
                         <ItemTemplate>
                             <asp:Button ID="btnAbrir" runat="server" CssClass="css_abir-dados-modal" CommandName="Editar"
@@ -179,11 +180,13 @@
                     <asp:ListItem Text="Portaria" Value="Portaria"></asp:ListItem>
                 </asp:DropDownList>
             </div>
-            <div>
-                <asp:TextBox ID="txtSenha" runat="server" CssClass="txtsenha" placeholder="senha" TextMode="Password" />
-            </div>
-            <div>
-                <asp:TextBox ID="txtconfirmarSenha" runat="server" CssClass="txtconfirmarSenha" placeholder="confirmar senha" TextMode="Password" />
+            <div id="div_empresa">
+                <div>
+                    <asp:CheckBox Text="Cablena do Brasil LTDA (ELÉTRICOS)" runat="server" ID="chk_eletricos" />
+                </div>
+                <div>
+                    <asp:CheckBox Text="Cablena do Brasil LTDA (TELECOM)" runat="server" ID="chk_telecom" />
+                </div>
             </div>
         </div>
         <asp:Button ID="btnsalvar" Text="Salvar" runat="server" CssClass="btn_salvar" OnClick="btnsalvar_Click" />

@@ -23,7 +23,7 @@
                 <asp:ListItem Text="Cablena do Brasil LTDA (TELECOM)" />
             </asp:DropDownList>
             <asp:Button CssClass="btn" runat="server" Text="Entrar" OnClick="Unnamed_Click"  UseSubmitBehavior="true" />
-            
+            <asp:Label id="lbl_versao" Text="" runat="server" CssClass="css_versao" />
         </form>
     </div>
 </body>

@@ -1,63 +1,63 @@
 ﻿body {
-    margin:0px;
-    padding:0px;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
+/* HEADER */
 .div__header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-right: 35%;
-    padding-left: 30px;
+    gap: 25px;
+    padding: 0 25px;
+    height: 65px;
     background-color: #f1f1f1;
-    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-sizing: border-box;
 }
 
+/* TÍTULO */
 .h1__titulo {
-    font-family: Arial;
-    font-size: 30px;
+    font-size: 26px;
     font-weight: bold;
-
+    margin: 0;
+    white-space: nowrap;
 }
 
+/* MENU */
 .nav__button {
     display: flex;
-    gap: 30px;
-    margin-left: 9%;
+    gap: 20px;
+    flex-wrap: nowrap;
+    margin-left: auto; /* 🔥 empurra menu para a direita */
 }
+
     .nav__button input[type=submit] {
-        padding: 8px 12px 8px 12px;
-        border-color: transparent;
-        background-color: transparent;
+        padding: 8px 12px;
+        border: none;
+        background: transparent;
         font-size: 15px;
-        transition: 0.3s;
-    }
-    .nav__button input[type=submit]:hover {
-        padding: 8px 12px 8px 12px;
+        cursor: pointer;
         border-radius: 5px;
-        border-color: transparent;
-        background-color: #6c757d; /*#989b9e;*/
-        color: white;
         transition: 0.3s;
     }
 
-.icone{
-    position:fixed;
-    bottom: 10px;
-    right: -110px;
-    width: 40%;
-    animation: iconeAnima 2s ease-out forwards
-}
-@keyframes iconeAnima{
-    from{
-        right: -110px;
-    }
-    to{
-        right:10px;
-    }
+        .nav__button input[type=submit]:hover {
+            background-color: #6c757d;
+            color: white;
+        }
+
+/* AVATAR */
+.btn-avatar {
+    width: 42px;
+    height: 42px;
+    margin-left: 15px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
 }
 
-
+/* BADGE */
 .badge {
     background-color: yellow;
     color: black;
@@ -66,11 +66,21 @@
     font-weight: bold;
 }
 
-.btn-avatar {
-    Width:45px; 
-    Height:auto;
-    margin-left: 37%;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
+/* ÍCONE ANIMADO */
+.icone {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 40%;
+    animation: iconeAnima 1.5s ease-out;
+}
+
+@keyframes iconeAnima {
+    from {
+        right: -120px;
+    }
+
+    to {
+        right: 10px;
+    }
 }

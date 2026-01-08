@@ -157,3 +157,83 @@ C:\Users\emperes\Área de Trabalho\Programação\SisLog Eletricos\Sislog_Eletric
 C:\Users\emperes\Área de Trabalho\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\obj\Release\SislogEletricos.dll
 C:\Users\emperes\Área de Trabalho\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\obj\Release\SislogEletricos.xml
 C:\Users\emperes\Área de Trabalho\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\obj\Release\SislogEletricos.pdb
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\SislogEletricos.dll.config
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\SislogEletricos.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\SislogEletricos.pdb
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\SislogEletricos.xml
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\csc.exe
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\csc.exe.config
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\csc.rsp
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\csi.exe
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\csi.rsp
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\Microsoft.CodeAnalysis.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\Microsoft.CSharp.Core.targets
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\Microsoft.VisualBasic.Core.targets
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\System.AppContext.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\System.Collections.Immutable.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\System.Diagnostics.StackTrace.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\System.IO.FileSystem.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\System.IO.FileSystem.Primitives.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\System.Reflection.Metadata.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\vbc.exe
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\vbc.exe.config
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\vbc.rsp
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\VBCSCompiler.exe
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\VBCSCompiler.exe.config
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\obj\Release\SislogEletricos.vbprojAssemblyReference.cache
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\obj\Release\SislogEletricos.Resources.resources
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\obj\Release\SislogEletricos.vbproj.GenerateResource.cache
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\obj\Release\SislogEletricos.vbproj.CoreCompileInputs.cache
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\obj\Release\SislogEletricos.vbproj.CopyComplete
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\obj\Release\SislogEletricos.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\obj\Release\SislogEletricos.xml
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\obj\Release\SislogEletricos.pdb
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\SislogEletricos.dll.config
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\SislogEletricos.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\SislogEletricos.pdb
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\SislogEletricos.xml
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\csc.exe
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\csc.exe.config
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\csc.rsp
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\csi.exe
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\csi.rsp
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\Microsoft.CodeAnalysis.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\Microsoft.CSharp.Core.targets
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\Microsoft.VisualBasic.Core.targets
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\System.AppContext.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\System.Collections.Immutable.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\System.Diagnostics.StackTrace.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\System.IO.FileSystem.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\System.IO.FileSystem.Primitives.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\System.Reflection.Metadata.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\vbc.exe
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\vbc.exe.config
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\vbc.rsp
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\VBCSCompiler.exe
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\roslyn\VBCSCompiler.exe.config
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\obj\Release\SislogEletricos.vbprojAssemblyReference.cache
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\obj\Release\SislogEletricos.Resources.resources
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\obj\Release\SislogEletricos.vbproj.GenerateResource.cache
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\obj\Release\SislogEletricos.vbproj.CoreCompileInputs.cache
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\obj\Release\SislogEletricos.vbproj.CopyComplete
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\obj\Release\SislogEletricos.dll
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\obj\Release\SislogEletricos.xml
+W:\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Sislog_Eletricos\SislogEletricos\obj\Release\SislogEletricos.pdb

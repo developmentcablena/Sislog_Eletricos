@@ -8,8 +8,10 @@ Public Class Login
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
-
+            Dim versao As Version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version
+            lbl_versao.Text = "Versão: " & versao.ToString()
         End If
+
 
 
 

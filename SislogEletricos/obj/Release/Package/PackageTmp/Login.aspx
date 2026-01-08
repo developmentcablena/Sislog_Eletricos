@@ -16,7 +16,14 @@
             <asp:TextBox ID="txtUsuario" runat="server" placeholder="Digite seu usuário"></asp:TextBox>
             <asp:Label ID="label2" runat="server" Text="Senha:"></asp:Label>
             <asp:TextBox ID="txtSenha" runat="server" placeholder="Digite sua senha" TextMode="Password"></asp:TextBox>
-            <asp:Button CssClass="btn" runat="server" Text="Entrar" OnClick="Unnamed_Click" />
+            <asp:Label Text="Empresa" runat="server" />
+            <asp:DropDownList runat="server" CssClass="ddl_tipoEmpresa" ID="ddl_Empresa">
+                <asp:ListItem Text="" />
+                <asp:ListItem Text="Cablena do Brasil LTDA (ELÉTRICOS)" />
+                <asp:ListItem Text="Cablena do Brasil LTDA (TELECOM)" />
+            </asp:DropDownList>
+            <asp:Button CssClass="btn" runat="server" Text="Entrar" OnClick="Unnamed_Click"  UseSubmitBehavior="true" />
+            <asp:Label id="lbl_versao" Text="" runat="server" CssClass="css_versao" />
         </form>
     </div>
 </body>

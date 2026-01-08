@@ -183,12 +183,12 @@ Partial Public Class Recebimento
                 tituloEmail = "SisLOG Elétricos - NOVO CADASTRO "
 
             ElseIf vConexaoEmpresa = "ConectarBD" Then
-                'mail.To.Add("mpaixao@cablena.com.br")
-                mail.To.Add("emperes@cablena.com.br")
+                mail.To.Add("mpaixao@cablena.com.br")
+                'mail.To.Add("emperes@cablena.com.br")
                 tituloEmail = "SisLOG Elétricos - NOVO CADASTRO "
             ElseIf vConexaoEmpresa = "ConectarBD_Telecom" Then
-                'mail.To.Add("jefferson.silva@cablena.com.br")
-                mail.To.Add("emperes@cablena.com.br")
+                mail.To.Add("jefferson.silva@cablena.com.br")
+                'mail.To.Add("emperes@cablena.com.br")
                 tituloEmail = "SisLOG Telecom - NOVO CADASTRO "
             Else
 

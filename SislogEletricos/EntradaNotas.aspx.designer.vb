@@ -11,59 +11,41 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Login
+Partial Public Class EntradaNotas
     
     '''<summary>
-    '''Controle Label1.
+    '''Controle form1.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''Controle txtUsuario.
+    '''Controle btnCadastrar.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents txtUsuario As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents btnCadastrar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''Controle label2.
+    '''Controle btn_voltar.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents label2 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents btn_voltar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''Controle txtSenha.
+    '''Controle gvEntradaNotas.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents txtSenha As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''Controle ddl_Empresa.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents ddl_Empresa As Global.System.Web.UI.WebControls.DropDownList
-    
-    '''<summary>
-    '''Controle lbl_versao.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents lbl_versao As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents gvEntradaNotas As Global.System.Web.UI.WebControls.GridView
 End Class

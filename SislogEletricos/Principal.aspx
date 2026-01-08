@@ -13,7 +13,6 @@
 
 
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -51,6 +50,8 @@
                         <asp:Button ID="btnLiberar" runat="server" Text="Liberar" OnClientClick="abrirModalLiberar(); return false;" />
                         <uc3:LiberarPortaria runat="server" />
 
+                        <asp:Button ID="btnEntradaNotas" runat="server" Text="Entradas de Notas" OnClick="btnEntradaNotas_Click" /> 
+                       
                         <asp:Button ID="btnHistorico" runat="server" Text="Histórico" OnClientClick="abrirModalHistorico(); return false;" />
                         <uc4:Historico runat="server" />
 
@@ -182,6 +183,8 @@
         function fecharModalCodigo() {
             document.getElementById("modalCodigoCliente").style.display = "none";
         }
+
+        
 
     </script>
 </body>

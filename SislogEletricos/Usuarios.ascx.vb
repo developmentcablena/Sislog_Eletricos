@@ -30,7 +30,14 @@ Partial Public Class Usuarios
     Private Sub CarregarNotasFiscais()
         Try
             Using conn As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
-                Dim query As String = "SELECT Nome, Usuario, Funcao FROM tb_Usuarios"
+                Dim query As String = "SELECT Nome, Usuario, Funcao, 
+                                        CASE Empresa
+                                            WHEN 1 THEN 'ELÉTRICOS'
+                                            WHEN 2 THEN 'TELECOM'
+                                            WHEN 3 THEN 'ELÉTRICOS' + CHAR(13) + CHAR(10)  + 'TELECOM'
+                                            ELSE 'Desconhecido'
+                                        END AS Empresa
+                                        FROM tb_Usuarios"
                 Dim cmd As New SqlCommand(query, conn)
                 Dim da As New SqlDataAdapter(cmd)
                 Dim dt As New DataTable()

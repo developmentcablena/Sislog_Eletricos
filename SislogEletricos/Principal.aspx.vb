@@ -29,14 +29,19 @@ Public Class Principal
             Dim funcao As String = Session("FuncaoUsuario")
 
             btnRecebimento.Enabled = False
-            btnAutorizar.Enabled = False
             btnEmbarque.Enabled = False
-            btnHistorico.Enabled = False
-            btnLiberar.Enabled = False
-            btnUsuario.Enabled = False
             btnRecusados.Visible = False
-            btnRelatorio.Enabled = False
+            btnAutorizar.Enabled = False
             btnCodigoCliente.Enabled = False
+            btnLiberar.Enabled = False
+            btnHistorico.Enabled = False
+            btnRelatorio.Enabled = False
+            btnUsuario.Enabled = False
+            btnEntradaNotas.Enabled = False
+
+
+
+
 
             Select Case funcao
                 Case "Adiministrador"
@@ -49,6 +54,7 @@ Public Class Principal
                     btnRecusados.Visible = True
                     btnRelatorio.Enabled = True
                     btnCodigoCliente.Enabled = True
+                    btnEntradaNotas.Enabled = True
 
                 Case "Liberador"
                     btnRecebimento.Enabled = True
@@ -58,6 +64,7 @@ Public Class Principal
                     btnUsuario.Enabled = True
                     btnRelatorio.Enabled = True
                     btnCodigoCliente.Enabled = True
+                    btnEntradaNotas.Enabled = True
 
                 Case "Cadastrar"
                     btnRecebimento.Enabled = True
@@ -67,6 +74,7 @@ Public Class Principal
 
                 Case "Portaria"
                     btnLiberar.Enabled = True
+                    btnEntradaNotas.Enabled = True
             End Select
 
             If vUsuario = "recursos.humano" Then
@@ -102,5 +110,9 @@ Public Class Principal
 
     Protected Sub btnRelatorio_Click(sender As Object, e As EventArgs)
         Response.Redirect("Relatorio.aspx")
+    End Sub
+
+    Protected Sub btnEntradaNotas_Click(sender As Object, e As EventArgs)
+        Response.Redirect("EntradaNotas.aspx")
     End Sub
 End Class

@@ -94,8 +94,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Autorizar.ascx" />
+    <Content Include="CadastrarNF.ascx" />
     <Content Include="CodigoCliente.ascx" />
     <Content Include="Embarque.ascx" />
+    <Content Include="EntradaNotas.aspx" />
     <Content Include="Historico.ascx" />
     <Content Include="Images\avatar_profile.svg" />
     <Content Include="LiberarPortaria.ascx" />
@@ -109,6 +111,7 @@
     <Content Include="Style\CadastroUsuario.css" />
     <Content Include="Style\CodigoCliente.css" />
     <Content Include="Style\Embarque.css" />
+    <Content Include="Style\EntradaNotas.css" />
     <Content Include="Style\Historico.css" />
     <Content Include="Style\Liberacao.css" />
     <Content Include="Style\LiberarPortaria.css" />
@@ -133,6 +136,13 @@
       <DependentUpon>Autorizar.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="CadastrarNF.ascx.designer.vb">
+      <DependentUpon>CadastrarNF.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CadastrarNF.ascx.vb">
+      <DependentUpon>CadastrarNF.ascx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="CodigoCliente.ascx.designer.vb">
       <DependentUpon>CodigoCliente.ascx</DependentUpon>
     </Compile>
@@ -146,6 +156,13 @@
     <Compile Include="Embarque.ascx.vb">
       <DependentUpon>Embarque.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EntradaNotas.aspx.designer.vb">
+      <DependentUpon>EntradaNotas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EntradaNotas.aspx.vb">
+      <DependentUpon>EntradaNotas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Historico.ascx.designer.vb">
       <DependentUpon>Historico.ascx</DependentUpon>
