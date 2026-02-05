@@ -37,15 +37,6 @@ SislogEletricos
  Retorna o objeto de log Asp.
  </summary>
 </member>
-<member name="F:SislogEletricos.Autorizar._upModal1">
-<summary>
-Controle upModal1.
-</summary>
-<remarks>
-Campo gerado automaticamente.
-Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-</remarks>
-</member>
 <member name="F:SislogEletricos.Autorizar._gvCadastros">
 <summary>
 Controle gvCadastros.
@@ -1297,24 +1288,6 @@ Campo gerado automaticamente.
 Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
 </remarks>
 </member>
-<member name="F:SislogEletricos.Principal._upMain">
-<summary>
-Controle upMain.
-</summary>
-<remarks>
-Campo gerado automaticamente.
-Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-</remarks>
-</member>
-<member name="F:SislogEletricos.Principal._phModais">
-<summary>
-Controle phModais.
-</summary>
-<remarks>
-Campo gerado automaticamente.
-Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-</remarks>
-</member>
 <member name="F:SislogEletricos.Principal._btnRecebimento">
 <summary>
 Controle btnRecebimento.
@@ -2011,6 +1984,15 @@ Modificar a declaração do campo de movimento do arquivo de designer para o arq
 <member name="F:SislogEletricos.Sair._lbl_versao">
 <summary>
 Controle lbl_versao.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.Usuarios._hfUsuarioSelecionado">
+<summary>
+Controle hfUsuarioSelecionado.
 </summary>
 <remarks>
 Campo gerado automaticamente.

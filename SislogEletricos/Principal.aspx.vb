@@ -15,8 +15,6 @@ Public Class Principal
             End If
         End If
 
-
-
         If Session("FuncaoUsuario") Is Nothing Then
             Response.Redirect("Login.aspx")
             Exit Sub
@@ -39,10 +37,6 @@ Public Class Principal
             btnUsuario.Enabled = False
             btnEntradaNotas.Enabled = False
 
-
-
-
-
             Select Case funcao
                 Case "Adiministrador"
                     btnRecebimento.Enabled = True
@@ -51,10 +45,11 @@ Public Class Principal
                     btnHistorico.Enabled = True
                     btnLiberar.Enabled = True
                     btnUsuario.Enabled = True
-                    btnRecusados.Visible = True
+                    btnRecusados.Enabled = True
                     btnRelatorio.Enabled = True
                     btnCodigoCliente.Enabled = True
                     btnEntradaNotas.Enabled = True
+                    btnRecusados.Visible = True
 
                 Case "Liberador"
                     btnRecebimento.Enabled = True
@@ -74,7 +69,7 @@ Public Class Principal
 
                 Case "Portaria"
                     btnLiberar.Enabled = True
-                    btnEntradaNotas.Enabled = True
+                    btnEntradaNotas.Enabled = False
             End Select
 
             If vUsuario = "recursos.humano" Then
@@ -87,6 +82,7 @@ Public Class Principal
                 btnRecusados.Visible = False
                 btnRelatorio.Enabled = False
                 btnCodigoCliente.Enabled = False
+                btnEntradaNotas.Enabled = False
             ElseIf vUsuario = "premium" Then
                 btnRecebimento.Enabled = True
                 btnAutorizar.Enabled = False
@@ -97,12 +93,11 @@ Public Class Principal
                 btnRecusados.Visible = False
                 btnRelatorio.Enabled = False
                 btnCodigoCliente.Enabled = False
+                btnEntradaNotas.Enabled = False
             End If
         End If
 
     End Sub
-
-
 
     Protected Sub Sair(sender As Object, e As EventArgs)
         ScriptManager.RegisterStartupScript(Me, Me.GetType(), "abrirmodal", "abrirModalSair();", True)

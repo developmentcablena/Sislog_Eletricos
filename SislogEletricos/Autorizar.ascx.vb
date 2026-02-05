@@ -176,7 +176,7 @@ Partial Public Class Autorizar
     Private Sub CarregarDadosModal(ByVal cadastroID As Integer, ByVal tipoCadastro As String)
         Dim conexao As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
         Dim comando As SqlCommand
-        Debug.WriteLine("" & cadastroID)
+        Debug.WriteLine("carregar modal" & cadastroID)
         If tipoCadastro = "EMBARQUE" Then
             comando = New SqlCommand("SELECT * FROM tb_Cadastro WHERE CadastroID = @ID", conexao)
         ElseIf tipoCadastro = "RECEBIMENTO" Then

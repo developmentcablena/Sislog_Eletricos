@@ -35,7 +35,7 @@ Public Class Login
 
         ' Obtém a string de conexão do Web.config
         Dim connectionString As String = ConfigurationManager.ConnectionStrings($"{conexao}").ConnectionString
-        Dim query As String = "SELECT Usuario, Funcao, Nome, Empresa FROM tb_Usuarios WHERE Usuario = @usuario"
+        Dim query As String = "SELECT Usuario, Funcao, Nome, Empresa, ID_USER FROM tb_Usuarios WHERE Usuario = @usuario"
         Dim usuarioBD As String = ""
 
         ' Usando bloco Using para garantir fechamento da conexão
@@ -56,12 +56,14 @@ Public Class Login
                             Dim usuarioV As String = If(Not reader.IsDBNull(reader.GetOrdinal("Usuario")), reader("Usuario").ToString(), "")
                             Dim nomeV As String = If(Not reader.IsDBNull(reader.GetOrdinal("Nome")), reader("Nome").ToString(), "")
                             Dim valorEmpresa As Integer = reader("Empresa").ToString()
+                            Dim valorID_User As Integer = reader("ID_USER").ToString
 
                             ' Salva os valores na Sessão
                             HttpContext.Current.Session("FuncaoUsuario") = funcaoBD
                             HttpContext.Current.Session("Usuario") = usuarioV
                             HttpContext.Current.Session("Nome") = nomeV
                             HttpContext.Current.Session("Empresa") = valorEmpresa
+                            HttpContext.Current.Session("ID_USER") = valorID_User
                             ' Define o retorno com o nome do usuário
                             usuarioBD = usuarioV
                         End If

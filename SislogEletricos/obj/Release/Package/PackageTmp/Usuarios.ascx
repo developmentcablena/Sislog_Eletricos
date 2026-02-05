@@ -1,4 +1,4 @@
-﻿<%@ Control Language="vb" AutoEventWireup="false" CodeBehind="Usuarios.ascx.vb" Inherits="SislogEletricos.Usuarios" %>
+﻿<%@ Control Language="vb" AutoEventWireup="false" CodeBehind="Usuarios.ascx.vb"  Inherits="SislogEletricos.Usuarios" %>
 <link href="Style/Usuario.css" rel="stylesheet" />
 <style>
 .css__modal-Cadastrar {
@@ -132,6 +132,7 @@
 
 </style>
 
+
 <div id="modalUsuarios" class="css__modal-Usuarios">
     <div class="modal__content-Usuarios">
         <h1 class="h1__titulo-modal">Usuários</h1>
@@ -139,8 +140,10 @@
         <span EnableViewState="true"   class="span__close" runat="server"  onclick="fecharModalUsuarios();">x</span>
 
         <div class="grid-container-usuario">
+            <asp:HiddenField ID="hfUsuarioSelecionado" runat="server" ClientIDMode="Static" />
             <asp:GridView runat="server" ID="gvCadastros" AutoGenerateColumns="false" GridLines="None" CssClass="grid-table-usuario" UseAccessibleHeader="true"  OnRowCommand="gvCadastros_RowCommand">              
                 <Columns>
+                    <asp:BoundField DataField="ID_USER" HeaderText="ID" />
                     <asp:BoundField DataField="Nome" HeaderText="Nome" />
                     <asp:BoundField DataField="Usuario" HeaderText="Usuário" />
                     <asp:BoundField DataField="Funcao" HeaderText="Função" />
@@ -148,7 +151,10 @@
                     <asp:TemplateField HeaderText="Ações">
                         <ItemTemplate>
                             <asp:Button ID="btnAbrir" runat="server" CssClass="css_abir-dados-modal" CommandName="Editar"
-                                CommandArgument='<%# Eval("Usuario")%>' Text="📝" />                                                
+                                CommandArgument='<%# Eval("ID_USER")%>' Text="📝"  />
+
+                             <asp:Button ID="btnExcluir" runat="server" CssClass="css_excluir-dados-modal" CommandName="Excluir"                               
+                                CommandArgument='<%# Eval("ID_USER")%>' Text="🗑" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
@@ -189,9 +195,10 @@
                 </div>
             </div>
         </div>
-        <asp:Button ID="btnsalvar" Text="Salvar" runat="server" CssClass="btn_salvar" OnClick="btnsalvar_Click" />
+        <asp:Button ID="btnsalvar" Text="Salvar" runat="server" CssClass="btn_salvar" OnClick="btnsalvar_Click" />  <%--  OnClick="btnsalvar_Click"--%>
     </div>
 </div>
+
 
 <script>
     function abrirModalCadastrar() {

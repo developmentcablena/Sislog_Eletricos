@@ -6,11 +6,11 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>\\196.200.80.28\informacoes\Área de Tecnologia da Informação\Endrick T.I\Programação WEB\SisLog Eletricos\Publicado\Sislog</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\emperes\OneDrive - Grupo Carso\Área de Trabalho\Programação WEB\SisLog Eletricos\Publicado\Sislog</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Autorizar.ascx">
-      <publishTime>06/16/2025 16:04:08</publishTime>
+      <publishTime>02/05/2026 09:37:59</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>05/12/2025 11:15:34</publishTime>
@@ -94,13 +94,13 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>05/12/2025 11:15:34</publishTime>
     </File>
     <File Include="bin/SislogEletricos.dll">
-      <publishTime>01/08/2026 11:30:57</publishTime>
+      <publishTime>02/05/2026 09:42:55</publishTime>
     </File>
     <File Include="bin/SislogEletricos.pdb">
-      <publishTime>01/08/2026 11:30:57</publishTime>
+      <publishTime>02/05/2026 09:42:55</publishTime>
     </File>
     <File Include="bin/SislogEletricos.xml">
-      <publishTime>01/08/2026 11:30:57</publishTime>
+      <publishTime>02/05/2026 09:42:55</publishTime>
     </File>
     <File Include="CadastrarNF.ascx">
       <publishTime>01/08/2026 09:32:03</publishTime>
@@ -127,13 +127,13 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>05/12/2025 11:21:17</publishTime>
     </File>
     <File Include="Login.aspx">
-      <publishTime>01/08/2026 11:14:42</publishTime>
+      <publishTime>01/30/2026 11:09:08</publishTime>
     </File>
     <File Include="MotivoRecusado.ascx">
       <publishTime>05/20/2025 11:20:04</publishTime>
     </File>
     <File Include="Principal.aspx">
-      <publishTime>12/29/2025 11:06:22</publishTime>
+      <publishTime>01/30/2026 14:23:29</publishTime>
     </File>
     <File Include="Recebimento.ascx">
       <publishTime>06/16/2025 16:04:08</publishTime>
@@ -175,13 +175,13 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>05/14/2025 10:42:48</publishTime>
     </File>
     <File Include="Style/Login.css">
-      <publishTime>01/08/2026 11:22:30</publishTime>
+      <publishTime>01/21/2026 17:34:23</publishTime>
     </File>
     <File Include="Style/MotivoRecusado.css">
       <publishTime>05/16/2025 15:35:58</publishTime>
     </File>
     <File Include="Style/Principal.css">
-      <publishTime>12/26/2025 15:52:12</publishTime>
+      <publishTime>01/30/2026 14:05:50</publishTime>
     </File>
     <File Include="Style/Recebimento.css">
       <publishTime>05/12/2025 11:15:33</publishTime>
@@ -193,13 +193,13 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>06/16/2025 16:04:08</publishTime>
     </File>
     <File Include="Style/Usuario.css">
-      <publishTime>08/08/2025 11:01:43</publishTime>
+      <publishTime>01/29/2026 16:41:41</publishTime>
     </File>
     <File Include="Usuarios.ascx">
-      <publishTime>08/16/2025 08:40:39</publishTime>
+      <publishTime>01/30/2026 11:30:52</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/30/2025 16:27:33</publishTime>
+      <publishTime>01/30/2026 14:45:32</publishTime>
     </File>
   </ItemGroup>
 </Project>

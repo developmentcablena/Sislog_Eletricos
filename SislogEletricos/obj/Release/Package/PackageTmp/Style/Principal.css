@@ -72,10 +72,10 @@
     bottom: 10px;
     right: 10px;
     width: 40%;
-    animation: iconeAnima 1.5s ease-out;
+    /*'animation: iconeAnima 1.5s ease-out;*/
 }
 
-@keyframes iconeAnima {
+/*@keyframes iconeAnima {
     from {
         right: -120px;
     }
@@ -83,4 +83,4 @@
     to {
         right: 10px;
     }
-}
+}*/

@@ -22,7 +22,7 @@
                 <asp:ListItem Text="Cablena do Brasil LTDA (ELÉTRICOS)" />
                 <asp:ListItem Text="Cablena do Brasil LTDA (TELECOM)" />
             </asp:DropDownList>
-            <asp:Button CssClass="btn" runat="server" Text="Entrar" OnClick="Unnamed_Click"  UseSubmitBehavior="true" />
+            <asp:Button CssClass="btn" runat="server" Text="Entrar" OnClick="Unnamed_Click"  OnClientClick="this.value='Processando...'; this.disabled=true; document.body.style.cursor='wait';"  UseSubmitBehavior="false"/>
             <asp:Label id="lbl_versao" Text="" runat="server" CssClass="css_versao" />
         </form>
     </div>

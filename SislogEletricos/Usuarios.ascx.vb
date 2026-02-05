@@ -6,11 +6,16 @@ Imports System.Diagnostics
 Partial Public Class Usuarios
     Inherits System.Web.UI.UserControl
     Private vConexao As String
+    Public ID_Usuario As Integer
+    Public valorSelecioando As Integer
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         vConexao = Session("vConexao")
 
         If Not IsPostBack Then
+            Debug.WriteLine("leaod" & Session("ID_USER"))
             CarregarNotasFiscais()
+            valorSelecioando = ID_Usuario
+
 
             If Session("FuncaoUsuario") = "Adiministrador" Then
                 chk_eletricos.Enabled = True
@@ -21,7 +26,7 @@ Partial Public Class Usuarios
             End If
         End If
 
-            If Session("FuncaoUsuario") Is Nothing Then
+        If Session("FuncaoUsuario") Is Nothing Then
             Response.Redirect("Login.aspx")
             Exit Sub
         End If
@@ -30,7 +35,7 @@ Partial Public Class Usuarios
     Private Sub CarregarNotasFiscais()
         Try
             Using conn As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
-                Dim query As String = "SELECT Nome, Usuario, Funcao, 
+                Dim query As String = "SELECT Nome, Usuario, Funcao, ID_USER,
                                         CASE Empresa
                                             WHEN 1 THEN 'ELÉTRICOS'
                                             WHEN 2 THEN 'TELECOM'
@@ -65,32 +70,43 @@ Partial Public Class Usuarios
 
     Protected Sub gvCadastros_RowCommand(sender As Object, e As GridViewCommandEventArgs)
         Dim commandName As String = e.CommandName
-        Dim Usuario As String
+        'If e.CommandName = "Editar" Then
+        Dim id As String = e.CommandArgument.ToString() ' ou DataKeys, se preferir
+            hfUsuarioSelecionado.Value = id                 ' <-- PERSISTE o ID
 
-        Usuario = e.CommandArgument.ToString()
-        Session("Usuario") = Usuario
+            Select Case commandName
+                Case "Editar"
+                    AbrirModal(id)
+                Case "Excluir"
+                    ExcluirUsuario(id)
+            End Select
 
-        Select Case commandName
 
-            Case "Editar"
-                AbrirModal(Usuario)
-        End Select
+        'Dim commandName As String = e.CommandName
+        'ID_Usuario = e.CommandArgument.ToString()
 
+        'Select Case commandName
+        '    Case "Editar"
+        '        AbrirModal(ID_Usuario)
+        'End Select
     End Sub
 
     Private Sub AbrirModal(ByVal cadastroID As String)
-        CarregarDadosModal(cadastroID)
-        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "abrir", "abrirModalUsuarios(); abrirModalCadastrar();", True)
 
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "abrir", "abrirModalUsuarios(); abrirModalCadastrar(); ", True)
+        CarregarDadosModal(cadastroID)
     End Sub
 
+    Private Sub ExcluirUsuario(ByVal cadastroID As String)
+        ExcluirDados(cadastroID)
+    End Sub
 
     Private Sub CarregarDadosModal(ByVal cadastroID As String)
         btnsalvar.Text = "Atualizar"
         Dim conexao As New SqlConnection(ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString)
         Dim comando As SqlCommand
 
-        comando = New SqlCommand("SELECT * FROM tb_Usuarios WHERE Usuario = @ID", conexao)
+        comando = New SqlCommand("SELECT * FROM tb_Usuarios WHERE ID_USER = @ID", conexao)
 
         comando.Parameters.AddWithValue("@ID", cadastroID)
         Try
@@ -98,11 +114,13 @@ Partial Public Class Usuarios
             Dim leitor As SqlDataReader = comando.ExecuteReader()
             If leitor.Read() Then
                 ' Armazena os dados na Session
+
                 Dim valorColuna1 As String = leitor(0).ToString()
                 Dim valorColuna2 As String = leitor(1).ToString()
                 Dim valorColuna3 As String = leitor(2).ToString()
                 Dim valorFuncao As String = leitor(3).ToString()
                 Dim valorEmpresa As Integer = leitor("Empresa").ToString()
+
 
                 txtNome.Text = valorColuna1
                 txtUsuario.Text = valorColuna2
@@ -127,7 +145,6 @@ Partial Public Class Usuarios
         End Try
     End Sub
 
-
     Protected Sub btnsalvar_Click(sender As Object, e As EventArgs)
         Dim nome As String = txtNome.Text
         Dim usuario As String = txtUsuario.Text
@@ -148,7 +165,8 @@ Partial Public Class Usuarios
         End If
 
         If btnsalvar.Text = "Atualizar" Then
-            AtualizarDados(usuario)
+            AtualizarDados(ID_Usuario)
+
         Else
             Dim vEmpresa As Integer = 0
 
@@ -162,41 +180,58 @@ Partial Public Class Usuarios
 
             btnsalvar.Text = "Salvar"
             Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
-                Using conn As New SqlConnection(connectionString)
+            Using conn As New SqlConnection(connectionString)
                 Dim sql As String = "INSERT INTO tb_Usuarios (Nome, Usuario, Email, Funcao, Empresa) 
                              VALUES (@Nome, @Usuario, @Email, @Funcao, @empresa)"
-
                 Using cmd As New SqlCommand(sql, conn)
-                        cmd.Parameters.AddWithValue("@Nome", nome)
-                        cmd.Parameters.AddWithValue("@Usuario", usuario)
-                        cmd.Parameters.AddWithValue("@Email", email)
+                    cmd.Parameters.AddWithValue("@Nome", nome)
+                    cmd.Parameters.AddWithValue("@Usuario", usuario)
+                    cmd.Parameters.AddWithValue("@Email", email)
                     cmd.Parameters.AddWithValue("@Funcao", funcao)
                     cmd.Parameters.AddWithValue("@empresa", vEmpresa)
-
                     Try
-                            conn.Open()
-                            cmd.ExecuteNonQuery()
-                            conn.Close()
-                            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "sucesso", "abrirModalUsuarios(); alert('Usuário codastrado com sucesso!');", True)
-                            CarregarNotasFiscais()
-                        Catch ex As Exception
-                            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "sucesso", $"alert('Erro: {ex.Message}')", True)
-                        End Try
-
-                    End Using
+                        conn.Open()
+                        cmd.ExecuteNonQuery()
+                        conn.Close()
+                        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "sucesso", "abrirModalUsuarios(); alert('Usuário codastrado com sucesso!');", True)
+                        CarregarNotasFiscais()
+                    Catch ex As Exception
+                        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "sucesso", $"alert('Erro: {ex.Message}')", True)
+                    End Try
                 End Using
+            End Using
+            'ScriptManager.RegisterStartupScript(Me, Me.GetType(), "sucesso", "abrirModalUsuarios(); alert('Senhas não se conferem!');", True)
+        End If
+    End Sub
 
-                'ScriptManager.RegisterStartupScript(Me, Me.GetType(), "sucesso", "abrirModalUsuarios(); alert('Senhas não se conferem!');", True)
 
-            End If
+    Private Sub ExcluirDados(ByVal usuarioID As String)
+        Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
+        Using conn As New SqlConnection(connectionString)
 
+            Dim sql As String = "DELETE FROM tb_Usuarios WHERE ID_USER = @usuarioID"
 
+            Using cmd As New SqlCommand(sql, conn)
+
+                cmd.Parameters.AddWithValue("@usuarioID", usuarioID)
+                Try
+                    conn.Open()
+                    cmd.ExecuteNonQuery()
+                    conn.Close()
+                    ScriptManager.RegisterStartupScript(Me, Me.GetType(), "sucesso", "abrirModalUsuarios(); alert('Usuario excluido com sucesso!');", True)
+                    CarregarNotasFiscais()
+                Catch ex As Exception
+                    ScriptManager.RegisterStartupScript(Me, Me.GetType(), "sucesso", $"alert('Erro: {ex.Message}')", True)
+                End Try
+            End Using
+        End Using
     End Sub
 
     Private Sub AtualizarDados(ByVal usuarioID As String)
-        Dim nome As String = txtNome.Text
-        Dim usuario As String = txtUsuario.Text
-        Dim email As String = txtEmail.Text
+        Dim idUsuario As String = hfUsuarioSelecionado.Value ' <-- RECUPERA
+        Dim nome As String = txtNome.Text.Trim()
+        Dim usuario As String = txtUsuario.Text.Trim()
+        Dim email As String = txtEmail.Text.Trim()
         Dim funcao As String = ddlFuncao.Text.Trim()
         Dim vEmpresa As Integer = 0
 
@@ -210,14 +245,15 @@ Partial Public Class Usuarios
 
         Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
         Using conn As New SqlConnection(connectionString)
-            Dim sql As String = "UPDATE  tb_Usuarios set Nome = @nome, Usuario = @usuario, Email = @email, Funcao = @funcao, Empresa = @empresa WHERE Usuario = @usuarioID"
+            Dim sql As String = "UPDATE  tb_Usuarios set Nome = @nome, Usuario = @usuario, Email = @email, Funcao = @funcao, Empresa = @empresa WHERE ID_USER = @usuarioID"
+            Debug.WriteLine("" & usuarioID)
             Using cmd As New SqlCommand(sql, conn)
                 cmd.Parameters.AddWithValue("@nome", nome)
                 cmd.Parameters.AddWithValue("@usuario", usuario)
                 cmd.Parameters.AddWithValue("@email", email)
                 cmd.Parameters.AddWithValue("@funcao", funcao)
                 cmd.Parameters.AddWithValue("@empresa", vEmpresa)
-                cmd.Parameters.AddWithValue("@usuarioID", usuario)
+                cmd.Parameters.AddWithValue("@usuarioID", idUsuario)
                 Try
                     conn.Open()
                     cmd.ExecuteNonQuery()
@@ -236,7 +272,4 @@ Partial Public Class Usuarios
             e.Row.TableSection = TableRowSection.TableHeader
         End If
     End Sub
-
-
-
 End Class

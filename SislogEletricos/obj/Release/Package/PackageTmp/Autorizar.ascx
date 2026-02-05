@@ -211,8 +211,8 @@
     }
 </style>
 
-<asp:UpdatePanel ID="upModal1" runat="server">
-    <ContentTemplate>
+<%--<asp:UpdatePanel ID="upModal1" runat="server">
+    <ContentTemplate>--%>
         <div id="modalAutorizacao" class="css__modal-Autorizacao">
             <div class="modal__content-Autorizacao">
                 <h1 class="h1__titulo-modal">Autorização</h1>
@@ -424,8 +424,8 @@
             </div>
         </div>
 
-    </ContentTemplate>
-</asp:UpdatePanel>
+<%--    </ContentTemplate>
+</asp:UpdatePanel>--%>
 <script>
     /*Recebimento*/
     function abrirModal2Autorizar() {
@@ -442,17 +442,6 @@
     function fecharModalEmbarque2() {
         document.getElementById("modalEmbarque22").style.display = "none";
     }
-
-
-
-
-    //function abrirModal() {
-    //    document.getElementById("meuModal").style.display = "block";
-    //}
-    //function fehcarModal() {
-    //    document; getElementById("meuModal").style.display = "none";
-    //}
-
 
 
 
