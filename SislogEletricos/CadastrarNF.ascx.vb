@@ -14,6 +14,7 @@ Public Class CadastrarNF
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         vConexao = Session("vConexao")
         vUsuario = Session("Usuario")
+        txtDANFE.Focus()
     End Sub
 
     Protected Sub Btn_close_Click()
@@ -85,6 +86,8 @@ Public Class CadastrarNF
                 RazaoSocial = cmdBusca.ExecuteScalar()
 
                 If RazaoSocial Is Nothing Then
+
+
                     Throw New Exception("FORNECEDOR NÃO ENCONTRADO")
                     ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta4", "alert('FORNECEDOR NÃO ENCONTRADO.'); abrirModalCadastrar();", True)
                 End If

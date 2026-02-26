@@ -3,7 +3,7 @@
     background-color: #4157b9;
     color: white;
     text-align: left;
-    padding: 20px;
+    padding: 30px;
     margin: 0;
     width: 100%;
     font-size: 28px;
@@ -138,7 +138,7 @@
 .cadastrar {
     position: absolute;
     right: 16px;
-    top: 17px;
+    top: 8px;
     padding: 10px;
     border-radius: 6px;
     border: 1px solid;
@@ -168,3 +168,17 @@
         }
 
 
+
+.exportarExcel {
+    position: absolute;
+    right: 14px;
+    top: 50px;
+}
+
+
+.btn-exportar {
+    position: absolute;
+    right: 14px;
+    top: 52px;
+    width: 5.7rem;
+}

@@ -61,33 +61,43 @@ Partial Public Class LiberarPortaria
     End Sub
 
     Protected Sub btnChegada(sender As Object, e As EventArgs)
-        Dim vdata As String = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+        'Dim vdata As String = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+        Dim vdata As DateTime = DateTime.Now
 
         If Session("cadastroID") IsNot Nothing Then
             cadastroID = Convert.ToInt32(Session("cadastroID"))
         Else
-            cadastroID = 0
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Erro no ID cadastro", "alert('Erro: Cadastro invalido. CadastroID = 0');", True)
         End If
 
         Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
+
         Using conn As New SqlConnection(connectionString)
+            conn.Open()
+            Dim tran As SqlTransaction = conn.BeginTransaction(IsolationLevel.ReadCommitted)
             Try
-                conn.Open()
-                Dim sql2 As String = "UPDATE tb_Cadastro SET HorarioChegada = @dataAtual WHERE CadastroID = @id2"
-                Dim sql3 As String = "UPDATE tb_Cadastro SET StatusHorario = @valor WHERE CadastroID = @id"
-                Using cmd As New SqlCommand(sql3, conn)
-                    cmd.Parameters.AddWithValue("@valor", 2)
-                    cmd.Parameters.AddWithValue("@id", cadastroID)
-                    cmd.ExecuteNonQuery()
+
+                Dim SQL As String =
+                    "UPDATE tb_Cadastro
+                    SET HorarioChegada = @dataAtual,
+                        StatusHorario = @novoStatus
+                    WHERE CadastroID = @id
+                    AND (StatusHorario = 1 OR StatusHorario IS NULL)"
+
+                Using cmd As New SqlCommand(SQL, conn, tran)
+                    cmd.Parameters.Add("@dataAtual", SqlDbType.DateTime).Value = vdata
+                    cmd.Parameters.Add("@novoStatus", SqlDbType.Int).Value = 2
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = cadastroID
+
+                    Dim afetadas = cmd.ExecuteNonQuery()
+                    If afetadas = 0 Then
+                        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Erro", "alert('Não foi possível registrar a CHEGADA. O registro não esta no status esperado (1).');", True)
+                    End If
                 End Using
-                Using cmd2 As New SqlCommand(sql2, conn)
-                    cmd2.Parameters.AddWithValue("@dataAtual", vdata)
-                    cmd2.Parameters.AddWithValue("@id2", cadastroID)
-                    cmd2.ExecuteNonQuery()
-                End Using
+
+                tran.Commit()
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "sucesso", "alert('Horario de chegada cadastrado com sucesso!!'); fecharModalLiberacao();", True)
                 CarregarNotasFiscais()
-
             Catch ex As Exception
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "error", "alert('Erro ao cadastrar o horario!')", True)
             End Try
@@ -96,30 +106,40 @@ Partial Public Class LiberarPortaria
         ScriptManager.RegisterStartupScript(Me, Me.GetType(), "abrir", "abrirModalLiberar(); fecharModalLiberacao();", True)
     End Sub
     Protected Sub btnEntrada(sender As Object, e As EventArgs)
-        Dim vdata As String = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+        Dim vdata As DateTime = DateTime.Now
 
         If Session("cadastroID") IsNot Nothing Then
             cadastroID = Convert.ToInt32(Session("cadastroID"))
         Else
-            cadastroID = 0
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Erro no ID cadastro", "alert('Erro: Cadastro invalido. CadastroID = 0');", True)
         End If
 
         Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
+
         Using conn As New SqlConnection(connectionString)
+            conn.Open()
+            Dim tran As SqlTransaction = conn.BeginTransaction(IsolationLevel.ReadCommitted)
             Try
-                conn.Open()
-                Dim sql2 As String = "UPDATE tb_Cadastro SET HorarioEntrada = @dataAtual WHERE CadastroID = @id2"
-                Dim sql3 As String = "UPDATE tb_Cadastro SET StatusHorario = @valor WHERE CadastroID = @id"
-                Using cmd As New SqlCommand(sql3, conn)
-                    cmd.Parameters.AddWithValue("@valor", 3)
-                    cmd.Parameters.AddWithValue("@id", cadastroID)
-                    cmd.ExecuteNonQuery()
+
+                Dim SQL As String =
+                    "UPDATE tb_Cadastro
+                    SET HorarioEntrada = @dataAtual,
+                        StatusHorario = @novoStatus
+                    WHERE CadastroID = @id
+                    AND StatusHorario = 2;"
+
+                Using cmd As New SqlCommand(SQL, conn, tran)
+                    cmd.Parameters.Add("@dataAtual", SqlDbType.DateTime).Value = vdata
+                    cmd.Parameters.Add("@novoStatus", SqlDbType.Int).Value = 3
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = cadastroID
+
+                    Dim afetadas = cmd.ExecuteNonQuery()
+                    If afetadas = 0 Then
+                        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Erro", "alert('Não foi possível registrar a CHEGADA. O registro não esta no status esperado (2).');", True)
+                    End If
                 End Using
-                Using cmd2 As New SqlCommand(sql2, conn)
-                    cmd2.Parameters.AddWithValue("@dataAtual", vdata)
-                    cmd2.Parameters.AddWithValue("@id2", cadastroID)
-                    cmd2.ExecuteNonQuery()
-                End Using
+
+                tran.Commit()
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "sucesso", "alert('Horario de Entrada cadastrado com sucesso!!'); fecharModalLiberacao();", True)
                 CarregarNotasFiscais()
 
@@ -131,30 +151,40 @@ Partial Public Class LiberarPortaria
         ScriptManager.RegisterStartupScript(Me, Me.GetType(), "abrir", "abrirModalLiberar(); fecharModalLiberacao();", True)
     End Sub
     Protected Sub btnSaida(sender As Object, e As EventArgs)
-        Dim vdata2 As String = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+        Dim vdata As DateTime = DateTime.Now
 
         If Session("cadastroID") IsNot Nothing Then
             cadastroID = Convert.ToInt32(Session("cadastroID"))
         Else
-            cadastroID = 0
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Erro no ID cadastro", "alert('Erro: Cadastro invalido. CadastroID = 0');", True)
         End If
 
         Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
+
         Using conn As New SqlConnection(connectionString)
+            conn.Open()
+            Dim tran As SqlTransaction = conn.BeginTransaction(IsolationLevel.ReadCommitted)
             Try
-                conn.Open()
-                Dim sql2 As String = "UPDATE tb_Cadastro SET HorarioSaida = @dataAtual WHERE CadastroID = @id2"
-                Dim sql3 As String = "UPDATE tb_Cadastro SET Status = @status WHERE CadastroID = @id"
-                Using cmd As New SqlCommand(sql3, conn)
-                    cmd.Parameters.AddWithValue("@status", 4)
-                    cmd.Parameters.AddWithValue("@id", cadastroID)
-                    cmd.ExecuteNonQuery()
+
+                Dim SQL As String =
+                    "UPDATE tb_Cadastro
+                    SET HorarioSaida = @dataAtual,
+                        Status = @novoStatusCadastro
+                    WHERE CadastroID = @id
+                    AND StatusHorario = 3;"
+
+                Using cmd As New SqlCommand(SQL, conn, tran)
+                    cmd.Parameters.Add("@dataAtual", SqlDbType.DateTime).Value = vdata
+                    cmd.Parameters.Add("@novoStatusCadastro", SqlDbType.Int).Value = 4
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = cadastroID
+
+                    Dim afetadas = cmd.ExecuteNonQuery()
+                    If afetadas = 0 Then
+                        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Erro", "alert('Não foi possível registrar a CHEGADA. O registro não esta no status esperado (3).');", True)
+                    End If
                 End Using
-                Using cmd2 As New SqlCommand(sql2, conn)
-                    cmd2.Parameters.AddWithValue("@dataAtual", vdata2)
-                    cmd2.Parameters.AddWithValue("@id2", cadastroID)
-                    cmd2.ExecuteNonQuery()
-                End Using
+
+                tran.Commit()
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "sucesso", "alert('Horario de Saída cadastrado com sucesso!!'); fecharModalLiberacao();", True)
                 CarregarNotasFiscais()
 

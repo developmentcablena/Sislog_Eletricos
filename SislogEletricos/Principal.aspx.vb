@@ -66,10 +66,11 @@ Public Class Principal
                     btnEmbarque.Enabled = True
                     btnRecusados.Visible = True
                     btnRelatorio.Enabled = True
+                    btnEntradaNotas.Enabled = False
 
                 Case "Portaria"
                     btnLiberar.Enabled = True
-                    btnEntradaNotas.Enabled = False
+                    btnEntradaNotas.Enabled = True
             End Select
 
             If vUsuario = "recursos.humano" Then

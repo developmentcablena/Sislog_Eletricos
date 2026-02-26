@@ -98,6 +98,7 @@
     <Content Include="CodigoCliente.ascx" />
     <Content Include="Embarque.ascx" />
     <Content Include="EntradaNotas.aspx" />
+    <Content Include="ExportarRelatorio.aspx" />
     <Content Include="Historico.ascx" />
     <Content Include="Images\avatar_profile.svg" />
     <Content Include="LiberarPortaria.ascx" />
@@ -162,6 +163,13 @@
     </Compile>
     <Compile Include="EntradaNotas.aspx.vb">
       <DependentUpon>EntradaNotas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ExportarRelatorio.aspx.designer.vb">
+      <DependentUpon>ExportarRelatorio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExportarRelatorio.aspx.vb">
+      <DependentUpon>ExportarRelatorio.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Historico.ascx.designer.vb">

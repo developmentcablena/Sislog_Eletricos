@@ -94,16 +94,16 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>05/12/2025 11:15:34</publishTime>
     </File>
     <File Include="bin/SislogEletricos.dll">
-      <publishTime>02/05/2026 09:42:55</publishTime>
+      <publishTime>02/25/2026 15:43:03</publishTime>
     </File>
     <File Include="bin/SislogEletricos.pdb">
-      <publishTime>02/05/2026 09:42:55</publishTime>
+      <publishTime>02/25/2026 15:43:03</publishTime>
     </File>
     <File Include="bin/SislogEletricos.xml">
-      <publishTime>02/05/2026 09:42:55</publishTime>
+      <publishTime>02/25/2026 15:43:02</publishTime>
     </File>
     <File Include="CadastrarNF.ascx">
-      <publishTime>01/08/2026 09:32:03</publishTime>
+      <publishTime>02/09/2026 17:04:24</publishTime>
     </File>
     <File Include="CodigoCliente.ascx">
       <publishTime>06/24/2025 16:39:33</publishTime>
@@ -112,7 +112,10 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>08/16/2025 09:07:47</publishTime>
     </File>
     <File Include="EntradaNotas.aspx">
-      <publishTime>01/08/2026 09:14:35</publishTime>
+      <publishTime>02/25/2026 11:20:03</publishTime>
+    </File>
+    <File Include="ExportarRelatorio.aspx">
+      <publishTime>02/25/2026 10:31:05</publishTime>
     </File>
     <File Include="Historico.ascx">
       <publishTime>06/16/2025 16:04:08</publishTime>
@@ -163,7 +166,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>06/16/2025 16:04:08</publishTime>
     </File>
     <File Include="Style/EntradaNotas.css">
-      <publishTime>12/30/2025 16:12:03</publishTime>
+      <publishTime>02/25/2026 11:20:03</publishTime>
     </File>
     <File Include="Style/Historico.css">
       <publishTime>05/20/2025 14:52:37</publishTime>

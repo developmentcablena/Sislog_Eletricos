@@ -757,6 +757,15 @@ Campo gerado automaticamente.
 Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
 </remarks>
 </member>
+<member name="F:SislogEletricos.EntradaNotas._btnModalExportar">
+<summary>
+Controle btnModalExportar.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
 <member name="F:SislogEletricos.EntradaNotas._btn_voltar">
 <summary>
 Controle btn_voltar.
@@ -773,6 +782,60 @@ Controle gvEntradaNotas.
 <remarks>
 Campo gerado automaticamente.
 Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.EntradaNotas._modalExportar">
+<summary>
+Controle modalExportar.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.EntradaNotas._txt_ano">
+<summary>
+Controle txt_ano.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.EntradaNotas._ddl_mes">
+<summary>
+Controle ddl_mes.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.EntradaNotas._ddl_dia">
+<summary>
+Controle ddl_dia.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.EntradaNotas._btnGerarRelatorio">
+<summary>
+Controle btnGerarRelatorio.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+</remarks>
+</member>
+<member name="F:SislogEletricos.ExportarRelatorio._form1">
+<summary>
+Controle de form1.
+</summary>
+<remarks>
+Campo gerado automaticamente.
+Para modificar, mova a declaração de campo do arquivo do designer para o arquivo code-behind.
 </remarks>
 </member>
 <member name="F:SislogEletricos.Historico._updGrid">
