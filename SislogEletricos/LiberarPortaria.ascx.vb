@@ -70,6 +70,8 @@ Partial Public Class LiberarPortaria
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Erro no ID cadastro", "alert('Erro: Cadastro invalido. CadastroID = 0');", True)
         End If
 
+
+
         Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
 
         Using conn As New SqlConnection(connectionString)
@@ -82,7 +84,9 @@ Partial Public Class LiberarPortaria
                     SET HorarioChegada = @dataAtual,
                         StatusHorario = @novoStatus
                     WHERE CadastroID = @id
-                    AND (StatusHorario = 1 OR StatusHorario IS NULL)"
+                    AND StatusHorario = 1"
+
+
 
                 Using cmd As New SqlCommand(SQL, conn, tran)
                     cmd.Parameters.Add("@dataAtual", SqlDbType.DateTime).Value = vdata
@@ -91,7 +95,8 @@ Partial Public Class LiberarPortaria
 
                     Dim afetadas = cmd.ExecuteNonQuery()
                     If afetadas = 0 Then
-                        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Erro", "alert('Não foi possível registrar a CHEGADA. O registro não esta no status esperado (1).');", True)
+                        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Erro", "alert('Não foi possível registrar a CHEGADA. O registro não esta no status esperado (1).'); abrirModalLiberar();", True)
+                        Exit Sub
                     End If
                 End Using
 
@@ -99,6 +104,7 @@ Partial Public Class LiberarPortaria
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "sucesso", "alert('Horario de chegada cadastrado com sucesso!!'); fecharModalLiberacao();", True)
                 CarregarNotasFiscais()
             Catch ex As Exception
+                tran.Rollback()
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "error", "alert('Erro ao cadastrar o horario!')", True)
             End Try
         End Using
@@ -144,6 +150,7 @@ Partial Public Class LiberarPortaria
                 CarregarNotasFiscais()
 
             Catch ex As Exception
+                tran.Rollback()
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "error", "alert('Erro ao cadastrar o horario!')", True)
             End Try
         End Using
@@ -189,6 +196,7 @@ Partial Public Class LiberarPortaria
                 CarregarNotasFiscais()
 
             Catch ex As Exception
+                tran.Rollback()
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "error", "alert('Erro ao cadastrar o horario!')", True)
             End Try
         End Using
@@ -214,8 +222,9 @@ Partial Public Class LiberarPortaria
                     Try
                         conn.Open()
                         Dim sql As String = "SELECT StatusHorario FROM tb_Cadastro WHERE CadastroID = @id"
+
                         Using cmd As New SqlCommand(sql, conn)
-                            cmd.Parameters.AddWithValue("@id", cadastroID)
+                            cmd.Parameters.Add("@id", SqlDbType.Int).Value = cadastroID
 
                             Dim valor As Object = cmd.ExecuteScalar()
                             ' Verifica se na coluna StatusHorarios esta com o valor = 1

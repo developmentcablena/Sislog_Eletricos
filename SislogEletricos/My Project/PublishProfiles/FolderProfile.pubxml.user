@@ -94,13 +94,13 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>05/12/2025 11:15:34</publishTime>
     </File>
     <File Include="bin/SislogEletricos.dll">
-      <publishTime>02/25/2026 15:43:03</publishTime>
+      <publishTime>03/05/2026 13:47:41</publishTime>
     </File>
     <File Include="bin/SislogEletricos.pdb">
-      <publishTime>02/25/2026 15:43:03</publishTime>
+      <publishTime>03/05/2026 13:47:41</publishTime>
     </File>
     <File Include="bin/SislogEletricos.xml">
-      <publishTime>02/25/2026 15:43:02</publishTime>
+      <publishTime>03/05/2026 13:47:40</publishTime>
     </File>
     <File Include="CadastrarNF.ascx">
       <publishTime>02/09/2026 17:04:24</publishTime>
