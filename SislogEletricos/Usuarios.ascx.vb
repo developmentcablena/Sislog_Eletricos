@@ -180,14 +180,17 @@ Partial Public Class Usuarios
 
             btnsalvar.Text = "Salvar"
             Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
+            Debug.WriteLine("banco" & vConexao)
+
             Using conn As New SqlConnection(connectionString)
-                Dim sql As String = "INSERT INTO tb_Usuarios (Nome, Usuario, Email, Funcao, Empresa) 
-                             VALUES (@Nome, @Usuario, @Email, @Funcao, @empresa)"
+                Dim sql As String = "INSERT INTO tb_Usuarios (Nome, Usuario, Email, Funcao, Senha, Empresa) 
+                             VALUES (@Nome, @Usuario, @Email, @Funcao, @senha, @empresa)"
                 Using cmd As New SqlCommand(sql, conn)
                     cmd.Parameters.AddWithValue("@Nome", nome)
                     cmd.Parameters.AddWithValue("@Usuario", usuario)
                     cmd.Parameters.AddWithValue("@Email", email)
                     cmd.Parameters.AddWithValue("@Funcao", funcao)
+                    cmd.Parameters.AddWithValue("@senha", "N/A")
                     cmd.Parameters.AddWithValue("@empresa", vEmpresa)
                     Try
                         conn.Open()
@@ -245,13 +248,14 @@ Partial Public Class Usuarios
 
         Dim connectionString = ConfigurationManager.ConnectionStrings($"{vConexao}").ConnectionString
         Using conn As New SqlConnection(connectionString)
-            Dim sql As String = "UPDATE  tb_Usuarios set Nome = @nome, Usuario = @usuario, Email = @email, Funcao = @funcao, Empresa = @empresa WHERE ID_USER = @usuarioID"
-            Debug.WriteLine("" & usuarioID)
+            Dim sql As String = "UPDATE  tb_Usuarios set Nome = @nome, Usuario = @usuario, Email = @email, Funcao = @funcao, Senha = @senha Empresa = @empresa WHERE ID_USER = @usuarioID"
+
             Using cmd As New SqlCommand(sql, conn)
                 cmd.Parameters.AddWithValue("@nome", nome)
                 cmd.Parameters.AddWithValue("@usuario", usuario)
                 cmd.Parameters.AddWithValue("@email", email)
                 cmd.Parameters.AddWithValue("@funcao", funcao)
+                cmd.Parameters.AddWithValue("@senha", "N/A")
                 cmd.Parameters.AddWithValue("@empresa", vEmpresa)
                 cmd.Parameters.AddWithValue("@usuarioID", idUsuario)
                 Try
