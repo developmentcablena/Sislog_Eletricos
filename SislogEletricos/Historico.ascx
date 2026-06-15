@@ -209,16 +209,35 @@ display: flex;
    
 </style>
 
-<asp:UpdatePanel ID="updGrid" runat="server" UpdateMode="Conditional">
-    <ContentTemplate>
-        <div id="modalHistorico" class="css__modal-Historico">
+<%--<asp:UpdatePanel ID="updGrid" runat="server" UpdateMode="Conditional">
+    <ContentTemplate>--%>
+        <div id="modalHistorico" class="css__modal-Historico" >
             <div class="modal__content-Historico">
                 <h1 class="h1__titulo-modal">Historico de Cadastro</h1>
                 <asp:Button CssClass="btnAtualizar" Text="🔄" runat="server" OnClick="Unnamed_Click" />
                 <span enableviewstate="true" class="span__close" runat="server" onclick="fecharModalHistorico();">x</span>
 
                 <div class="grid-container-historico">
-                        <asp:GridView runat="server" ID="gvCadastros" AutoGenerateColumns="false" GridLines="None" CssClass="grid-table-historico" UseAccessibleHeader="true" OnRowCommand="gvCadastros_RowCommand">
+                        <asp:GridView runat="server" 
+                            ID="gvCadastros" 
+                            AutoGenerateColumns="false" 
+                            GridLines="None" 
+                            CssClass="grid-table-historico" 
+                            UseAccessibleHeader="true" 
+                            OnRowCommand="gvCadastros_RowCommand"
+                            
+                            AllowPaging="true"
+                            PageSize="10" 
+                            OnPageIndexChanging="gvCadastros_PageIndexChanging"
+
+                            PagerSettings-Mode="NumericFirstLast"
+                            PagerSettings-FirstPageText="<< Primeiro"
+                            PagerSettings-LastPageText="Último >>"
+                            PagerSettings-NextPageText="Próximo >"
+                            PagerSettings-PreviousPageText="< Anterior"
+
+                            PagerStyle-CssClass="paginacao">
+                           
                             <Columns>
                                 <asp:BoundField DataField="CadastroID" HeaderText="Nº Cadastro" />
                                 <asp:BoundField DataField="TipoCadastro" HeaderText="Tipo Cadastro" />
@@ -417,8 +436,8 @@ display: flex;
             </div>
         </div>
 
-    </ContentTemplate>
-</asp:UpdatePanel>
+<%--    </ContentTemplate>
+</asp:UpdatePanel>--%>
 
 <script>
      function abrirModal3() {

@@ -14,7 +14,7 @@ Public Class EntradaNotas
         If Session("Permissao") = 1 Then
             Session("Permissao") = 0
         Else
-            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "sucesso", "abrirModalCadastrar();", True)
+            'ScriptManager.RegisterStartupScript(Me, Me.GetType(), "sucesso", "abrirModalCadastrar();", True)
         End If
 
         If Session("FuncaoUsuario") = "Adiministrador" Or Session("FuncaoUsuario") = "Liberador" Then
@@ -253,5 +253,11 @@ Public Class EntradaNotas
 
     Public Overrides Sub VerifyRenderingInServerForm(control As Control)
         ' Necessário para exportação funcionar
+    End Sub
+
+    Protected Sub gvEntradaNotas_PageIndexChanging(sender As Object, e As GridViewPageEventArgs)
+        gvEntradaNotas.PageIndex = e.NewPageIndex
+        executar()
+
     End Sub
 End Class

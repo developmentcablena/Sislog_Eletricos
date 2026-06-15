@@ -17,13 +17,13 @@ Partial Public Class Usuarios
             valorSelecioando = ID_Usuario
 
 
-            If Session("FuncaoUsuario") = "Adiministrador" Then
-                chk_eletricos.Enabled = True
-                chk_telecom.Enabled = True
-            Else
-                chk_eletricos.Enabled = False
-                chk_telecom.Enabled = False
-            End If
+            'If Session("FuncaoUsuario") = "Adiministrador" Then
+            chk_eletricos.Enabled = True
+            chk_telecom.Enabled = True
+            'Else
+            'chk_eletricos.Enabled = False
+            'chk_telecom.Enabled = False
+            'End If
         End If
 
         If Session("FuncaoUsuario") Is Nothing Then

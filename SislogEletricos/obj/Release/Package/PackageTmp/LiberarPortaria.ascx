@@ -129,7 +129,9 @@
                     <asp:TemplateField HeaderText="Ações">
                         <ItemTemplate>
                             <asp:Button ID="btnAbrir" runat="server" CssClass="css_abir-dados-modal" CommandName="Horarios"
-                                CommandArgument='<%# Eval("CadastroID")%>' Text="📂" />                             
+                                CommandArgument='<%# Eval("CadastroID")%>' Text="📂" />
+                            <asp:Button ID="btnExcluir"  runat="server" CssClass="css_abir-dados-modal" CommandName="Excluir" 
+                                CommandArgument='<%# Eval("CadastroID")%>' Text="🗑" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

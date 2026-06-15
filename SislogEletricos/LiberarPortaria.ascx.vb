@@ -252,8 +252,10 @@ Partial Public Class LiberarPortaria
                         'Debug.WriteLine("deu errado")
                     End Try
                 End Using
-                'Debug.WriteLine("eee" & cadastroID)
+
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "abrir", "abrirModalLiberar(); abrirModalLiberacao();", True)
+            Case "Excluir"
+
         End Select
     End Sub
 End Class

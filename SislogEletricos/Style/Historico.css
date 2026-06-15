@@ -14,9 +14,9 @@
 .modal__content-Historico {
     position: relative; /* Alterado para relative */
     background-color: white;
-    margin: 8% auto; /* Ajuste a margem para centralizar */
+    margin: 7% auto; /* Ajuste a margem para centralizar */
     padding: 20px;
-    width: 65%;
+    width: 70%;
     border-radius: 6px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     /* top: -25%; Removido */
@@ -76,7 +76,7 @@
 /*Personalização da tabela*/
 /*Conteiner onde define a barra de rolagem*/
 .grid-container-historico {
-    max-height: 620px;
+    max-height: 630px;
     overflow-y: auto;
     overflow-x: auto;
     margin-top: -30px;
@@ -121,3 +121,28 @@
         background-color: #e9ecef;
         transition: 0.3s;
     }
+
+
+
+.paginacao a {
+    padding: 6px 10px;
+    margin: 3px;
+    background-color: #e9e9e9;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    color: black;
+}
+
+    .paginacao a:hover {
+        background-color: #007bff;
+        color: white;
+    }
+
+.paginacao span {
+    padding: 6px 10px;
+    margin: 3px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+}

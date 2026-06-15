@@ -1,4 +1,7 @@
 ﻿
+Imports System.Net
+Imports System.IO
+Imports System.Web.Script.Serialization
 Imports System.Data.SqlClient
 Imports System.Text.RegularExpressions
 
@@ -86,10 +89,22 @@ Public Class CadastrarNF
                 RazaoSocial = cmdBusca.ExecuteScalar()
 
                 If RazaoSocial Is Nothing Then
+                    ' 1 - Buscar na API
+                    RazaoSocial = BuscarRazaoSocialPorCNPJ(cnpj)
 
+                    If String.IsNullOrEmpty(RazaoSocial) Then
+                        Throw New Exception("CNPJ NÃO ENCONTRADO EM NENHUMA BASE")
+                    End If
 
-                    Throw New Exception("FORNECEDOR NÃO ENCONTRADO")
-                    ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Alerta4", "alert('FORNECEDOR NÃO ENCONTRADO.'); abrirModalCadastrar();", True)
+                    ' 2 - Inserir fornecedor automaticamente
+                    Using cmdInsertFornecedor As New SqlCommand(
+                        "INSERT INTO Fornecedores (CNPJ, RAZAO_SOCIAL) VALUES (@cnpj, @razao)", conn)
+
+                        cmdInsertFornecedor.Parameters.Add("@cnpj", SqlDbType.VarChar, 14).Value = cnpj
+                        cmdInsertFornecedor.Parameters.Add("@razao", SqlDbType.VarChar, 200).Value = RazaoSocial
+
+                        cmdInsertFornecedor.ExecuteNonQuery()
+                    End Using
                 End If
             End Using
 
@@ -112,4 +127,40 @@ Public Class CadastrarNF
             End Using
         End Using
     End Function
+
+
+    Private Function BuscarRazaoSocialPorCNPJ(cnpj As String) As String
+        Try
+            ' 🔥 ESSENCIAL
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+
+            Dim url As String = "https://www.receitaws.com.br/v1/cnpj/" & cnpj
+
+            Dim request As HttpWebRequest = CType(WebRequest.Create(url), HttpWebRequest)
+            request.Method = "GET"
+            request.UserAgent = "Mozilla/5.0"
+            request.Timeout = 10000
+
+            Dim response As HttpWebResponse = request.GetResponse()
+            Dim reader As New StreamReader(response.GetResponseStream())
+
+            Dim json As String = reader.ReadToEnd()
+
+            Dim serializer As New JavaScriptSerializer()
+            Dim dados = serializer.Deserialize(Of Dictionary(Of String, Object))(json)
+
+            If dados.ContainsKey("status") AndAlso dados("status").ToString() = "OK" Then
+                Return dados("nome").ToString()
+            End If
+
+        Catch ex As Exception
+            Throw New Exception("Erro ao consultar API: " & ex.Message)
+        End Try
+
+        Return Nothing
+    End Function
+
+
+
+
 End Class

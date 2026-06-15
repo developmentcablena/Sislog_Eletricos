@@ -94,13 +94,13 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>05/12/2025 11:15:34</publishTime>
     </File>
     <File Include="bin/SislogEletricos.dll">
-      <publishTime>04/09/2026 13:01:14</publishTime>
+      <publishTime>06/12/2026 10:07:44</publishTime>
     </File>
     <File Include="bin/SislogEletricos.pdb">
-      <publishTime>04/09/2026 13:01:14</publishTime>
+      <publishTime>06/12/2026 10:07:44</publishTime>
     </File>
     <File Include="bin/SislogEletricos.xml">
-      <publishTime>04/09/2026 13:01:14</publishTime>
+      <publishTime>06/12/2026 10:07:44</publishTime>
     </File>
     <File Include="CadastrarNF.ascx">
       <publishTime>02/09/2026 17:04:24</publishTime>
@@ -112,13 +112,13 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>08/16/2025 09:07:47</publishTime>
     </File>
     <File Include="EntradaNotas.aspx">
-      <publishTime>02/25/2026 11:20:03</publishTime>
+      <publishTime>05/25/2026 11:17:20</publishTime>
     </File>
     <File Include="ExportarRelatorio.aspx">
       <publishTime>02/25/2026 10:31:05</publishTime>
     </File>
     <File Include="Historico.ascx">
-      <publishTime>06/16/2025 16:04:08</publishTime>
+      <publishTime>05/25/2026 14:00:20</publishTime>
     </File>
     <File Include="Images/avatar_profile.svg">
       <publishTime>06/16/2025 16:04:08</publishTime>
@@ -127,10 +127,16 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>05/12/2025 11:15:33</publishTime>
     </File>
     <File Include="LiberarPortaria.ascx">
-      <publishTime>05/12/2025 11:21:17</publishTime>
+      <publishTime>05/26/2026 18:23:20</publishTime>
     </File>
     <File Include="Login.aspx">
       <publishTime>01/30/2026 11:09:08</publishTime>
+    </File>
+    <File Include="Manual.aspx">
+      <publishTime>04/13/2026 14:11:23</publishTime>
+    </File>
+    <File Include="Manual/SISTEMA DE CONTROLE DE CAMINHÕES_Portaria.pdf">
+      <publishTime>04/13/2026 12:21:30</publishTime>
     </File>
     <File Include="MotivoRecusado.ascx">
       <publishTime>05/20/2025 11:20:04</publishTime>
@@ -151,7 +157,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>06/16/2025 16:04:08</publishTime>
     </File>
     <File Include="Sair.ascx">
-      <publishTime>08/08/2025 15:18:30</publishTime>
+      <publishTime>04/13/2026 13:59:18</publishTime>
     </File>
     <File Include="Style/Autorizar.css">
       <publishTime>05/12/2025 11:15:33</publishTime>
@@ -166,10 +172,10 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>06/16/2025 16:04:08</publishTime>
     </File>
     <File Include="Style/EntradaNotas.css">
-      <publishTime>02/25/2026 11:20:03</publishTime>
+      <publishTime>05/25/2026 12:23:01</publishTime>
     </File>
     <File Include="Style/Historico.css">
-      <publishTime>05/20/2025 14:52:37</publishTime>
+      <publishTime>05/25/2026 14:15:07</publishTime>
     </File>
     <File Include="Style/Liberacao.css">
       <publishTime>05/12/2025 11:15:33</publishTime>

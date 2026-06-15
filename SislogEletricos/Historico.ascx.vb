@@ -7,7 +7,11 @@ Partial Public Class Historico
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         If Not IsPostBack Then
             CarregarNotasFiscais()
+
+
         End If
+
+        ' ScriptManager.RegisterStartupScript(Me, Me.GetType(), "SucessoEmail2", "abrirModalHistorico();", True)
 
         If Session("FuncaoUsuario") Is Nothing Then
             Response.Redirect("Login.aspx")
@@ -58,9 +62,10 @@ Partial Public Class Historico
     Protected Sub gvCadastros_RowCommand(sender As Object, e As GridViewCommandEventArgs)
 
         Dim commandName As String = e.CommandName
-        Dim cadastroID As Integer = Convert.ToInt32(e.CommandArgument)
+
         Select Case commandName
             Case "AbrirModal"
+                Dim cadastroID As Integer = Convert.ToInt32(e.CommandArgument)
                 Dim btn As Button = CType(e.CommandSource, Button)
                 Dim row As GridViewRow = CType(btn.NamingContainer, GridViewRow)
                 Dim tipoCadastro As String = row.Cells(1).Text.Trim() ' Ajuste o índice conforme necessário
@@ -285,4 +290,9 @@ Partial Public Class Historico
         ScriptManager.RegisterStartupScript(Me, Me.GetType(), "abrir", "abrirModalHistorico();", True)
     End Sub
 
+    Protected Sub gvCadastros_PageIndexChanging(sender As Object, e As GridViewPageEventArgs)
+        gvCadastros.PageIndex = e.NewPageIndex
+        CarregarNotasFiscais()
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "yes", "abrirModalHistorico();", True)
+    End Sub
 End Class

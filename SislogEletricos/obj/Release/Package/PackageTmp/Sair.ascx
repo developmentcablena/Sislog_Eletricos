@@ -87,7 +87,15 @@
     .lblDescricao {
         display: flex;
         margin-top: -30px;
-        padding-bottom: 33px;
+        padding-bottom: 10px;
+    }
+
+    .manual {
+        display:flex; 
+        font-size:15px;
+        color: #2409ed; 
+        text-decoration: none;
+        margin-bottom:20px;
     }
 
 </style>
@@ -98,7 +106,8 @@
         <h1 class="h1__titulo-modal">Olá, <%= Session("Usuario") %>!</h1> 
         <span enableviewstate="true" class="span__close" runat="server" onclick="fehcarModalSair();">x</span>
         <asp:Label Text="" runat="server" id="lbl_descricao_emperesa" CssClass="lblDescricao"/>
-        <asp:Button ID="btn_close" Text="Sair do sistema" runat="server" CssClass="css_sair" OnClick="Btn_close_Click" />
+        <asp:LinkButton Text="Ajuda ?" runat="server"  CssClass="manual"  OnClick="Unnamed_Click"/>
+        <asp:Button ID="btn_close" Text="Sair do sistema" runat="server" CssClass="css_sair" OnClick="Btn_close_Click" />       
         <asp:Label id="lbl_versao" Text="" runat="server" CssClass="css_versao" />
     </div>
 </div>

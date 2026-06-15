@@ -23,4 +23,8 @@
         Session("FuncaoUsuario") = ""
         Response.Redirect("Login.aspx")
     End Sub
+
+    Protected Sub Unnamed_Click(sender As Object, e As EventArgs)
+        Response.Redirect("Manual.aspx")
+    End Sub
 End Class

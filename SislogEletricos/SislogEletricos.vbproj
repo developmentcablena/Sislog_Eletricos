@@ -103,6 +103,7 @@
     <Content Include="Images\avatar_profile.svg" />
     <Content Include="LiberarPortaria.ascx" />
     <Content Include="Login.aspx" />
+    <Content Include="Manual.aspx" />
     <Content Include="MotivoRecusado.ascx" />
     <Content Include="Principal.aspx" />
     <Content Include="Recebimento.ascx" />
@@ -193,6 +194,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Manual.aspx.designer.vb">
+      <DependentUpon>Manual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manual.aspx.vb">
+      <DependentUpon>Manual.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="MotivoRecusado.ascx.designer.vb">
       <DependentUpon>MotivoRecusado.ascx</DependentUpon>
     </Compile>
@@ -271,6 +279,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Manual\SISTEMA DE CONTROLE DE CAMINHÕES_Portaria.pdf" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

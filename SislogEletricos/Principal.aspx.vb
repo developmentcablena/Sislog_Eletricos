@@ -95,6 +95,17 @@ Public Class Principal
                 btnRelatorio.Enabled = False
                 btnCodigoCliente.Enabled = False
                 btnEntradaNotas.Enabled = False
+            ElseIf vUsuario = "fjgoncalves" Then
+                btnRecebimento.Enabled = False
+                btnEmbarque.Enabled = False
+                btnRecusados.Visible = False
+                btnAutorizar.Enabled = False
+                btnCodigoCliente.Enabled = False
+                btnLiberar.Enabled = True
+                btnHistorico.Enabled = True
+                btnRelatorio.Enabled = True
+                btnUsuario.Enabled = False
+                btnEntradaNotas.Enabled = False
             End If
         End If
 

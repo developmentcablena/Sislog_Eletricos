@@ -61,6 +61,8 @@
             background: #007cffa3;
         }
 
+      
+
        
     </style>
 </head>
@@ -76,10 +78,29 @@
         <asp:Button Text="◀" runat="server" ID="btn_voltar" ToolTip="Voltar" OnClick="btn_voltar_Click" />
         <div id="div_global">
             <div id="css_div_conteiner">
-                <div class="grid-container-entradaNotas">
-                    <asp:GridView runat="server" ID="gvEntradaNotas" AutoGenerateColumns="false" GridLines="None" CssClass="grid-table-entradaNotas" UseAccessibleHeader="true" OnRowCommand="gvEntradaNotas_RowCommand">
+                <div class="grid-container-entradaNotas">               
+                    <asp:GridView runat="server"
+                        ID="gvEntradaNotas"
+                        AutoGenerateColumns="false"
+                        GridLines="None" 
+                        CssClass="grid-table-entradaNotas" 
+                        UseAccessibleHeader="true" 
+                        OnRowCommand="gvEntradaNotas_RowCommand" 
+                        AllowPaging="true"
+                        PageSize="10" 
+                        OnPageIndexChanging="gvEntradaNotas_PageIndexChanging"
+
+                        PagerSettings-Mode="NumericFirstLast"
+                        PagerSettings-FirstPageText="<< Primeiro"
+                        PagerSettings-LastPageText="Último >>"
+                        PagerSettings-NextPageText="Próximo >"
+                        PagerSettings-PreviousPageText="< Anterior"
+
+                        PagerStyle-CssClass="paginacao">
+
                         <Columns>
                         </Columns>
+
                     </asp:GridView>
                 </div>
             </div>
